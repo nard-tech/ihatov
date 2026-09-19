@@ -1,0 +1,17 @@
+AllCops:
+  TargetRubyVersion: 3.4
+  NewCops: enable
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+
+# The data loader validates a complete schema; keep its branches explicit.
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+Metrics/ClassLength:
+  Max: 250
+Metrics/MethodLength:
+  Max: 30
+Metrics/AbcSize:
+  Max: 40
