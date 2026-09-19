@@ -1,0 +1,43 @@
+works:
+  - id: tono-monogatari
+    title: 遠野物語
+    published_year: 1910
+    edition:
+      aozora_id: 52504
+      url: https://www.aozora.gr.jp/cards/001566/card52504.html
+      bibliography: |-
+        「遠野物語・山の人生」岩波文庫、岩波書店
+        1976年4月16日第1刷発行
+        2007年10月4日第47刷改版発行、2010年3月5日第50刷発行
+        初出：「遠野物語」柳田國男、1910年6月14日発行
+    quotes:
+      - id: tono-monogatari-episode-57
+        kind: passage
+        location: 第57話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+        # 原文が一段落なので、行数を増やすための改行は加えない。
+        text: 　川の岸の砂（すな）の上には川童の足跡（あしあと）というものを見ること決して珍しからず。雨の日の翌日などはことにこの事あり。猿の足と同じく親指（おやゆび）は離れて人間の手の跡（あと）に似たり。長さは三寸に足らず。指先のあとは人ののように明らかには見えずという。
+    places:
+      - id: tono-go
+        name: 遠野郷
+        real: true
+        location: 第1話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: hayachine
+        name: 早池峯
+        real: true
+        location: 第2話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+    beings:
+      - id: zashiki-warashi
+        kind: person
+        # 本文では「ザシキワラシ」「座敷ワラシ」。仕様で指定された呼称。
+        name: 座敷童子
+        location: 第17話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: kappa
+        kind: creature
+        # 本文では「川童」。一般的な呼称にまとめる。
+        name: 河童
+        location: 第57話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
