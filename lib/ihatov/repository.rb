@@ -108,10 +108,7 @@ module Ihatov
 
     def build_item(row, category, sources)
       metadata = { id: row['id'], sources: sources }
-      if category == 'places'
-        coordinates = row['coordinates']&.transform_keys(&:to_sym)&.transform_values(&:to_f)
-        return Place.new(row['name'], real: row['real'], coordinates: coordinates, **metadata)
-      end
+      return build_place(row, metadata) if category == 'places'
 
       metadata[:content_warnings] = row.fetch('content_warnings', [])
       case category
@@ -119,6 +116,11 @@ module Ihatov
       when 'beings' then build_being(row, metadata)
       when 'onomatopoeias' then Onomatopoeia.new(row['text'], **metadata)
       end
+    end
+
+    def build_place(row, metadata)
+      coordinates = row['coordinates']&.transform_keys(&:to_sym)&.transform_values(&:to_f)
+      Place.new(row['name'], real: row['real'], coordinates: coordinates, **metadata)
     end
 
     def build_quote(row, metadata)

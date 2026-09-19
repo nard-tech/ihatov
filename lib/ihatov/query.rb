@@ -96,8 +96,7 @@ module Ihatov
     def validate_values!
       @conditions.each do |key, value|
         valid = case key
-                when :author then value.is_a?(Author) || value.is_a?(String)
-                when :work then value.is_a?(Work) || value.is_a?(String)
+                when :author, :work then value.is_a?(String)
                 when :real, :exclude_content_warnings then [true, false].include?(value)
                 when :indent then [true, false].include?(value) || valid_indent?(value)
                 end
@@ -122,11 +121,14 @@ module Ihatov
     def matches_work?(item)
       works = item.is_a?(Work) ? [item] : item.works
       works.any? do |work|
-        scope = @collection.scope
-        (!scope[:author_id] || work.author.id == scope[:author_id]) &&
-          (!scope[:work_id] || work.id == scope[:work_id]) &&
-          matches_author?(work.author) && matches_title?(work)
+        matches_scope?(work) && matches_author?(work.author) && matches_title?(work)
       end
+    end
+
+    def matches_scope?(work)
+      scope = @collection.scope
+      (!scope[:author_id] || work.author.id == scope[:author_id]) &&
+        (!scope[:work_id] || work.id == scope[:work_id])
     end
 
     def matches_author?(author)

@@ -1,0 +1,46 @@
+works:
+  - id: ichiaku-no-suna
+    title: 一握の砂
+    published_year: 1910
+    edition:
+      aozora_id: 816
+      url: https://www.aozora.gr.jp/cards/000153/card816.html
+      bibliography: |-
+        「日本文学全集12　国木田独歩　石川啄木集」集英社
+        1967年9月12日初版発行、1972年9月10日9版発行
+        底本の親本：「一握の砂」東雲堂書店、1910年12月1日刊行
+    quotes:
+      - id: tokai-no-kojima
+        kind: tanka
+        location: 我を愛する歌・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          東海（とうかい）の小島（こじま）の磯（いそ）の白砂（しらすな）に
+          われ泣（な）きぬれて
+          蟹（かに）とたはむる
+      - id: inochinaki-suna
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          いのちなき砂のかなしさよ
+          さらさらと
+          握（にぎ）れば指のあひだより落つ
+      - id: dai-toiu-ji
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        content_warnings:
+          - 自死を考える場面への言及があります。
+        text: |-
+          大（だい）という字を百あまり
+          砂に書き
+          死ぬことをやめて帰り来（きた）れり
+      - id: tawamure-ni-haha
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          たはむれに母を背負（せお）ひて
+          そのあまり軽（かろ）きに泣きて
+          三歩あゆまず

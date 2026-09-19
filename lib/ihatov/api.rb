@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Public entry points for Ihatov's literary dictionary.
 module Ihatov
   # Convenience methods; all selection rules live in the collection classes.
   # @note Empty samples raise NotFoundError; invalid arguments raise ArgumentError.

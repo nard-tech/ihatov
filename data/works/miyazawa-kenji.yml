@@ -1,0 +1,183 @@
+# 採用版・抜粋範囲・表記の編集記録は docs/dictionary.md を参照。
+works:
+  - id: haru-to-shura
+    title: 春と修羅
+    published_year: 1924
+    edition:
+      aozora_id: 1058
+      url: https://www.aozora.gr.jp/cards/000081/card1058.html
+      bibliography: |-
+        「宮沢賢治全集1」ちくま文庫、筑摩書房
+        1986年2月26日第1刷発行
+        1998年5月12日第17刷発行
+    quotes:
+      - id: haru-to-shura-preface
+        kind: poem
+        location: 序・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |-
+          わたくしといふ現象は
+          仮定された有機交流電燈の
+          ひとつの青い照明です
+          （あらゆる透明な幽霊の複合体）
+          風景やみんなといつしよに
+          せはしくせはしく明滅しながら
+          いかにもたしかにともりつづける
+          因果交流電燈の
+          ひとつの青い照明です
+      - id: haru-to-shura-sky
+        kind: poem
+        location: 春と修羅・「砕ける雲の眼路をかぎり」から
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |-
+          砕ける雲の眼路（めぢ）をかぎり
+            れいろうの天の海には
+              聖玻璃（せいはり）の風が行き交ひ
+                ZYPRESSEN 春のいちれつ
+                  くろぐろと光素（エーテル）を吸ひ
+                    その暗い脚並からは
+                      天山の雪の稜さへひかるのに
+                      （かげろふの波と白い偏光）
+                      まことのことばはうしなはれ
+                    雲はちぎれてそらをとぶ
+                  ああかがやきの四月の底を
+                はぎしり燃えてゆききする
+              おれはひとりの修羅なのだ
+    places:
+      - ref: ihatov
+        location: イーハトヴの氷霧
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+
+  - id: gusukobudori-no-denki
+    title: グスコーブドリの伝記
+    announced_year: 1932
+    edition:
+      aozora_id: 1924
+      url: https://www.aozora.gr.jp/cards/000081/card1924.html
+      bibliography: |-
+        「童話集　風の又三郎」岩波文庫、岩波書店
+        1951年4月25日第1刷発行
+        1997年8月4日第70刷発行
+    quotes:
+      - id: gusukobudori-forest
+        kind: passage
+        location: 一 森・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+        text: |-
+          　グスコーブドリは、イーハトーヴの大きな森のなかに生まれました。おとうさんは、グスコーナドリという名高い木こりで、どんな大きな木でも、まるで赤ん坊を寝かしつけるようにわけなく切ってしまう人でした。
+          　ブドリにはネリという妹があって、二人は毎日森で遊びました。ごしっごしっとおとうさんの木を挽（ひ）く音が、やっと聞こえるくらいな遠くへも行きました。二人はそこで木いちごの実をとってわき水につけたり、空を向いてかわるがわる山鳩（やまばと）の鳴くまねをしたりしました。するとあちらでもこちらでも、ぽう、ぽう、と鳥が眠そうに鳴き出すのでした。
+          　おかあさんが、家の前の小さな畑に麦を播（ま）いているときは、二人はみちにむしろをしいてすわって、ブリキかんで蘭（らん）の花を煮たりしました。するとこんどは、もういろいろの鳥が、二人のぱさぱさした頭の上を、まるで挨拶（あいさつ）するように鳴きながらざあざあざあざあ通りすぎるのでした。
+    places:
+      - id: ihatov
+        name: イーハトーヴ
+        real: false
+        location: 一 森
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+      - id: carbonado-volcano
+        # 本文の「カルボナード火山島」に由来する、仕様で指定された呼称。
+        name: カルボナード火山
+        real: false
+        location: 九 カルボナード島
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+    beings:
+      - id: gusukobudori
+        kind: person
+        name: グスコーブドリ
+        location: 一 森
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+      - id: neri
+        kind: person
+        name: ネリ
+        location: 一 森
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+    onomatopoeias:
+      - id: gosshi-gosshi
+        text: ごしっごしっ
+        location: 一 森
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+      - id: pou-pou
+        text: ぽう、ぽう、
+        location: 一 森
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+
+  # 以下は作品自体の発表・刊行年を未登録。採用底本の年を代用しない。
+  - id: kaze-no-matasaburo
+    title: 風の又三郎
+    edition:
+      aozora_id: 462
+      url: https://www.aozora.gr.jp/cards/000081/card462.html
+      bibliography: |-
+        「童話集　風の又三郎」岩波文庫、岩波書店
+        1951年4月25日第1刷発行
+        1967年7月16日第24刷改版発行
+    quotes:
+      - id: kaze-no-matasaburo-opening
+        kind: passage
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/462_15405.html
+        text: |-
+          どっどど どどうど どどうど どどう
+          青いくるみも吹きとばせ
+          すっぱいかりんも吹きとばせ
+          どっどど どどうど どどうど どどう
+          　谷川の岸に小さな学校がありました。
+          　教室はたった一つでしたが生徒は三年生がないだけで、あとは一年から六年までみんなありました。運動場もテニスコートのくらいでしたが、すぐうしろは栗（くり）の木のあるきれいな草の山でしたし、運動場のすみにはごぼごぼつめたい水を噴（ふ）く岩穴もあったのです。
+    beings:
+      - id: takada-saburo
+        kind: person
+        name: 高田三郎
+        location: 九月一日・教室での紹介
+        source_url: https://www.aozora.gr.jp/cards/000081/files/462_15405.html
+    onomatopoeias:
+      - id: dodddodo-dodoudo
+        text: どっどど どどうど どどうど どどう
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/462_15405.html
+
+  - id: ginga-tetsudo-no-yoru
+    title: 銀河鉄道の夜
+    edition:
+      aozora_id: 456
+      url: https://www.aozora.gr.jp/cards/000081/card456.html
+      bibliography: |-
+        「新編　銀河鉄道の夜」新潮文庫、新潮社
+        1989年6月15日発行、1994年6月5日13刷
+        底本の親本：「新修宮沢賢治全集　第十二巻」筑摩書房、1980年1月
+    beings:
+      - id: giovanni
+        kind: person
+        name: ジョバンニ
+        source_url: https://www.aozora.gr.jp/cards/000081/files/456_15050.html
+      - id: campanella
+        kind: person
+        name: カムパネルラ
+        source_url: https://www.aozora.gr.jp/cards/000081/files/456_15050.html
+
+  - id: kai-no-hi
+    title: 貝の火
+    edition:
+      aozora_id: 1942
+      url: https://www.aozora.gr.jp/cards/000081/card1942.html
+      bibliography: |-
+        「銀河鉄道の夜」角川文庫、角川書店
+        1969年7月20日初版発行、1991年6月10日65刷発行
+        底本の親本：「第二次宮沢賢治全集　第十巻」筑摩書房、1969年
+    quotes:
+      - id: kai-no-hi-bells
+        kind: passage
+        location: ホモイが貝の火を受け取った翌朝
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1942_42611.html
+        text: |-
+          　風が吹（ふ）いて草（くさ）の露（つゆ）がバラバラとこぼれます。つりがねそうが朝の鐘（かね）を、
+          　「カン、カン、カンカエコ、カンコカンコカン」と鳴らしています。
+          　ホモイはぴょんぴょん跳（と）んで樺（かば）の木の下に行きました。
+    beings:
+      - id: homoi
+        kind: character
+        name: ホモイ
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1942_42611.html
+    onomatopoeias:
+      - id: kan-kan-kankaeko
+        text: カン、カン、カンカエコ、カンコカンコカン
+        location: ホモイが貝の火を受け取った翌朝
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1942_42611.html

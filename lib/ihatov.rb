@@ -17,12 +17,12 @@ module Ihatov
   def self.seed=(value)
     raise ArgumentError, 'seed must be an Integer' unless value.is_a?(Integer)
 
-    @random = Random.new(value)
+    @random_generator = Random.new(value)
   end
 
   # @api private
   def self.random_generator
-    @random ||= Random.new
+    @random_generator ||= Random.new
   end
 
   # @api private

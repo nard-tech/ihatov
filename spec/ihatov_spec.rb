@@ -130,4 +130,71 @@ RSpec.describe Ihatov do
     Ihatov::Quote::Poem.where(indent: true).first.with_indent("\t")
     expect(Ihatov.quote).to equal(expected)
   end
+
+  it 'applies scopes and explicit filters to the same source relation' do
+    expect(Ihatov::Kenji::Place.where(work: '歌集')).to eq([])
+    expect(Ihatov::Place.where(author: '宮沢 賢治', work: '歌集')).to eq([])
+    expect(Ihatov::Place.where(author: '石川 啄木', work: '歌集').map(&:id)).to eq(['shared'])
+    expect(Ihatov::Kenji::Place.where(author: '石川 啄木')).to eq([])
+  end
+
+  it 'uses a work scope for Tono rather than broadening to all of its author' do
+    data = documents
+    data['works']['yanagita-kunio'] << {
+      'id' => 'another-yanagita-work', 'title' => '別の作品', 'edition' => edition,
+      'quotes' => [{ 'id' => 'other-quote', 'kind' => 'passage', 'text' => '対象外' }]
+    }
+    allow(Ihatov).to receive(:repository).and_return(load_dictionary(data))
+    expect(Ihatov::Tono::Work.all.map(&:id)).to eq(['tono-monogatari'])
+    expect(Ihatov::Tono::Quote.all.map(&:id)).to eq(['tono'])
+    expect(Ihatov::Tono::Quote.where(work: '別の作品')).to eq([])
+  end
+
+  it 'preserves interior spaces, empty lines, and indentation on the first line' do
+    data = documents
+    data['works']['miyazawa-kenji'][0]['quotes'][0]['text'] = "  朝 の 空\n\n    光  星"
+    allow(Ihatov).to receive(:repository).and_return(load_dictionary(data))
+    formatted = Ihatov.poem(indent: "\t")
+    expect(formatted).to eq("\t朝 の 空\n\n\t\t光  星")
+    expect(formatted.with_indent('    ')).to eq("    朝 の 空\n\n        光  星")
+    expect { formatted.with_indent(nil) }.to raise_error(ArgumentError)
+  end
+
+  it 'keeps all/where and formatting independent of the random sequence' do
+    expected = Ihatov.quote
+    Ihatov.seed = 1234
+    Ihatov::Work.all
+    Ihatov::Quote.where(exclude_content_warnings: true)
+    Ihatov::Work.find('先の作品')
+    expect(Ihatov.quote).to equal(expected)
+  end
+
+  it 'returns empty arrays but raises on sampling after warning exclusion' do
+    data = documents
+    data['works']['yanagita-kunio'][0]['quotes'][0]['content_warnings'] = ['test warning']
+    allow(Ihatov).to receive(:repository).and_return(load_dictionary(data))
+    expect(Ihatov::Tono::Quote.where(exclude_content_warnings: true)).to eq([])
+    expect { Ihatov::Tono.quote(exclude_content_warnings: true) }.to raise_error(Ihatov::NotFoundError)
+    expect(Ihatov::Tono.quote).to eq('テスト用の説話')
+  end
+
+  it 'keeps separate identities even when different works have the same title' do
+    data = documents
+    data['works']['miyazawa-kenji'][1]['title'] = '後の作品'
+    allow(Ihatov).to receive(:repository).and_return(load_dictionary(data))
+    expect(Ihatov::Place.all.first.works.map(&:id)).to eq(%w[tanka-work early late])
+    work = Ihatov::Work.all.find { |item| item.id == 'late' }
+    expect(Ihatov::Quote.where(work: work).map(&:id)).to eq(%w[poem plain warning])
+  end
+
+  it 'freezes metadata all the way down to author names and source strings' do
+    work = Ihatov::Kenji.work
+    expect(work.author).to be_frozen
+    expect(work.author.family_name).to be_frozen
+    expect(work.edition.url).to be_frozen
+    expect(work.id).to be_frozen
+    expect { Ihatov::Place.all.first.sources[1].location.replace('changed') }.to raise_error(FrozenError)
+    expect { Ihatov::Place.all.first.coordinates[:latitude] = 0 }.to raise_error(FrozenError)
+    expect { Ihatov::Place.all.first.works.clear }.to raise_error(FrozenError)
+  end
 end

@@ -77,4 +77,47 @@ RSpec.describe 'Dictionary validation' do
     data['works']['miyazawa-kenji'][0]['quotes'][0]['locaton'] = 'typo'
     expect { load_dictionary(data) }.to raise_error(Ihatov::DataError, /unknown/)
   end
+
+  it 'rejects wrong field types, invalid IDs, URLs, and unknown reference overrides' do
+    data = documents
+    data['works']['miyazawa-kenji'][0]['id'] = '../escape'
+    expect { load_dictionary(data) }.to raise_error(Ihatov::DataError, /id/)
+    data = documents
+    data['works']['miyazawa-kenji'][0]['edition']['url'] = 'javascript:alert(1)'
+    expect { load_dictionary(data) }.to raise_error(Ihatov::DataError, /URL/)
+    data = documents
+    data['works']['ishikawa-takuboku'][0]['places'][0]['real'] = false
+    expect { load_dictionary(data) }.to raise_error(Ihatov::DataError, /unknown/)
+    data = documents
+    data['works']['miyazawa-kenji'][0]['quotes'] = nil
+    expect { load_dictionary(data) }.to raise_error(Ihatov::DataError, /array/)
+  end
+
+  it 'rejects duplicate work and being IDs globally' do
+    data = documents
+    data['works']['yanagita-kunio'][0]['id'] = 'late'
+    expect { load_dictionary(data) }.to raise_error(Ihatov::DataError, /duplicate work/)
+    data = documents
+    data['works']['miyazawa-kenji'][1]['beings'][0]['id'] = 'person'
+    expect { load_dictionary(data) }.to raise_error(Ihatov::DataError, /duplicate beings/)
+  end
+
+  it 'rejects YAML aliases and unsafe object tags' do
+    Dir.mktmpdir('ihatov-unsafe') do |dir|
+      path = File.join(dir, 'authors.yml')
+      File.write(path, "authors: &authors []\nother: *authors\n")
+      expect { Ihatov::Repository.load(dir) }.to raise_error(Ihatov::DataError)
+      File.write(path, "authors: !ruby/object:Object {}\n")
+      expect { Ihatov::Repository.load(dir) }.to raise_error(Ihatov::DataError)
+    end
+  end
+
+  it 'requires ASCII whitespace in onomatopoeias and canonical indentation in poems' do
+    data = documents
+    data['works']['miyazawa-kenji'][0]['onomatopoeias'][0]['text'] = 'ぽん　ぽん'
+    expect { load_dictionary(data) }.to raise_error(Ihatov::DataError, /ASCII/)
+    data = documents
+    data['works']['miyazawa-kenji'][0]['quotes'][0]['text'] = "\t朝"
+    expect { load_dictionary(data) }.to raise_error(Ihatov::DataError, /indent/)
+  end
 end

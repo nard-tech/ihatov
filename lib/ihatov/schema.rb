@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'yaml'
-require 'uri'
+require_relative 'fields'
 
 module Ihatov
   # Strict, safe YAML loading including duplicate-key detection.
@@ -37,6 +37,8 @@ module Ihatov
   # Validation for dictionary fields, independent of public query arguments.
   # @api private
   module Schema
+    extend Fields
+
     CATEGORIES = %w[quotes places beings onomatopoeias].freeze
     SOURCE_KEYS = %w[location source_url].freeze
     ITEM_KEYS = {
@@ -45,50 +47,6 @@ module Ihatov
       'beings' => %w[id kind name content_warnings],
       'onomatopoeias' => %w[id text content_warnings]
     }.transform_values(&:freeze).freeze
-
-    def self.mapping(value, allowed:, required: [])
-      raise DataError, 'expected a mapping' unless value.is_a?(Hash)
-
-      unknown = value.keys - allowed
-      missing = required - value.keys
-      raise DataError, "unknown keys: #{unknown.join(', ')}" unless unknown.empty?
-      raise DataError, "missing required keys: #{missing.join(', ')}" unless missing.empty?
-
-      value
-    end
-
-    def self.array(value, label)
-      raise DataError, "#{label} must be an array" unless value.is_a?(Array)
-
-      value
-    end
-
-    def self.string(value, label)
-      raise DataError, "#{label} must be a nonempty string" unless value.is_a?(String) && !value.strip.empty?
-
-      value
-    end
-
-    def self.identifier(value)
-      string(value, 'id')
-      raise DataError, "invalid id: #{value}" unless /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/.match?(value)
-
-      value
-    end
-
-    def self.url(value, label)
-      string(value, label)
-      uri = URI.parse(value)
-      raise DataError, "#{label} must be an absolute HTTP(S) URL" unless uri.is_a?(URI::HTTP) && uri.host
-    rescue URI::InvalidURIError
-      raise DataError, "invalid #{label}"
-    end
-
-    def self.year(value, label)
-      return if value.nil? || (value.is_a?(Integer) && value.positive?)
-
-      raise DataError, "#{label} must be a positive integer or null"
-    end
 
     def self.author(row)
       mapping(row, allowed: %w[id family_name given_name], required: %w[id family_name given_name])
@@ -144,17 +102,25 @@ module Ihatov
         string(row['name'], 'name')
         raise DataError, 'invalid being kind' unless %w[person character creature].include?(row['kind'])
       when 'quotes'
-        raise DataError, 'invalid quote kind' unless %w[poem tanka haiku passage].include?(row['kind'])
-
-        text(row['text'])
-        poem(row['text']) if row['kind'] == 'poem'
+        quote(row)
       when 'onomatopoeias'
-        text(row['text'])
-        raise DataError, 'onomatopoeia spaces must be ASCII' if /[\t　]/.match?(row['text'])
+        onomatopoeia(row['text'])
       end
       return if category == 'places'
 
       array(row.fetch('content_warnings', []), 'content_warnings').each { |value| string(value, 'warning') }
+    end
+
+    def self.quote(row)
+      raise DataError, 'invalid quote kind' unless %w[poem tanka haiku passage].include?(row['kind'])
+
+      text(row['text'])
+      poem(row['text']) if row['kind'] == 'poem'
+    end
+
+    def self.onomatopoeia(value)
+      text(value)
+      raise DataError, 'onomatopoeia spaces must be ASCII' if /[\t　]/.match?(value)
     end
 
     def self.text(value)
@@ -181,10 +147,5 @@ module Ihatov
       coordinate(coords['longitude'], 'longitude', -180..180)
     end
 
-    def self.coordinate(value, label, range)
-      return if value.is_a?(Numeric) && value.to_f.finite? && range.cover?(value)
-
-      raise DataError, "invalid #{label}"
-    end
   end
 end
