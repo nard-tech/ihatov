@@ -99,8 +99,7 @@ module Ihatov
         string(row['name'], 'name')
         place(row)
       when 'beings'
-        string(row['name'], 'name')
-        raise DataError, 'invalid being kind' unless %w[person character creature].include?(row['kind'])
+        being(row)
       when 'quotes'
         quote(row)
       when 'onomatopoeias'
@@ -109,6 +108,11 @@ module Ihatov
       return if category == 'places'
 
       array(row.fetch('content_warnings', []), 'content_warnings').each { |value| string(value, 'warning') }
+    end
+
+    def self.being(row)
+      string(row['name'], 'name')
+      raise DataError, 'invalid being kind' unless %w[person character creature].include?(row['kind'])
     end
 
     def self.quote(row)
@@ -146,6 +150,5 @@ module Ihatov
       coordinate(coords['latitude'], 'latitude', -90..90)
       coordinate(coords['longitude'], 'longitude', -180..180)
     end
-
   end
 end

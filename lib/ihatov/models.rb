@@ -107,11 +107,17 @@ module Ihatov
   class Value < String
     extend Collection
 
-    attr_reader :id, :works, :sources
+    # @return [String] stable manual identifier within this category
+    attr_reader :id
+    # @return [Array<Work>] frozen unique works, in chronological order
+    attr_reader :works
+    # @return [Array<Source>] frozen per-work source relations
+    attr_reader :sources
 
     def initialize(value, id:, sources:)
       @id = id.dup.freeze
-      @sources = sources.sort_by { |source| source.work.sort_key }.freeze
+      @sources = sources.each_with_index.sort_by { |source, index| [*source.work.sort_key, index] }
+                        .map(&:first).freeze
       @works = @sources.map(&:work).uniq(&:id).freeze
       super(value)
       freeze
