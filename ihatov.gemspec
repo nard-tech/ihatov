@@ -15,4 +15,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['documentation_uri'] = "#{spec.homepage}#readme"
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end
