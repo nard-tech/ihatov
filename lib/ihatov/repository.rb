@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Ihatov
+  # 変更不可の辞書。読み込み時に通信を必要としない。
   # An immutable dictionary. Loading requires no network access.
   # @api private
   class Repository
@@ -18,6 +19,7 @@ module Ihatov
     end
   end
 
+  # 2段階の読み込みにより、作者をまたぐ参照や前方参照を解決する。
   # Two passes resolve references even across authors or forward declarations.
   # @api private
   class Loader
@@ -101,6 +103,7 @@ module Ihatov
 
         sources[id] << source
       end
+      # 共有項目の順序も、定義位置ではなく関連作品の順序によって決める。
       # Relation order, rather than definition location, also orders shared items.
       sources.map { |id, relations| build_item(definitions.fetch(id), category, relations) }
              .each_with_index.sort_by { |item, index| [*item.work.sort_key, index] }.map(&:first)

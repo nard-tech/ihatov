@@ -4,6 +4,7 @@ require 'yaml'
 require_relative 'fields'
 
 module Ihatov
+  # 重複キーも検出する厳密で安全なYAML読み込み。
   # Strict, safe YAML loading including duplicate-key detection.
   # @api private
   module DictionaryYAML
@@ -34,6 +35,7 @@ module Ihatov
     end
   end
 
+  # 公開検索APIの引数とは独立した、辞書フィールドの検証。
   # Validation for dictionary fields, independent of public query arguments.
   # @api private
   module Schema

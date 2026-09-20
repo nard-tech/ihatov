@@ -1,5 +1,101 @@
 # 採用版・抜粋範囲・表記の編集記録は docs/dictionary.md を参照。
 works:
+  - id: yuki-watari
+    title: 雪渡り
+    announced_year: 1921
+    edition:
+      aozora_id: 45679
+      url: https://www.aozora.gr.jp/cards/000081/card45679.html
+      bibliography: |-
+        「注文の多い料理店」新潮文庫、新潮社
+        1990年5月25日発行、1997年5月10日17刷
+        初出：「愛国婦人」1921年12月号、1922年1月号
+    quotes:
+      - id: yuki-watari-opening
+        kind: passage
+        location: その一・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+        text: |-
+          　雪がすっかり凍（こお）って大理石よりも堅（かた）くなり、空も冷たい滑（なめ）らかな青い石の板で出来ているらしいのです。
+          「堅雪（かたゆき）かんこ、しみ雪しんこ。」
+          　お日様がまっ白に燃えて百合（ゆり）の匂（におい）を撒（ま）きちらし又（また）雪をぎらぎら照らしました。
+          　木なんかみんなザラメを掛（か）けたように霜（しも）でぴかぴかしています。
+    beings:
+      - id: konzaburo
+        kind: character
+        name: 紺三郎
+        location: その一
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+      - id: shiro
+        kind: person
+        name: 四郎
+        location: その一
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+      - id: kanko
+        kind: person
+        name: かん子
+        location: その一
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+    onomatopoeias:
+      - id: kishiri-kishiri
+        text: キシリキシリ
+        location: その一・狐の子の登場
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+      - id: kick-kick-tonton
+        text: キックキックトントンキックキックトントン
+        location: その一・紺三郎の足ぶみ
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+      - id: pikkari-pikkari
+        text: ピッカリピッカリ
+        location: その一・ほおの木の芽
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+
+  - id: yamanashi
+    title: やまなし
+    announced_year: 1923
+    edition:
+      aozora_id: 46605
+      url: https://www.aozora.gr.jp/cards/000081/card46605.html
+      bibliography: |-
+        「新編風の又三郎」新潮文庫、新潮社
+        1989年2月25日発行、1989年6月10日2刷
+        初出：「岩手毎日新聞」岩手毎日新聞社、1923年4月8日
+    quotes:
+      - id: yamanashi-may
+        kind: passage
+        location: 一、五月・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46605_31178.html
+        text: |-
+          　二疋（ひき）の蟹（かに）の子供らが青じろい水の底で話していました。
+          『クラムボンはわらったよ。』
+          『クラムボンはかぷかぷわらったよ。』
+          『クラムボンは跳（は）ねてわらったよ。』
+          『クラムボンはかぷかぷわらったよ。』
+          　上の方や横の方は、青くくらく鋼（はがね）のように見えます。そのなめらかな天井（てんじょう）を、つぶつぶ暗い泡（あわ）が流れて行きます。
+      - id: yamanashi-december
+        kind: passage
+        location: 二、十二月・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46605_31178.html
+        text: |-
+          　蟹の子供らはもうよほど大きくなり、底の景色も夏から秋の間にすっかり変りました。
+          　白い柔（やわら）かな円石（まるいし）もころがって来、小さな錐（きり）の形の水晶（すいしょう）の粒や、金雲母（きんうんも）のかけらもながれて来てとまりました。
+          　そのつめたい水の底まで、ラムネの瓶（びん）の月光がいっぱいに透（すき）とおり天井では波が青じろい火を、燃したり消したりしているよう、あたりはしんとして、ただいかにも遠くからというように、その波の音がひびいて来るだけです。
+    beings:
+      - id: clammbon
+        kind: creature
+        name: クラムボン
+        location: 一、五月
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46605_31178.html
+    onomatopoeias:
+      - id: kapu-kapu
+        text: かぷかぷ
+        location: 一、五月
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46605_31178.html
+      - id: tobun
+        text: トブン
+        location: 二、十二月
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46605_31178.html
+
   - id: haru-to-shura
     title: 春と修羅
     published_year: 1924
@@ -43,6 +139,104 @@ works:
                   ああかがやきの四月の底を
                 はぎしり燃えてゆききする
               おれはひとりの修羅なのだ
+      - id: kussetsuritsu
+        kind: poem
+        location: 屈折率
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |-
+          七つ森のこつちのひとつが
+          水の中よりもつと明るく
+          そしてたいへん巨きいのに
+          わたくしはでこぼこ凍つたみちをふみ
+          このでこぼこの雪をふみ
+          向ふの縮れた亜鉛（あえん）の雲へ
+          陰気な郵便脚夫（きやくふ）のやうに
+              （またアラツデイン　洋燈（ラムプ）とり）
+          急がなければならないのか
+      - id: nichirin-to-taichi
+        kind: poem
+        location: 日輪と太市
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |-
+          日は今日は小さな天の銀盤で
+          雲がその面（めん）を
+          どんどん侵してかけてゐる
+          吹雪（フキ）も光りだしたので
+          太市は毛布（けつと）の赤いズボンをはいた
+      - id: carbide-soko
+        kind: poem
+        location: カーバイト倉庫・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |-
+          まちなみのなつかしい灯とおもつて
+          いそいでわたくしは雪と蛇紋岩（サーベンタイン）との
+          山峡（さんけふ）をでてきましたのに
+          これはカーバイト倉庫の軒
+          すきとほつてつめたい電燈です
+      - id: cobalt-sanchi
+        kind: poem
+        location: コバルト山地
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |-
+          コバルト山地（さんち）の氷霧（ひようむ）のなかで
+          あやしい朝の火が燃えてゐます
+          毛無森（けなしのもり）のきり跡あたりの見当（けんたう）です
+          たしかにせいしんてきの白い火が
+          水より強くどしどしどしどし燃えてゐます
+      - id: tani
+        kind: poem
+        location: 谷
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |-
+          ひかりの澱
+          三角ばたけのうしろ
+          かれ草層の上で
+          わたくしの見ましたのは
+          顔いつぱいに赤い点うち
+          硝子様（やう）鋼青のことばをつかつて
+          しきりに歪み合ひながら
+          何か相談をやつてゐた
+          三人の妖女たちです
+      - id: fukei
+        kind: poem
+        location: 風景
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |-
+          雲はたよりないカルボン酸
+          さくらは咲いて日にひかり
+          また風が来てくさを吹けば
+          截られたたらの木もふるふ
+            さつきはすなつちに廐肥（きうひ）をまぶし
+                （いま青ガラスの模型の底になつてゐる）
+          ひばりのダムダム弾（だん）がいきなりそらに飛びだせば
+              風は青い喪神をふき
+              黄金の草　ゆするゆする
+                  雲はたよりないカルボン酸
+                  さくらが日に光るのはゐなか風（ふう）だ
+      - id: okinagusa-poem
+        kind: poem
+        location: おきなぐさ
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |-
+          風はそらを吹き
+          そのなごりは草をふく
+          おきなぐさ冠毛（くわんもう）の質直（しつぢき）
+          松とくるみは宙に立ち
+              （どこのくるみの木にも
+                いまみな金（きん）のあかごがぶらさがる）
+          ああ黒のしやつぽのかなしさ
+          おきなぐさのはなをのせれば
+          幾きれうかぶ光酸（くわうさん）の雲
+      - id: kawabata
+        kind: poem
+        location: かはばた
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |-
+          かはばたで鳥もゐないし
+          （われわれのしよふ燕麦（オート）の種子（たね）は）
+          風の中からせきばらひ
+          おきなぐさは伴奏をつゞけ
+          光のなかの二人の子
     places:
       - ref: ihatov
         location: イーハトヴの氷霧

@@ -3,6 +3,7 @@
 require 'uri'
 
 module Ihatov
+  # スキーマ検証で共有する基本的な辞書フィールドの検証。
   # Primitive dictionary-field validation, shared by schema checks.
   # @api private
   module Fields
