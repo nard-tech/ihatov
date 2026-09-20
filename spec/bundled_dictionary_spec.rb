@@ -24,7 +24,7 @@ RSpec.describe 'Bundled dictionary' do
     originals = Ihatov::Quote::Poem.where(indent: true)
     expect(originals.size).to be > 1
     expect(poem.with_indent('  ')).to eq(originals.find { |item| item.id == poem.id })
-    expect(Ihatov.poem(indent: "\t")).to satisfy { |item| originals.map(&:id).include?(item.id) }
+    expect(originals.map(&:id)).to include(Ihatov.poem(indent: "\t").id)
     place = Ihatov::Kenji::Place.find('イーハトーヴ')
     expect(place.works.map(&:id)).to eq(%w[haru-to-shura gusukobudori-no-denki])
     expect(place.sources.map(&:location)).to eq(['イーハトヴの氷霧', '一 森'])
