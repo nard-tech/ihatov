@@ -44,3 +44,105 @@ works:
           たはむれに母を背負（せお）ひて
           そのあまり軽（かろ）きに泣きて
           三歩あゆまず
+      - id: shittorito-namida
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          しっとりと
+          なみだを吸（す）へる砂の玉
+          なみだは重きものにしあるかな
+      - id: namida-namida
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          なみだなみだ
+          不思議なるかな
+          それをもて洗（あら）へば心戯（おど）けたくなれり
+      - id: mare-ni-aru
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          まれにある
+          この平（たひら）なる心には
+          時計の鳴るもおもしろく聴（き）く
+      - id: nantonaku-kisha
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          何（なに）となく汽車に乗りたく思ひしのみ
+          汽車を下（お）りしに
+          ゆくところなし
+      - id: yawarakani-yuki
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          やはらかに積れる雪に
+          熱（ほ）てる頬（ほ）を埋（うづ）むるごとき
+          恋してみたし
+      - id: kokoroyoku-hito
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          こころよく
+          人を讃（ほ）めてみたくなりにけり
+          利己（りこ）の心に倦（う）めるさびしさ
+      - id: kokoroyoki-tsukare
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          こころよき疲れなるかな
+          息もつかず
+          仕事をしたる後（のち）のこの疲れ
+      - id: hatarakedo
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          はたらけど
+          はたらけど猶（なほ）わが生活（くらし）楽にならざり
+          ぢっと手を見る
+      - id: suisho-no-tama
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          水晶（すゐしやう）の玉をよろこびもてあそぶ
+          わがこの心
+          何（なに）の心ぞ
+      - id: oinaru-suisho
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          大いなる水晶の玉を
+          ひとつ欲（ほ）し
+          それにむかひて物を思はむ
+      - id: tomo-ga-mina
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          友がみなわれよりえらく見ゆる日よ
+          花を買ひ来（き）て
+          妻（つま）としたしむ
+      - id: kozukata-no-oshiro
+        kind: tanka
+        location: 煙・一
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          不来方（こずかた）のお城の草に寝ころびて
+          空に吸はれし
+          十五（じふご）の心
+    places:
+      - id: kozukata-jo
+        name: 不来方城
+        real: true
+        location: 煙・一「不来方のお城の草に寝ころびて」
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
