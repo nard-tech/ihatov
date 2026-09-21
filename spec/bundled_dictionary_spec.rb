@@ -4,7 +4,7 @@ RSpec.describe 'Bundled dictionary' do
   it 'loads all bundled data and exposes the selected editions' do
     expect(Ihatov::Quote.all.size).to eq(35)
     expect(Ihatov::Place.all.size).to eq(7)
-    expect(Ihatov::Being.all.size).to eq(14)
+    expect(Ihatov::Being.all.size).to eq(15)
     expect(Ihatov::Onomatopoeia.all.size).to eq(9)
     expect(Ihatov::Tono.work.edition.aozora_id).to eq(52_504)
     expect(Ihatov::Kenji::Work.find('銀河鉄道の夜').author.name).to eq('宮沢 賢治')
@@ -47,6 +47,9 @@ RSpec.describe 'Bundled dictionary' do
     opening = Ihatov::Kenji::Quote::Passage.where(work: 'やまなし').find { |item| item.id == 'yamanashi-may' }
     expect(opening).to include('かぷかぷ', 'そのなめらかな天井（てんじょう）を')
     expect(Ihatov::Tono::Creature.find('猿の経立').location).to eq('第46話')
+    oshirasama = Ihatov::Tono::Creature.find('オシラサマ')
+    expect(oshirasama).to have_attributes(id: 'oshirasama', location: '第69話')
+    expect(oshirasama.work.edition.aozora_id).to eq(52_504)
     expect(Ihatov::Takuboku::Place.find('不来方城').real).to be(true)
     expect(Ihatov::Work.all.first.title).to eq('一握の砂')
     expect(Ihatov::Kenji::Work.all.first.title).to eq('雪渡り')
