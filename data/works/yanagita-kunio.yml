@@ -49,6 +49,11 @@ works:
         location: 第2話
         source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
     beings:
+      - id: oshirasama
+        kind: creature
+        name: オシラサマ
+        location: 第69話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
       - id: saru-no-futtachi
         kind: creature
         name: 猿の経立
