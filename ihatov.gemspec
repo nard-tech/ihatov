@@ -7,7 +7,8 @@ Gem::Specification.new do |spec|
   spec.version = Ihatov::VERSION
   spec.authors = ['Fujita Shu']
   spec.summary = '岩手の文学から、ひとこと。'
-  spec.description = 'Source-aware, reproducible literary sample data from Iwate.'
+  spec.description = '岩手の文学から、出典付きで再現可能なサンプルデータを提供します。 ' \
+                     'Source-aware, reproducible literary sample data from Iwate.'
   spec.homepage = 'https://github.com/nard-tech/ihatov'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.4'
