@@ -1,63 +1,111 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Bundled dictionary' do
-  it 'loads all bundled data and exposes the selected editions' do
-    expect(Ihatov::Quote.all.size).to eq(35)
-    expect(Ihatov::Place.all.size).to eq(7)
-    expect(Ihatov::Being.all.size).to eq(15)
-    expect(Ihatov::Onomatopoeia.all.size).to eq(9)
-    expect(Ihatov::Tono.work.edition.aozora_id).to eq(52_504)
-    expect(Ihatov::Kenji::Work.find('銀河鉄道の夜').author.name).to eq('宮沢 賢治')
-    expect(Ihatov::Work.all).to all(be_frozen)
+RSpec.describe '同梱辞書 Bundled dictionary' do
+  context '同梱辞書を読み込む場合 when loading the bundled dictionary' do
+    it '収録件数と採用版が一致すること exposes expected counts and editions' do
+      expect(Ihatov::Quote.all.size).to eq(35)
+      expect(Ihatov::Place.all.size).to eq(7)
+      expect(Ihatov::Being.all.size).to eq(15)
+      expect(Ihatov::Onomatopoeia.all.size).to eq(9)
+      expect(Ihatov::Tono.work.edition.aozora_id).to eq(52_504)
+      expect(Ihatov::Kenji::Work.find('銀河鉄道の夜').author.name).to eq('宮沢 賢治')
+      expect(Ihatov::Work.all).to all(be_frozen)
+    end
   end
 
-  it 'keeps the wind phrase separate from the longer prose excerpt' do
-    phrase = Ihatov::Kenji::Onomatopoeia.where(work: '風の又三郎').first
-    expect(phrase).to eq('どっどど どどうど どどうど どどう')
-    expect(Ihatov::Kenji.quote(work: '風の又三郎')).to include(phrase, '谷川の岸に小さな学校がありました。')
-    expect(Ihatov::Kenji.quote(work: '風の又三郎')).not_to eq(phrase)
+  context '風の又三郎の擬音語と抜粋を取得する場合 when selecting the wind phrase and passage' do
+    let(:phrase) { Ihatov::Kenji::Onomatopoeia.where(work: '風の又三郎').first }
+    let(:passage) { Ihatov::Kenji.quote(work: '風の又三郎') }
+
+    it '擬音語と後続文を含む抜粋を区別すること distinguishes the phrase from its longer passage' do
+      expect(phrase).to eq('どっどど どどうど どどうど どどう')
+      expect(passage).to include(phrase, '谷川の岸に小さな学校がありました。')
+      expect(passage).not_to eq(phrase)
+    end
   end
 
-  it 'supports indented poetry and per-relation provenance in real data' do
-    poem = Ihatov::Quote::Poem.where(indent: "\t").find { |item| item.id == 'haru-to-shura-sky' }
-    expect(poem).to include("\t\t聖玻璃（せいはり）の風が行き交ひ")
-    originals = Ihatov::Quote::Poem.where(indent: true)
-    expect(originals.size).to be > 1
-    expect(poem.with_indent('  ')).to eq(originals.find { |item| item.id == poem.id })
-    expect(originals.map(&:id)).to include(Ihatov.poem(indent: "\t").id)
-    place = Ihatov::Kenji::Place.find('イーハトーヴ')
-    expect(place.works.map(&:id)).to eq(%w[haru-to-shura gusukobudori-no-denki])
-    expect(place.sources.map(&:location)).to eq(['イーハトヴの氷霧', '一 森'])
-    expect(Ihatov::Kenji::Place.find('カルボナード火山島').work.title).to eq('グスコーブドリの伝記')
+  context '字下げのある詩を取得する場合 when selecting indented poems' do
+    let(:poem) { Ihatov::Quote::Poem.where(indent: "\t").find { |item| item.id == 'haru-to-shura-sky' } }
+    let(:originals) { Ihatov::Quote::Poem.where(indent: true) }
+
+    it '字下げを保持して整形できること preserves indentation when formatting' do
+      expect(poem).to include("\t\t聖玻璃（せいはり）の風が行き交ひ")
+      expect(originals.size).to be > 1
+      expect(poem.with_indent('  ')).to eq(originals.find { |item| item.id == poem.id })
+      expect(originals.map(&:id)).to include(Ihatov.poem(indent: "\t").id)
+    end
   end
 
-  it 'keeps editorial warnings local to the selected item' do
-    all_tanka = Ihatov::Takuboku::Quote::Tanka.all
-    filtered = Ihatov::Takuboku::Quote::Tanka.where(exclude_content_warnings: true)
-    expect(all_tanka.size).to eq(16)
-    expect(filtered.size).to eq(15)
-    expect(filtered).to all(have_attributes(content_warnings: []))
-    expect(Ihatov::Quote.all).to all(satisfy { |text| !text.end_with?("\n") })
+  context '共有地名を取得する場合 when selecting shared places' do
+    let(:place) { Ihatov::Kenji::Place.find('イーハトーヴ') }
+
+    it '作品ごとの出典を保持すること preserves per-work sources' do
+      expect(place.works.map(&:id)).to eq(%w[haru-to-shura gusukobudori-no-denki])
+      expect(place.sources.map(&:location)).to eq(['イーハトヴの氷霧', '一 森'])
+      expect(Ihatov::Kenji::Place.find('カルボナード火山島').work.title).to eq('グスコーブドリの伝記')
+    end
   end
 
-  it 'connects the new stories, participants, and sounds to their verified editions' do
-    expect(Ihatov::Kenji::Creature.find('クラムボン').work.edition.aozora_id).to eq(46_605)
-    expect(Ihatov::Kenji::Character.find('紺三郎').work.edition.aozora_id).to eq(45_679)
-    expect(Ihatov::Kenji::Onomatopoeia.where(work: 'やまなし')).to contain_exactly('かぷかぷ', 'トブン')
-    opening = Ihatov::Kenji::Quote::Passage.where(work: 'やまなし').find { |item| item.id == 'yamanashi-may' }
-    expect(opening).to include('かぷかぷ', 'そのなめらかな天井（てんじょう）を')
-    expect(Ihatov::Tono::Creature.find('猿の経立').location).to eq('第46話')
-    oshirasama = Ihatov::Tono::Creature.find('オシラサマ')
-    expect(oshirasama).to have_attributes(id: 'oshirasama', location: '第69話')
-    expect(oshirasama.work.edition.aozora_id).to eq(52_504)
-    expect(Ihatov::Takuboku::Place.find('不来方城').real).to be(true)
-    expect(Ihatov::Work.all.first.title).to eq('一握の砂')
-    expect(Ihatov::Kenji::Work.all.first.title).to eq('雪渡り')
+  context '短歌の注意情報を除外する場合 when filtering tanka warnings' do
+    let(:all_tanka) { Ihatov::Takuboku::Quote::Tanka.all }
+    let(:filtered) { Ihatov::Takuboku::Quote::Tanka.where(exclude_content_warnings: true) }
+
+    it '注意のある項目だけを除外すること excludes only warned entries' do
+      expect(all_tanka.size).to eq(16)
+      expect(filtered.size).to eq(15)
+      expect(filtered).to all(have_attributes(content_warnings: []))
+      expect(Ihatov::Quote.all).to all(satisfy { |text| !text.end_with?("\n") })
+    end
   end
 
-  it 'reports categories awaiting source selection as empty, not fabricated content' do
-    expect(Ihatov::Quote::Haiku.all).to eq([])
-    expect { Ihatov.haiku }.to raise_error(Ihatov::NotFoundError)
-    expect(Ihatov::Place.where(real: true)).to all(have_attributes(coordinates: nil))
+  context 'やまなしの項目を取得する場合 when selecting Yamanashi entries' do
+    let(:opening) { Ihatov::Kenji::Quote::Passage.where(work: 'やまなし').find { |item| item.id == 'yamanashi-may' } }
+
+    it '各項目が確認済みの出典に結び付くこと connects entries to verified sources' do
+      expect(Ihatov::Kenji::Creature.find('クラムボン').work.edition.aozora_id).to eq(46_605)
+      expect(Ihatov::Kenji::Onomatopoeia.where(work: 'やまなし')).to contain_exactly('かぷかぷ', 'トブン')
+      expect(opening).to include('かぷかぷ', 'そのなめらかな天井（てんじょう）を')
+    end
+  end
+
+  context '雪渡りの登場者を取得する場合 when selecting a Yukiwatari character' do
+    let(:character) { Ihatov::Kenji::Character.find('紺三郎') }
+
+    it '確認済みの採用版に結び付くこと links to the verified edition' do
+      expect(character.work.edition.aozora_id).to eq(45_679)
+    end
+  end
+
+  context '遠野物語の登場者を取得する場合 when selecting Tono Monogatari beings' do
+    let(:oshirasama) { Ihatov::Tono::Creature.find('オシラサマ') }
+
+    it '採用版と話数に結び付くこと links to the edition and tale number' do
+      expect(Ihatov::Tono::Creature.find('猿の経立').location).to eq('第46話')
+      expect(oshirasama).to have_attributes(id: 'oshirasama', location: '第69話')
+      expect(oshirasama.work.edition.aozora_id).to eq(52_504)
+    end
+  end
+
+  context '実在地名を取得する場合 when selecting real places' do
+    let(:places) { Ihatov::Place.where(real: true) }
+
+    it '実在性と座標の未登録を区別すること distinguishes real places from available coordinates' do
+      expect(Ihatov::Takuboku::Place.find('不来方城').real).to be(true)
+      expect(places).to all(have_attributes(coordinates: nil))
+    end
+  end
+
+  context '同梱作品を一覧取得する場合 when listing bundled works' do
+    it '発表年または刊行年で並ぶこと orders works by announcement or publication year' do
+      expect(Ihatov::Work.all.first.title).to eq('一握の砂')
+      expect(Ihatov::Kenji::Work.all.first.title).to eq('雪渡り')
+    end
+  end
+
+  context '未収録の俳句を取得する場合 when requesting unregistered haiku' do
+    it '本文を捏造せず未収録として扱うこと reports missing data without fabricated content' do
+      expect(Ihatov::Quote::Haiku.all).to eq([])
+      expect { Ihatov.haiku }.to raise_error(Ihatov::NotFoundError)
+    end
   end
 end
