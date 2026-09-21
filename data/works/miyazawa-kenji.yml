@@ -111,7 +111,7 @@ works:
         kind: poem
         location: 序・冒頭
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
-        text: |-
+        text: |2-
           わたくしといふ現象は
           仮定された有機交流電燈の
           ひとつの青い照明です
@@ -125,7 +125,7 @@ works:
         kind: poem
         location: 春と修羅・「砕ける雲の眼路をかぎり」から
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
-        text: |-
+        text: |2-
           砕ける雲の眼路（めぢ）をかぎり
             れいろうの天の海には
               聖玻璃（せいはり）の風が行き交ひ
@@ -143,7 +143,7 @@ works:
         kind: poem
         location: 屈折率
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
-        text: |-
+        text: |2-
           七つ森のこつちのひとつが
           水の中よりもつと明るく
           そしてたいへん巨きいのに
@@ -157,7 +157,7 @@ works:
         kind: poem
         location: 日輪と太市
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
-        text: |-
+        text: |2-
           日は今日は小さな天の銀盤で
           雲がその面（めん）を
           どんどん侵してかけてゐる
@@ -167,7 +167,7 @@ works:
         kind: poem
         location: カーバイト倉庫・冒頭
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
-        text: |-
+        text: |2-
           まちなみのなつかしい灯とおもつて
           いそいでわたくしは雪と蛇紋岩（サーベンタイン）との
           山峡（さんけふ）をでてきましたのに
@@ -177,7 +177,7 @@ works:
         kind: poem
         location: コバルト山地
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
-        text: |-
+        text: |2-
           コバルト山地（さんち）の氷霧（ひようむ）のなかで
           あやしい朝の火が燃えてゐます
           毛無森（けなしのもり）のきり跡あたりの見当（けんたう）です
@@ -187,7 +187,7 @@ works:
         kind: poem
         location: 谷
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
-        text: |-
+        text: |2-
           ひかりの澱
           三角ばたけのうしろ
           かれ草層の上で
@@ -201,7 +201,7 @@ works:
         kind: poem
         location: 風景
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
-        text: |-
+        text: |2-
           雲はたよりないカルボン酸
           さくらは咲いて日にひかり
           また風が来てくさを吹けば
@@ -217,7 +217,7 @@ works:
         kind: poem
         location: おきなぐさ
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
-        text: |-
+        text: |2-
           風はそらを吹き
           そのなごりは草をふく
           おきなぐさ冠毛（くわんもう）の質直（しつぢき）
@@ -231,7 +231,7 @@ works:
         kind: poem
         location: かはばた
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
-        text: |-
+        text: |2-
           かはばたで鳥もゐないし
           （われわれのしよふ燕麦（オート）の種子（たね）は）
           風の中からせきばらひ
