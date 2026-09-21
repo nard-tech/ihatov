@@ -141,7 +141,10 @@ gem build ihatov.gemspec
 RSpecから変更を始め、PRで提案してください。CIはRuby 3.4・4.0でRSpecとgemのビルド・インストール後の利用を確認し、RuboCopとYARDも実行します。新しい安定版Rubyが出たらマトリクスを更新します。
 
 YARDコメントは日本語→英語の順に併記します。クラス・メソッドの長い説明は言語ごとに行を分け、引数・戻り値・例外の説明も両言語で記述します。
-現時点の実行時依存はRubyの標準ライブラリのみです。ActiveSupportは必要になった場合に限定して導入できます。
+現時点ではRubyの標準ライブラリのみを使用し、gemspecに実行時の依存gemはありません。
+RSpec・RuboCop・YARDは、このリポジトリのGemfileの `development` グループにのみ定義しています。Ihatovを別のプロジェクトで利用するとき、これらがIhatovの依存としてインストールされることはありません。
+ここでの `development` はBundlerの依存グループであり、Ihatovの動作モードではありません。通常の `bundle install` は開発用gemもインストールするため、そのままテストやCIで使えます。`require: false` は自動読み込みを抑える指定です。
+ActiveSupportは仕様上許可していますが、現在は使用していません。将来導入する場合はgemspecに実行時依存として明記します。
 
 辞書は`data/authors.yml`と作者別の`data/works/*.yml`を直接編集します。作者・作品・ID・出典・分類の決め方は[辞書編集ガイド](docs/dictionary.md)を参照してください。
 メタプログラミングによるAPI生成や`send`／`public_send`での振り分けは行いません。
