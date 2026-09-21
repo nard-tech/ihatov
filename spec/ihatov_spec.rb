@@ -3,7 +3,7 @@
 require_relative 'support/dictionary'
 
 RSpec.describe Ihatov do
-  include DictionaryFixture
+  include Ihatov::DictionaryFixture
 
   let(:repository) { load_dictionary }
 

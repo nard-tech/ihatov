@@ -3,7 +3,7 @@
 require_relative 'support/dictionary'
 
 RSpec.describe 'Dictionary validation' do
-  include DictionaryFixture
+  include Ihatov::DictionaryFixture
 
   it 'rejects duplicate IDs across kinds, but permits IDs in different categories' do
     data = documents
