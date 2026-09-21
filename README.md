@@ -32,8 +32,8 @@ Ihatov::Kenji.quote
 Ihatov::Takuboku.tanka
 Ihatov::Tono.passage
 
-place = Ihatov::Kenji::Place.find('カルボナード火山')
-place                  # => "カルボナード火山"
+place = Ihatov::Kenji::Place.find('カルボナード火山島')
+place                  # => "カルボナード火山島"
 place.work.title       # => "グスコーブドリの伝記"
 place.work.author.name # => "宮沢 賢治"
 place.works            # 関連作品すべて

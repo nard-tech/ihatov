@@ -28,7 +28,7 @@ RSpec.describe 'Bundled dictionary' do
     place = Ihatov::Kenji::Place.find('イーハトーヴ')
     expect(place.works.map(&:id)).to eq(%w[haru-to-shura gusukobudori-no-denki])
     expect(place.sources.map(&:location)).to eq(['イーハトヴの氷霧', '一 森'])
-    expect(Ihatov::Kenji::Place.find('カルボナード火山').work.title).to eq('グスコーブドリの伝記')
+    expect(Ihatov::Kenji::Place.find('カルボナード火山島').work.title).to eq('グスコーブドリの伝記')
   end
 
   it 'keeps editorial warnings local to the selected item' do

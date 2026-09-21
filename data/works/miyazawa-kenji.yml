@@ -268,8 +268,7 @@ works:
         location: 一 森
         source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
       - id: carbonado-volcano
-        # 本文の「カルボナード火山島」に由来する、仕様で指定された呼称。
-        name: カルボナード火山
+        name: カルボナード火山島
         real: false
         location: 九 カルボナード島
         source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
