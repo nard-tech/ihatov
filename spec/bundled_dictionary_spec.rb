@@ -3,7 +3,7 @@
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込む場合 when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(35)
+      expect(Ihatov::Quote.all.size).to eq(36)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
@@ -15,12 +15,30 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
 
   context '風の又三郎の擬音語と抜粋を取得する場合 when selecting the wind phrase and passage' do
     let(:phrase) { Ihatov::Kenji::Onomatopoeia.where(work: '風の又三郎').first }
-    let(:passage) { Ihatov::Kenji.quote(work: '風の又三郎') }
+    let(:passages) { Ihatov::Kenji::Quote::Passage.where(work: '風の又三郎') }
+    let(:song) { passages.find { |item| item.id == 'kaze-no-matasaburo-opening' } }
+    let(:school) { passages.find { |item| item.id == 'kaze-no-matasaburo-school' } }
 
-    it '擬音語と後続文を含む抜粋を区別すること distinguishes the phrase from its longer passage' do
+    it '擬音語と歌全体の抜粋を区別すること distinguishes the phrase from the complete song' do
       expect(phrase).to eq('どっどど どどうど どどうど どどう')
-      expect(passage).to include(phrase, '谷川の岸に小さな学校がありました。')
-      expect(passage).not_to eq(phrase)
+      expect(song.lines(chomp: true)).to eq([phrase, '青いくるみも吹きとばせ', 'すっぱいかりんも吹きとばせ', phrase])
+    end
+
+    it '歌と学校の描写を別の抜粋として返すこと returns the song and school description as separate passages' do
+      expect(passages.map(&:id)).to eq(%w[kaze-no-matasaburo-opening kaze-no-matasaburo-school])
+      expect(school).to start_with("谷川の岸に小さな学校がありました。\n教室はたった一つでしたが")
+      expect(school).to end_with('岩穴もあったのです。')
+      expect(school).not_to include(phrase)
+      expect(passages).to all(have_attributes(work: Ihatov::Kenji::Work.find('風の又三郎')))
+      expect(passages.map(&:source_url).uniq).to eq(['https://www.aozora.gr.jp/cards/000081/files/462_15405.html'])
+    end
+  end
+
+  context '散文を一覧取得する場合 when listing passages' do
+    let(:lines) { Ihatov::Quote::Passage.all.flat_map(&:lines) }
+
+    it '段落頭に字下げを含めないこと omits paragraph indentation' do
+      expect(lines).to all(satisfy { |line| !line.match?(/\A[ \t　]/) })
     end
   end
 
