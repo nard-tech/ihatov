@@ -242,6 +242,48 @@ works:
         location: イーハトヴの氷霧
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
 
+  - id: chumon-no-oi-ryoriten-preface
+    title: 『注文の多い料理店』序
+    announced_year: 1924
+    edition:
+      aozora_id: 43736
+      url: https://www.aozora.gr.jp/cards/000081/card43736.html
+      bibliography: |-
+        「注文の多い料理店」新潮文庫、新潮社
+        1990年5月25日初版発行
+        入力：1997年5月10日17刷、校正：2004年5月20日第29刷
+        初出：「イーハトヴ童話　注文の多い料理店」盛岡市杜陵出版部・東京光原社、1924年12月1日
+    quotes:
+      - id: chumon-preface-opening
+        kind: passage
+        location: 序・冒頭4段落
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43736_17656.html
+        text: |-
+          わたしたちは、氷砂糖をほしいくらいもたないでも、きれいにすきとおった風をたべ、桃（もも）いろのうつくしい朝の日光をのむことができます。
+          またわたくしは、はたけや森の中で、ひどいぼろぼろのきものが、いちばんすばらしいびろうどや羅紗（らしゃ）や、宝石いりのきものに、かわっているのをたびたび見ました。
+          わたくしは、そういうきれいなたべものやきものをすきです。
+          これらのわたくしのおはなしは、みんな林や野はらや鉄道線路やらで、虹（にじ）や月あかりからもらってきたのです。
+
+  - id: chumon-no-oi-ryoriten-announcement
+    title: 『注文の多い料理店』新刊案内
+    announced_year: 1924
+    edition:
+      aozora_id: 43734
+      url: https://www.aozora.gr.jp/cards/000081/card43734.html
+      bibliography: |-
+        「注文の多い料理店」角川文庫、角川書店
+        1996年6月25日改訂新版発行
+        入力：1997年5月25日改訂4版、校正：2003年5月25日改訂10版
+        初版本刊行時の広告ちらし
+    quotes:
+      - id: ihatov-dreamland
+        kind: passage
+        location: 冒頭2段落・イーハトヴの説明
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43734_17913.html
+        text: |-
+          イーハトヴは一つの地名である。しいて、その地点を求（もと）むるならば、それは、大小クラウスたちの耕（たがや）していた、野原（のはら）や、少女アリスがたどった鏡（かがみ）の国と同じ世界（せかい）の中、テパーンタール砂漠（さばく）のはるかな北東、イヴン王国の遠い東と考えられる。
+          じつにこれは著者の心象中に、このような状景（じょうけい）をもって実在（じつざい）したドリームランドとしての日本岩手県である。
+
   - id: gusukobudori-no-denki
     title: グスコーブドリの伝記
     announced_year: 1932

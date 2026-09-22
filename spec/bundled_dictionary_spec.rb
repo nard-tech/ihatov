@@ -3,7 +3,7 @@
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込む場合 when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(43)
+      expect(Ihatov::Quote.all.size).to eq(45)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
@@ -191,6 +191,43 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
       expect(dialogue.content_warnings).not_to be_empty
       expect(Ihatov::Kenji::Quote::Passage.where(work: dialogue.work, exclude_content_warnings: true).map(&:id))
         .to eq(['ginga-tetsudo-no-yoru-opening'])
+    end
+  end
+
+  context '注文の多い料理店の序を取得する場合 when selecting the Restaurant preface' do
+    let(:work) { Ihatov::Kenji::Work.find('『注文の多い料理店』序') }
+    let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: work).first }
+
+    it '指定された四段落とルビを保持すること preserves the selected four paragraphs and readings' do
+      expect(passage).to have_attributes(id: 'chumon-preface-opening', location: '序・冒頭4段落')
+      expect(passage.lines.size).to eq(4)
+      expect(passage).to start_with('わたしたちは、氷砂糖をほしいくらいもたないでも、')
+      expect(passage).to include('桃（もも）', '羅紗（らしゃ）')
+      expect(passage).to end_with('虹（にじ）や月あかりからもらってきたのです。')
+      expect(passage.content_warnings).to eq([])
+    end
+
+    it '序文の採用版と初出年を保持すること records the preface edition and first publication year' do
+      expect(work).to have_attributes(id: 'chumon-no-oi-ryoriten-preface', announced_year: 1924)
+      expect(work.edition.aozora_id).to eq(43_736)
+      expect(passage.source_url).to eq('https://www.aozora.gr.jp/cards/000081/files/43736_17656.html')
+    end
+  end
+
+  context '新刊案内のイーハトヴの説明を取得する場合 when selecting the announcement description of Ihatov' do
+    let(:work) { Ihatov::Kenji::Work.find('『注文の多い料理店』新刊案内') }
+    let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: work).first }
+
+    it '新字新仮名の採用版と二段落を保持すること preserves the modern-kana edition and two paragraphs' do
+      expect(work).to have_attributes(id: 'chumon-no-oi-ryoriten-announcement', announced_year: 1924)
+      expect(work.edition.aozora_id).to eq(43_734)
+      expect(passage).to have_attributes(id: 'ihatov-dreamland', content_warnings: [])
+      expect(passage.lines.size).to eq(2)
+      expect(passage).to start_with('イーハトヴは一つの地名である。しいて、')
+      expect(passage).to include("イヴン王国の遠い東と考えられる。\nじつにこれは著者の心象中に、")
+      expect(passage).to end_with('実在（じつざい）したドリームランドとしての日本岩手県である。')
+      expect(passage).not_to include('<strong', '［＃')
+      expect(passage.source_url).to eq('https://www.aozora.gr.jp/cards/000081/files/43734_17913.html')
     end
   end
 
