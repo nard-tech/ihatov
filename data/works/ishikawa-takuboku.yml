@@ -140,6 +140,22 @@ works:
           不来方（こずかた）のお城の草に寝ころびて
           空に吸はれし
           十五（じふご）の心
+      - id: furusato-no-namari
+        kind: tanka
+        location: 煙・二
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          ふるさとの訛（なまり）なつかし
+          停車場（ていしやば）の人ごみの中に
+          そを聴（き）きにゆく
+      - id: furusato-no-yama
+        kind: tanka
+        location: 煙・二
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          ふるさとの山に向ひて
+          言ふことなし
+          ふるさとの山はありがたきかな
     places:
       - id: kozukata-jo
         name: 不来方城

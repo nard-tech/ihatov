@@ -3,7 +3,7 @@
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込む場合 when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(36)
+      expect(Ihatov::Quote.all.size).to eq(38)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
@@ -69,10 +69,27 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     let(:filtered) { Ihatov::Takuboku::Quote::Tanka.where(exclude_content_warnings: true) }
 
     it '注意のある項目だけを除外すること excludes only warned entries' do
-      expect(all_tanka.size).to eq(16)
-      expect(filtered.size).to eq(15)
+      expect(all_tanka.size).to eq(18)
+      expect(filtered.size).to eq(17)
       expect(filtered).to all(have_attributes(content_warnings: []))
       expect(Ihatov::Quote.all).to all(satisfy { |text| !text.end_with?("\n") })
+    end
+  end
+
+  context 'ふるさとを詠む短歌を取得する場合 when selecting hometown tanka' do
+    let(:tanka) { Ihatov::Takuboku::Quote::Tanka.where(work: '一握の砂') }
+    let(:namari) { tanka.find { |item| item.id == 'furusato-no-namari' } }
+    let(:yama) { tanka.find { |item| item.id == 'furusato-no-yama' } }
+
+    it '採用版の表記と三行の改行を保持すること preserves the edition text and three-line layout' do
+      expect(namari).to eq("ふるさとの訛（なまり）なつかし\n停車場（ていしやば）の人ごみの中に\nそを聴（き）きにゆく")
+      expect(yama).to eq("ふるさとの山に向ひて\n言ふことなし\nふるさとの山はありがたきかな")
+    end
+
+    it '二首を煙の第二節と採用版に関連付けること links both tanka to Kemuri section two and the edition' do
+      expect([namari, yama]).to all(have_attributes(location: '煙・二', content_warnings: []))
+      expect([namari, yama].map(&:work)).to all(eq(Ihatov::Takuboku::Work.find('一握の砂')))
+      expect([namari, yama].map(&:source_url).uniq).to eq(['https://www.aozora.gr.jp/cards/000153/files/816_15786.html'])
     end
   end
 
