@@ -3,7 +3,7 @@
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込む場合 when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(38)
+      expect(Ihatov::Quote.all.size).to eq(41)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
@@ -100,6 +100,62 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
       expect(Ihatov::Kenji::Creature.find('クラムボン').work.edition.aozora_id).to eq(46_605)
       expect(Ihatov::Kenji::Onomatopoeia.where(work: 'やまなし')).to contain_exactly('かぷかぷ', 'トブン')
       expect(opening).to include('かぷかぷ', 'そのなめらかな天井（てんじょう）を')
+    end
+  end
+
+  context '銀河鉄道の夜の冒頭を取得する場合 when selecting the opening of Night on the Galactic Railroad' do
+    let(:opening) { Ihatov::Kenji::Quote::Passage.where(work: '銀河鉄道の夜').first }
+    let(:characters) { Ihatov::Kenji::Person.where(work: '銀河鉄道の夜') }
+
+    it '指定された二段落とルビを保持すること preserves the selected two paragraphs and readings' do
+      expect(opening).to have_attributes(id: 'ginga-tetsudo-no-yoru-opening', location: '一 午後の授業・冒頭2段落')
+      expect(opening.lines.size).to eq(2)
+      expect(opening).to start_with('「ではみなさんは、そういうふうに川だと言（い）われたり、')
+      expect(opening).to include("みんなに問（と）いをかけました。\nカムパネルラが手をあげました。")
+      expect(opening).to end_with('なんだかどんなこともよくわからないという気持（きも）ちがするのでした。')
+    end
+
+    it '本文と登場者の採用版を統一すること uses one edition for the passage and characters' do
+      expect(opening.work.edition.aozora_id).to eq(43_737)
+      expect(characters.map(&:id)).to eq(%w[giovanni campanella])
+      expect([opening, *characters]).to all(have_attributes(work: opening.work))
+      expect([opening, *characters].map(&:source_url).uniq)
+        .to eq(['https://www.aozora.gr.jp/cards/000081/files/43737_19215.html'])
+    end
+  end
+
+  context 'ポラーノの広場の抜粋を取得する場合 when selecting the Polano Square passage' do
+    let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: 'ポラーノの広場').first }
+
+    it '指定された二段落の範囲と表記を保持すること preserves the selected two paragraphs and spelling' do
+      expect(passage).to have_attributes(id: 'polano-ihatovo', content_warnings: [])
+      expect(passage.lines.size).to eq(2)
+      expect(passage).to start_with('あのイーハトーヴォのすきとおった風、')
+      expect(passage).to include("郊外のぎらぎらひかる草の波。\nまたそのなかで")
+      expect(passage).to end_with('しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。')
+      expect(passage.work.edition.aozora_id).to eq(1935)
+      expect(passage.source_url).to eq('https://www.aozora.gr.jp/cards/000081/files/1935_19925.html')
+    end
+  end
+
+  context '雨ニモマケズの全文を取得する場合 when selecting the complete Ame ni mo Makezu' do
+    let(:poem) { Ihatov::Kenji::Quote::Poem.where(work: '〔雨ニモマケズ〕').first }
+
+    it '原文の文字と末尾の題目を保持すること preserves original characters and the closing invocations' do
+      expect(poem.lines.size).to eq(38)
+      expect(poem).to start_with("雨ニモマケズ\n風ニモマケズ\n")
+      expect(poem).to include('決シテ瞋ラズ', '野原ノ松ノ林ノ䕃ノ', '小サナ萓ブキノ小屋ニヰテ')
+      expect(poem).to include('行ッテソノ稲ノ朿ヲ負ヒ', 'ヒドリノトキハナミダヲナガシ')
+      expect(poem).to include("ワタシハナリタイ\n\n南無無辺行菩薩\n")
+      expect(poem).to end_with("南無浄行菩薩\n南無安立行菩薩")
+      expect(poem).not_to include('［＃', '<img')
+      expect(poem.work.edition.aozora_id).to eq(45_630)
+      expect(poem.indented?).to be(false)
+    end
+
+    it '注意情報による除外に対応すること supports content warning exclusion' do
+      expect(poem.content_warnings).to eq(['人を蔑む呼称「デクノボー」が含まれます。'])
+      expect(Ihatov::Kenji::Quote::Poem.where(work: poem.work, exclude_content_warnings: true)).to eq([])
     end
   end
 

@@ -335,21 +335,30 @@ works:
   - id: ginga-tetsudo-no-yoru
     title: 銀河鉄道の夜
     edition:
-      aozora_id: 456
-      url: https://www.aozora.gr.jp/cards/000081/card456.html
+      aozora_id: 43737
+      url: https://www.aozora.gr.jp/cards/000081/card43737.html
       bibliography: |-
-        「新編　銀河鉄道の夜」新潮文庫、新潮社
-        1989年6月15日発行、1994年6月5日13刷
-        底本の親本：「新修宮沢賢治全集　第十二巻」筑摩書房、1980年1月
+        「銀河鉄道の夜」角川文庫、角川書店
+        1969年7月20日改版
+        入力：1987年3月30日改版50版、校正：1991年6月10日改版65版
+        底本の親本：「宮澤賢治全集第十卷」筑摩書房、1967年10月25日
+    quotes:
+      - id: ginga-tetsudo-no-yoru-opening
+        kind: passage
+        location: 一 午後の授業・冒頭2段落
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43737_19215.html
+        text: |-
+          「ではみなさんは、そういうふうに川だと言（い）われたり、乳（ちち）の流（なが）れたあとだと言（い）われたりしていた、このぼんやりと白いものがほんとうは何かご承知（しょうち）ですか」先生は、黒板（こくばん）につるした大きな黒い星座（せいざ）の図の、上から下へ白くけぶった銀河帯（ぎんがたい）のようなところを指（さ）しながら、みんなに問（と）いをかけました。
+          カムパネルラが手をあげました。それから四、五人手をあげました。ジョバンニも手をあげようとして、急（いそ）いでそのままやめました。たしかにあれがみんな星だと、いつか雑誌（ざっし）で読んだのでしたが、このごろはジョバンニはまるで毎日教室でもねむく、本を読むひまも読む本もないので、なんだかどんなこともよくわからないという気持（きも）ちがするのでした。
     beings:
       - id: giovanni
         kind: person
         name: ジョバンニ
-        source_url: https://www.aozora.gr.jp/cards/000081/files/456_15050.html
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43737_19215.html
       - id: campanella
         kind: person
         name: カムパネルラ
-        source_url: https://www.aozora.gr.jp/cards/000081/files/456_15050.html
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43737_19215.html
 
   - id: kai-no-hi
     title: 貝の火
@@ -379,3 +388,76 @@ works:
         text: カン、カン、カンカエコ、カンコカンコカン
         location: ホモイが貝の火を受け取った翌朝
         source_url: https://www.aozora.gr.jp/cards/000081/files/1942_42611.html
+
+  - id: polano-no-hiroba
+    title: ポラーノの広場
+    edition:
+      aozora_id: 1935
+      url: https://www.aozora.gr.jp/cards/000081/card1935.html
+      bibliography: |-
+        「銀河鉄道の夜・風の又三郎・ポラーノの広場　ほか３編」講談社文庫、講談社
+        1971年7月1日初版発行、1979年8月15日第16刷
+    quotes:
+      - id: polano-ihatovo
+        kind: passage
+        location: 序・「あのイーハトーヴォの」から2段落
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1935_19925.html
+        text: |-
+          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+          またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
+
+  - id: ame-ni-mo-makezu
+    title: 〔雨ニモマケズ〕
+    edition:
+      aozora_id: 45630
+      url: https://www.aozora.gr.jp/cards/000081/card45630.html
+      bibliography: |-
+        「【新】校本宮澤賢治全集　第十三巻（上）覚書・手帳　本文篇」筑摩書房
+        1997年7月30日初版第1刷発行
+        改行等の体裁：「【新】校本宮澤賢治全集　第六巻」筑摩書房、1996年5月30日初版第1刷発行を参照
+    quotes:
+      - id: ame-ni-mo-makezu
+        kind: poem
+        location: 全文（末尾の題目を含む）
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45630_23908.html
+        content_warnings:
+          - 人を蔑む呼称「デクノボー」が含まれます。
+        text: |2-
+          雨ニモマケズ
+          風ニモマケズ
+          雪ニモ夏ノ暑サニモマケヌ
+          丈夫ナカラダヲモチ
+          慾ハナク
+          決シテ瞋ラズ
+          イツモシヅカニワラッテヰル
+          一日ニ玄米四合ト
+          味噌ト少シノ野菜ヲタベ
+          アラユルコトヲ
+          ジブンヲカンジョウニ入レズニ
+          ヨクミキキシワカリ
+          ソシテワスレズ
+          野原ノ松ノ林ノ䕃ノ
+          小サナ萓ブキノ小屋ニヰテ
+          東ニ病気ノコドモアレバ
+          行ッテ看病シテヤリ
+          西ニツカレタ母アレバ
+          行ッテソノ稲ノ朿ヲ負ヒ
+          南ニ死ニサウナ人アレバ
+          行ッテコハガラナクテモイヽトイヒ
+          北ニケンクヮヤソショウガアレバ
+          ツマラナイカラヤメロトイヒ
+          ヒドリノトキハナミダヲナガシ
+          サムサノナツハオロオロアルキ
+          ミンナニデクノボートヨバレ
+          ホメラレモセズ
+          クニモサレズ
+          サウイフモノニ
+          ワタシハナリタイ
+
+          南無無辺行菩薩
+          南無上行菩薩
+          南無多宝如来
+          南無妙法蓮華経
+          南無釈迦牟尼仏
+          南無浄行菩薩
+          南無安立行菩薩
