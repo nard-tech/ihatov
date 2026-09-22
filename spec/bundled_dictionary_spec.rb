@@ -3,7 +3,7 @@
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込む場合 when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(45)
+      expect(Ihatov::Quote.all.size).to eq(47)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
@@ -51,6 +51,23 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
       expect(originals.size).to be > 1
       expect(poem.with_indent('  ')).to eq(originals.find { |item| item.id == poem.id })
       expect(originals.map(&:id)).to include(Ihatov.poem(indent: "\t").id)
+    end
+  end
+
+  context '岩手山の詩を取得する場合 when selecting the Iwatesan poem' do
+    let(:poem) { Ihatov::Kenji::Quote::Poem.where(work: '春と修羅').find { |item| item.id == 'iwatesan-poem' } }
+
+    it '四行の全文とルビを保持すること preserves all four lines and ruby readings' do
+      expect(poem.lines(chomp: true)).to eq([
+        'そらの散乱反射（さんらんはんしや）のなかに',
+        '古ぼけて黒くゑぐるもの',
+        'ひかりの微塵系列（みぢんけいれつ）の底に',
+        'きたなくしろく澱（よど）むもの'
+      ])
+      expect(poem).not_to end_with("\n")
+      expect(poem).to have_attributes(location: '岩手山・全文', content_warnings: [])
+      expect(poem.work.edition.aozora_id).to eq(1058)
+      expect(poem.source_url).to eq('https://www.aozora.gr.jp/cards/000081/files/1058_15403.html')
     end
   end
 
@@ -228,6 +245,20 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
       expect(passage).to end_with('実在（じつざい）したドリームランドとしての日本岩手県である。')
       expect(passage).not_to include('<strong', '［＃')
       expect(passage.source_url).to eq('https://www.aozora.gr.jp/cards/000081/files/43734_17913.html')
+    end
+  end
+
+  context '農民芸術概論綱要の序論を取得する場合 when selecting the introduction to Peasant Art' do
+    let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: '農民芸術概論綱要').first }
+
+    it '指定の十行と旧仮名と行中の空白を保持すること preserves ten lines, historical spelling, and internal spaces' do
+      expect(passage).to have_attributes(id: 'nomin-geijutsu-introduction', content_warnings: [])
+      expect(passage.lines.size).to eq(10)
+      expect(passage).to start_with("おれたちはみな農民である　ずゐぶん忙がしく仕事もつらい\n")
+      expect(passage).to include('世界がぜんたい幸福にならないうちは個人の幸福はあり得ない')
+      expect(passage).to end_with('われらは世界のまことの幸福を索ねよう　求道すでに道である')
+      expect(passage.work.edition.aozora_id).to eq(2386)
+      expect(passage.source_url).to eq('https://www.aozora.gr.jp/cards/000081/files/2386_13825.html')
     end
   end
 
