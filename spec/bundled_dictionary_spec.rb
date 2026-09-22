@@ -58,12 +58,14 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     let(:poem) { Ihatov::Kenji::Quote::Poem.where(work: '春と修羅').find { |item| item.id == 'iwatesan-poem' } }
 
     it '四行の全文とルビを保持すること preserves all four lines and ruby readings' do
-      expect(poem.lines(chomp: true)).to eq([
-        'そらの散乱反射（さんらんはんしや）のなかに',
-        '古ぼけて黒くゑぐるもの',
-        'ひかりの微塵系列（みぢんけいれつ）の底に',
-        'きたなくしろく澱（よど）むもの'
-      ])
+      expect(poem.lines(chomp: true)).to eq(
+        [
+          'そらの散乱反射（さんらんはんしや）のなかに',
+          '古ぼけて黒くゑぐるもの',
+          'ひかりの微塵系列（みぢんけいれつ）の底に',
+          'きたなくしろく澱（よど）むもの'
+        ]
+      )
       expect(poem).not_to end_with("\n")
       expect(poem).to have_attributes(location: '岩手山・全文', content_warnings: [])
       expect(poem.work.edition.aozora_id).to eq(1058)
