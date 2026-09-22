@@ -3,7 +3,7 @@
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込む場合 when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(41)
+      expect(Ihatov::Quote.all.size).to eq(43)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
@@ -156,6 +156,41 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     it '注意情報による除外に対応すること supports content warning exclusion' do
       expect(poem.content_warnings).to eq(['人を蔑む呼称「デクノボー」が含まれます。'])
       expect(Ihatov::Kenji::Quote::Poem.where(work: poem.work, exclude_content_warnings: true)).to eq([])
+    end
+  end
+
+  context 'よだかの星の冒頭を取得する場合 when selecting the Nighthawk Star opening' do
+    let(:opening) { Ihatov::Kenji::Quote::Passage.where(work: 'よだかの星').first }
+
+    it '指定の五段落と出典を保持すること preserves the selected five paragraphs and source' do
+      expect(opening).to have_attributes(id: 'yodaka-no-hoshi-opening', location: '冒頭5段落')
+      expect(opening.lines.size).to eq(5)
+      expect(opening).to start_with("よだかは、実にみにくい鳥です。\n")
+      expect(opening).to include('味噌（みそ）', '一間（いっけん）', '工合（ぐあい）', 'そっ方（ぽ）')
+      expect(opening).to end_with('いつでもよだかのまっこうから悪口をしました。')
+      expect(opening.work.edition.aozora_id).to eq(473)
+      expect(opening.content_warnings).to eq(['容姿を理由にした侮蔑や排斥、いじめの描写があります。'])
+      expect(Ihatov::Kenji::Quote::Passage.where(work: opening.work, exclude_content_warnings: true)).to eq([])
+    end
+  end
+
+  context 'ほんとうのさいわいの対話を取得する場合 when selecting the true happiness dialogue' do
+    let(:passages) { Ihatov::Kenji::Quote::Passage.where(work: '銀河鉄道の夜') }
+    let(:dialogue) { passages.find { |item| item.id == 'ginga-hontou-no-saiwai' } }
+
+    it '採用版の表記と章へのリンクを保持すること preserves the adopted edition and chapter link' do
+      expect(dialogue.lines.size).to eq(6)
+      expect(dialogue).to start_with('「カムパネルラ、また僕（ぼく）たち二人（ふたり）きりになったねえ、')
+      expect(dialogue).to include("「けれどもほんとうのさいわいはいったいなんだろう」\nジョバンニが言（い）いました。")
+      expect(dialogue).to end_with('ふうと息（いき）をしながら言（い）いました。')
+      expect(dialogue.work.edition.aozora_id).to eq(43_737)
+      expect(dialogue.source_url).to eq('https://www.aozora.gr.jp/cards/000081/files/43737_19215.html#midashi90')
+    end
+
+    it '注意情報を除外しても冒頭は取得できること retains the opening when warnings are excluded' do
+      expect(dialogue.content_warnings).not_to be_empty
+      expect(Ihatov::Kenji::Quote::Passage.where(work: dialogue.work, exclude_content_warnings: true).map(&:id))
+        .to eq(['ginga-tetsudo-no-yoru-opening'])
     end
   end
 
