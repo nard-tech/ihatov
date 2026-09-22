@@ -132,13 +132,62 @@ quote.content_warnings # 説明文の配列。注意がなければ []
 宮沢賢治『[貝の火](https://www.aozora.gr.jp/cards/000081/files/1942_42611.html)』より。
 
 ```sh
+bundle install
 bundle exec rspec
 bundle exec rubocop
 bundle exec yard doc --fail-on-warning
 gem build ihatov.gemspec
 ```
 
+### Dockerで開発する
+
+Docker EngineとComposeプラグイン、またはDocker Desktopを用意してください。ホストへのRubyのインストールは不要です。リポジトリのルートで以下を実行します。
+
+```sh
+# Linux/macOSではホストとファイルの所有者を合わせる
+export LOCAL_UID=$(id -u)
+export LOCAL_GID=$(id -g)
+
+# Ruby 3.4と開発用gemを含むイメージを作成
+docker compose build dev
+
+# 全テスト／指定ファイルのテスト
+docker compose run --rm dev bundle exec rspec
+docker compose run --rm dev bundle exec rspec spec/ihatov_spec.rb
+
+# RuboCopによる検査
+docker compose run --rm dev bundle exec rubocop
+
+# YARDドキュメントの生成（doc/に出力）
+docker compose run --rm dev bundle exec yard doc --fail-on-warning
+
+# gemのビルド（リポジトリ直下に.gemを出力）
+docker compose run --rm dev gem build ihatov.gemspec
+
+# Ihatovを読み込んだ対話環境／シェル
+docker compose run --rm dev bundle exec irb -Ilib -rihatov
+docker compose run --rm dev bash
+```
+
+引数なしの `docker compose run --rm dev` でもRSpecを実行します。ソースコードはホストからマウントするため、コードや辞書の編集に再ビルドは不要です。生成されたドキュメント・gem・`Gemfile.lock`もホスト側に残ります。`--rm`はコマンド終了後のコンテナを削除します。
+
+開発用gemはイメージ内にインストールします。`Gemfile`・`Gemfile.lock`・gemspecの依存関係を変更した場合は、`docker compose build dev`で再ビルドしてください。ホストの`.bundle`設定は使用しません。
+
+Ruby 4.0を使う場合は、バージョンを指定して再ビルドします。
+
+```sh
+export IHATOV_RUBY_VERSION=4.0
+docker compose build --pull dev
+docker compose run --rm dev ruby --version
+docker compose run --rm dev bundle exec rspec
+```
+
+3.4へ戻す場合は `IHATOV_RUBY_VERSION=3.4` にして再ビルドします。イメージは選択したバージョンで置き換わります。Docker設定は開発専用で、配布gemのファイルや実行時依存には含めません。
+
+### 開発方針
+
 RSpecから変更を始め、PRで提案してください。CIはRuby 3.4・4.0でRSpecとgemのビルド・インストール後の利用を確認し、RuboCopとYARDも実行します。新しい安定版Rubyが出たらマトリクスを更新します。
+Docker環境についても同じ2バージョンでビルドとRSpec・RuboCop・YARD・gemのビルドを確認します。
 
 テストの説明は `it '〜こと English description' do` の形式で、日本語→英語の順に記述します。条件は `context`、共通データや取得対象は `let`、条件ごとの準備は `before` で整理します。異なる不正入力を一つの例で順番に検証せず、条件ごとに分けます。乱数など操作順が検証の中心となる処理は、テスト本文に順序を明示します。
 
