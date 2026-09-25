@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 RSpec.describe '同梱辞書 Bundled dictionary' do
+  context '遠野物語に関連する地名を取得するとき when requesting Tono-related places' do
+    it 'デンデラ野を含む二十四の追加地名を返すこと returns twenty-four additional places including Denderano' do
+      names = %w[デンデラ野 ダンノハナ 蓮台野 土淵 山口 附馬牛 綾織 青笹 上郷 小友 宮守 達曾部
+                 笛吹峠 境木峠 橋野 小国 山田 釜石 船越 吉利吉里 田ノ浜 石神山 続石 向山]
+      places = Ihatov::Tono::Place.all
+      expect(places.map(&:to_s)).to include(*names)
+      expect(places.size).to eq(30)
+      expect(Ihatov::Tono::Place.find('デンデラ野').source_url).to include('tonojikan.jp')
+    end
+  end
+
   context '地名二十五項目案を取得するとき when requesting the twenty-five place candidates' do
     it '候補の地名と実在性を保持すること preserves the places and their reality status' do
       names = %w[イーハトーヴ モリーオ センダード カルボナード火山島 山猫軒 狼森 笊森 盗森 なめとこ山
@@ -60,7 +71,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込むとき when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
       expect(Ihatov::Quote.all.size).to eq(78)
-      expect(Ihatov::Place.all.size).to eq(26)
+      expect(Ihatov::Place.all.size).to eq(50)
       expect(Ihatov::Being.all.size).to eq(18)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
       expect(Ihatov::Tono.work.edition.aozora_id).to eq(52_504)
