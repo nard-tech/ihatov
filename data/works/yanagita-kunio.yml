@@ -98,6 +98,11 @@ works:
         location: 第2話
         source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
     beings:
+      - id: sasaki-kizen
+        kind: person
+        name: 佐々木喜善
+        location: 序・佐々木鏡石（喜善の筆名）
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
       - id: konsesama
         kind: creature
         name: コンセサマ

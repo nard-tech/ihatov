@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 RSpec.describe '同梱辞書 Bundled dictionary' do
+  context '遠野物語の話者を取得するとき when requesting the Tono storyteller' do
+    it '喜善を実在人物として序の筆名に結び付けること links Kizen to his pen name in the preface' do
+      expect(Ihatov::Tono::Person.find('佐々木喜善').location).to include('佐々木鏡石')
+    end
+  end
+
   context '遠野の神々を取得するとき when requesting Tono deities' do
     it '指定された二柱を出典付きで返すこと returns both requested deities with sources' do
       expect(Ihatov::Tono::Creature.find('コンセサマ').location).to eq('第16話')
@@ -44,7 +50,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
       expect(Ihatov::Quote.all.size).to eq(78)
       expect(Ihatov::Place.all.size).to eq(7)
-      expect(Ihatov::Being.all.size).to eq(17)
+      expect(Ihatov::Being.all.size).to eq(18)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
       expect(Ihatov::Tono.work.edition.aozora_id).to eq(52_504)
       expect(Ihatov::Kenji::Work.find('銀河鉄道の夜').author.name).to eq('宮沢 賢治')
