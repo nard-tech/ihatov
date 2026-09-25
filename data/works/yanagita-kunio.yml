@@ -98,6 +98,16 @@ works:
         location: 第2話
         source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
     beings:
+      - id: konsesama
+        kind: creature
+        name: コンセサマ
+        location: 第16話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: gongesama
+        kind: creature
+        name: ゴンゲサマ
+        location: 第110話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
       - id: oshirasama
         kind: creature
         name: オシラサマ

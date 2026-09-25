@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 RSpec.describe '同梱辞書 Bundled dictionary' do
+  context '遠野の神々を取得するとき when requesting Tono deities' do
+    it '指定された二柱を出典付きで返すこと returns both requested deities with sources' do
+      expect(Ihatov::Tono::Creature.find('コンセサマ').location).to eq('第16話')
+      expect(Ihatov::Tono::Creature.find('ゴンゲサマ').location).to eq('第110話')
+    end
+  end
+
   context '啄木の短歌案を取得するとき when requesting the Takuboku tanka candidates' do
     let(:tanka) { Ihatov::Takuboku::Quote::Tanka.all }
 
@@ -37,7 +44,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
       expect(Ihatov::Quote.all.size).to eq(78)
       expect(Ihatov::Place.all.size).to eq(7)
-      expect(Ihatov::Being.all.size).to eq(15)
+      expect(Ihatov::Being.all.size).to eq(17)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
       expect(Ihatov::Tono.work.edition.aozora_id).to eq(52_504)
       expect(Ihatov::Kenji::Work.find('銀河鉄道の夜').author.name).to eq('宮沢 賢治')
