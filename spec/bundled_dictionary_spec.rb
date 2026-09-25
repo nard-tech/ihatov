@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 RSpec.describe '同梱辞書 Bundled dictionary' do
+  context '地名二十五項目案を取得するとき when requesting the twenty-five place candidates' do
+    it '候補の地名と実在性を保持すること preserves the places and their reality status' do
+      names = %w[イーハトーヴ モリーオ センダード カルボナード火山島 山猫軒 狼森 笊森 盗森 なめとこ山
+                 種山ヶ原 イギリス海岸 小岩井農場 釜淵の滝 岩手山 姫神山 渋民 好摩 不来方城 北上川
+                 宝徳寺 早池峯 六角牛山 猿ヶ石川 仙人峠 マヨイガ]
+      expect(Ihatov::Place.all.map(&:to_s)).to include(*names)
+      expect(Ihatov::Place.find('モリーオ').real).to be(false)
+      expect(Ihatov::Place.find('種山ヶ原').real).to be(true)
+    end
+  end
+
   context '遠野物語の話者を取得するとき when requesting the Tono storyteller' do
     it '喜善を実在人物として序の筆名に結び付けること links Kizen to his pen name in the preface' do
       expect(Ihatov::Tono::Person.find('佐々木喜善').location).to include('佐々木鏡石')
@@ -31,7 +42,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
 
     it '不足していた七篇を含むこと includes the seven missing poems' do
       expect(poems.map(&:id)).to include('kurakake-no-yuki', 'koi-to-byonetsu', 'koiwai-nojo',
-                                        'matsu-no-hari', 'musei-dokoku', 'aomori-banka', 'okhotsk-banka')
+                                         'matsu-no-hari', 'musei-dokoku', 'aomori-banka', 'okhotsk-banka')
       expect(poems.find { |item| item.id == 'matsu-no-hari' }.to_s).to start_with('    さつきのみぞれ')
     end
   end
@@ -49,7 +60,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込むとき when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
       expect(Ihatov::Quote.all.size).to eq(78)
-      expect(Ihatov::Place.all.size).to eq(7)
+      expect(Ihatov::Place.all.size).to eq(26)
       expect(Ihatov::Being.all.size).to eq(18)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
       expect(Ihatov::Tono.work.edition.aozora_id).to eq(52_504)

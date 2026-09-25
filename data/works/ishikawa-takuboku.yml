@@ -202,6 +202,26 @@ works:
         real: true
         location: 煙・一「不来方のお城の草に寝ころびて」
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+      - id: shibutami
+        name: 渋民
+        real: true
+        location: 「かにかくに渋民村は恋しかり」
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+      - id: koma
+        name: 好摩
+        real: true
+        location: 「霧ふかき好摩の原の」
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+      - id: kitakami-gawa
+        name: 北上川
+        real: true
+        location: 「北上の岸辺目に見ゆ」
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+      - id: hotokuji
+        name: 宝徳寺
+        real: true
+        location: 作者ゆかり・渋民で幼少時代を過ごした寺
+        source_url: https://www.city.morioka.iwate.jp/kankou/kankou/1037106/1009526/1009629/1009635.html
 
   - id: kanashiki-gangu
     title: 悲しき玩具

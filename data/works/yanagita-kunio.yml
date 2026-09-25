@@ -97,6 +97,16 @@ works:
         real: true
         location: 第2話
         source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: rokko-ushi-yama
+        name: 六角牛山
+        real: true
+        location: 第2話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: mayoiga
+        name: マヨイガ
+        real: false
+        location: 第63話・山中の不思議な家の呼称
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
     beings:
       - id: sasaki-kizen
         kind: person
