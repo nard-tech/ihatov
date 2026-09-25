@@ -337,8 +337,8 @@ author.name        # => "宮沢 賢治"
 | 作者の `id` / `family_name` / `given_name` | 作者定義に記載 |
 | 各定義の `id` と `title` / `name` / `text` | 対象に応じて記載。`ref` は定義元を利用 |
 | `quotes` / `beings` の `kind` | 定義に記載。`ref` は定義元を利用 |
-| `edition.aozora_id` | 必須 |
-| `edition.url` | **必須**。図書カードのURLを記録 |
+| `edition.aozora_id` | 青空文庫では正の整数。その他の確認済み出典では省略し `nil` |
+| `edition.url` | **必須**。図書カードまたは採用した掲載元のURLを記録 |
 | `edition.bibliography` | 必須。底本情報の文字列 |
 | 各項目・参照の `location` | 任意。省略時は `nil` |
 | 各項目・参照の `source_url` | 任意。省略時の公開値は、その出典の作品の `edition.url` |
