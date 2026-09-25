@@ -3,7 +3,7 @@
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込むとき when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(47)
+      expect(Ihatov::Quote.all.size).to eq(48)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
@@ -302,6 +302,26 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     it '本文を捏造せず未収録として扱うこと reports missing data without fabricated content' do
       expect(Ihatov::Quote::Haiku.all).to eq([])
       expect { Ihatov.haiku }.to raise_error(Ihatov::NotFoundError)
+    end
+  end
+
+  context '永訣の朝を取得するとき when selecting Eiketsu no Asa' do
+    let(:poem) { Ihatov::Kenji::Quote::Poem.all.find { |item| item.id == 'eiketsu-no-asa' } }
+
+    it '指定の七行と二つの括弧行の字下げを保持すること preserves the seven lines and indented refrains' do
+      expect(poem.lines(chomp: true)).to eq(
+        [
+          'けふのうちに',
+          'とほくへいつてしまふわたくしのいもうとよ',
+          'みぞれがふつておもてはへんにあかるいのだ',
+          '      （あめゆじゆとてちてけんじや）',
+          'うすあかくいつそう陰惨（いんざん）な雲から',
+          'みぞれはびちよびちよふつてくる',
+          '      （あめゆじゆとてちてけんじや）'
+        ]
+      )
+      expect(poem.with_indent("\t").lines[3]).to start_with("\t\t\t（")
+      expect(poem.source_url).to end_with('#midashi1178')
     end
   end
 end

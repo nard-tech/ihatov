@@ -246,6 +246,18 @@ works:
           古ぼけて黒くゑぐるもの
           ひかりの微塵系列（みぢんけいれつ）の底に
           きたなくしろく澱（よど）むもの
+      - id: eiketsu-no-asa
+        kind: poem
+        location: 永訣の朝・冒頭7行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi1178
+        text: |2-
+          けふのうちに
+          とほくへいつてしまふわたくしのいもうとよ
+          みぞれがふつておもてはへんにあかるいのだ
+                （あめゆじゆとてちてけんじや）
+          うすあかくいつそう陰惨（いんざん）な雲から
+          みぞれはびちよびちよふつてくる
+                （あめゆじゆとてちてけんじや）
     places:
       - ref: ihatov
         location: イーハトヴの氷霧
