@@ -392,6 +392,21 @@ works:
       - ref: ihatov
         location: イーハトヴの氷霧
         source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+      - id: koiwai-nojo
+        name: 小岩井農場
+        real: true
+        location: 「小岩井農場」
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi620
+      - id: iwatesan
+        name: 岩手山
+        real: true
+        location: 「岩手山」
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+      - id: himekami-yama
+        name: 姫神山
+        real: true
+        location: 岩手山と相対する盛岡の山岳景観（候補案のゆかり）
+        source_url: https://iwatetabi.jp/spots/5677/
 
   - id: chumon-no-oi-ryoriten-preface
     title: 『注文の多い料理店』序
@@ -611,6 +626,17 @@ works:
         text: |-
           あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
           またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
+    places:
+      - id: morio
+        name: モリーオ
+        real: false
+        location: 序・モリーオ市
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1935_19925.html
+      - id: sendado
+        name: センダード
+        real: false
+        location: 終盤・センダードの市
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1935_19925.html
 
   - id: ame-ni-mo-makezu
     title: 〔雨ニモマケズ〕
@@ -746,3 +772,105 @@ works:
           五つのばした　　ところ。
           小熊のひたいの　うへは
           そらのめぐりの　めあて。
+
+  - id: chumon-no-oi-ryoriten
+    title: 注文の多い料理店
+    announced_year: 1924
+    edition:
+      aozora_id: 1927
+      url: https://www.aozora.gr.jp/cards/000081/card1927.html
+      bibliography: |-
+        「宮沢賢治全集8」ちくま文庫、筑摩書房
+        1986年1月28日第1刷発行、2004年4月25日第20刷
+        初出：「イーハトヴ童話 注文の多い料理店」盛岡市杜陵出版部・東京光原社、1924年12月1日
+    places:
+      - id: yamaneko-ken
+        name: 山猫軒
+        real: false
+        location: 作中の西洋料理店
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1927_17906.html
+  - id: okami-mori-to-zaru-mori-nusuto-mori
+    title: 狼森と笊森、盗森
+    announced_year: 1924
+    edition:
+      aozora_id: 1926
+      url: https://www.aozora.gr.jp/cards/000081/card1926.html
+      bibliography: |-
+        「宮沢賢治全集8」ちくま文庫、筑摩書房
+        1986年1月28日第1刷発行、2004年4月25日第20刷
+        初出：「イーハトヴ童話 注文の多い料理店」盛岡市杜陵出版部・東京光原社、1924年12月1日
+    places:
+      - id: okami-mori
+        name: 狼森
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1926_17904.html
+      - id: zaru-mori
+        name: 笊森
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1926_17904.html
+      - id: nusuto-mori
+        name: 盗森
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1926_17904.html
+  - id: nametoko-yama-no-kuma
+    title: なめとこ山の熊
+    edition:
+      aozora_id: 1939
+      url: https://www.aozora.gr.jp/cards/000081/card1939.html
+      bibliography: |-
+        「風の又三郎」角川文庫、角川書店
+        1988年12月10日初版発行、1990年10月20日8版発行
+    places:
+      - id: nametoko-yama
+        name: なめとこ山
+        real: false
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1939_18755.html
+  - id: taneyama-gahara
+    title: 種山ヶ原
+    edition:
+      aozora_id: 50767
+      url: https://www.aozora.gr.jp/cards/000081/card50767.html
+      bibliography: |-
+        「イーハトーボ農学校の春」角川文庫、角川書店
+        1996年3月25日初版発行
+        底本の親本：「【新】校本宮澤賢治全集 第八巻 童話 本文篇」筑摩書房、1995年5月25日初版第1刷発行
+    places:
+      - id: taneyama-gahara
+        name: 種山ヶ原
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/50767_40546.html
+  - id: igirisu-kaigan
+    title: イギリス海岸
+    edition:
+      aozora_id: 50766
+      url: https://www.aozora.gr.jp/cards/000081/card50766.html
+      bibliography: |-
+        「イーハトーボ農学校の春」角川文庫、角川書店
+        1996年3月25日初版発行
+        底本の親本：「【新】校本宮澤賢治全集 第十巻 童話 本文篇」筑摩書房、1995年9月25日初版第1刷発行
+    places:
+      - id: igirisu-kaigan
+        name: イギリス海岸
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/50766_40548.html
+  - id: daigawa
+    title: 台川
+    edition:
+      aozora_id: 50764
+      url: https://www.aozora.gr.jp/cards/000081/card50764.html
+      bibliography: |-
+        「イーハトーボ農学校の春」角川文庫、角川書店
+        1996年3月25日初版発行
+        底本の親本：「【新】校本宮澤賢治全集 第十巻 童話 本文篇」筑摩書房、1995年9月25日初版第1刷発行
+    places:
+      - id: kamabuchi-no-taki
+        name: 釜淵の滝
+        real: true
+        location: 釜淵へ向かう場面
+        source_url: https://www.aozora.gr.jp/cards/000081/files/50764_40544.html
