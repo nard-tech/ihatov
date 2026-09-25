@@ -1,9 +1,19 @@
 # frozen_string_literal: true
 
 RSpec.describe '同梱辞書 Bundled dictionary' do
+  context '遠野物語の散文案を取得するとき when requesting the Tono passage candidates' do
+    let(:passages) { Ihatov::Tono::Quote::Passage.all }
+
+    it '候補の全十話を含むこと includes all ten candidate episodes' do
+      [2, 17, 46, 51, 54, 59, 63, 69, 103, 106].each do |number|
+        expect(passages.any? { |item| item.location.match?(/第#{number}話/) }).to be(true)
+      end
+    end
+  end
+
   context '同梱辞書を読み込むとき when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(52)
+      expect(Ihatov::Quote.all.size).to eq(61)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
