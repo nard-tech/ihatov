@@ -107,6 +107,126 @@ works:
         real: false
         location: 第63話・山中の不思議な家の呼称
         source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: denderano
+        name: デンデラ野
+        real: true
+        location: 第111話の蓮台野と考えられる地
+        source_url: https://tonojikan.jp/feature/tonomonogatari-day/
+      - id: danno-hana
+        name: ダンノハナ
+        real: true
+        location: 第111・112話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: rendaino
+        name: 蓮台野
+        real: true
+        location: 第111・112話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: tsuchibuchi
+        name: 土淵
+        real: true
+        location: 第1話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: yamaguchi
+        name: 山口
+        real: true
+        location: 第1話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: tsukumoushi
+        name: 附馬牛
+        real: true
+        location: 第1話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: ayori
+        name: 綾織
+        real: true
+        location: 第1話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: aozasa
+        name: 青笹
+        real: true
+        location: 第1話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: kamigo
+        name: 上郷
+        real: true
+        location: 第1話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: otomo
+        name: 小友
+        real: true
+        location: 第1話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: miyamori
+        name: 宮守
+        real: true
+        location: 第1話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: tatsusobe
+        name: 達曾部
+        real: true
+        location: 第1話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: fuefuki-toge
+        name: 笛吹峠
+        real: true
+        location: 第5話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: sakaige-toge
+        name: 境木峠
+        real: true
+        location: 第5話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: hashino
+        name: 橋野
+        real: true
+        location: 第44話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: oguni
+        name: 小国
+        real: true
+        location: 第63話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: yamada
+        name: 山田
+        real: true
+        location: 第84・106話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: kamaishi
+        name: 釜石
+        real: true
+        location: 第84話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: funakoshi
+        name: 船越
+        real: true
+        location: 第84話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: kirikiri
+        name: 吉利吉里
+        real: true
+        location: 第5話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: tanohama
+        name: 田ノ浜
+        real: true
+        location: 第5話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: ishigami-yama
+        name: 石神山
+        real: true
+        location: 第2話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: tsuzukiishi
+        name: 続石
+        real: true
+        location: 第91話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
+      - id: mukeyama
+        name: 向山
+        real: true
+        location: 第91話
+        source_url: https://www.aozora.gr.jp/cards/001566/files/52504_49667.html
     beings:
       - id: sasaki-kizen
         kind: person
