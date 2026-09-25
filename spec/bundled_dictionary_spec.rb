@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 
 RSpec.describe '同梱辞書 Bundled dictionary' do
+  context '賢治の追加詩を取得するとき when requesting the additional Kenji poems' do
+    let(:poems) { Ihatov::Kenji::Quote::Poem.all }
+
+    it '不足していた七篇を含むこと includes the seven missing poems' do
+      expect(poems.map(&:id)).to include('kurakake-no-yuki', 'koi-to-byonetsu', 'koiwai-nojo',
+                                        'matsu-no-hari', 'musei-dokoku', 'aomori-banka', 'okhotsk-banka')
+      expect(poems.find { |item| item.id == 'matsu-no-hari' }.to_s).to start_with('    さつきのみぞれ')
+    end
+  end
+
   context '遠野物語の散文案を取得するとき when requesting the Tono passage candidates' do
     let(:passages) { Ihatov::Tono::Quote::Passage.all }
 
@@ -13,7 +23,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
 
   context '同梱辞書を読み込むとき when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(61)
+      expect(Ihatov::Quote.all.size).to eq(68)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
