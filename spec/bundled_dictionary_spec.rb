@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 RSpec.describe '同梱辞書 Bundled dictionary' do
+  context '啄木の短歌案を取得するとき when requesting the Takuboku tanka candidates' do
+    let(:tanka) { Ihatov::Takuboku::Quote::Tanka.all }
+
+    it '不足していた十首を三行で収録すること includes the ten missing complete three-line tanka' do
+      ids = %w[kanikakuni-shibutami ishi-wo-mote yawarakani-yanagi kokoroyoku-shigoto ameuri-charumera
+               asobini-dete hon-wo-kaitashi natsukashiki-fuyu tochu-nite nanto-naku-kotoshi]
+      expect(tanka.map(&:id)).to include(*ids)
+      expect(tanka.select { |item| ids.include?(item.id) }.map { |item| item.lines.size }).to eq([3] * 10)
+      expect(tanka.count { |item| item.work.title == '悲しき玩具' }).to eq(5)
+    end
+  end
+
   context '賢治の追加詩を取得するとき when requesting the additional Kenji poems' do
     let(:poems) { Ihatov::Kenji::Quote::Poem.all }
 
@@ -23,7 +35,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
 
   context '同梱辞書を読み込むとき when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(68)
+      expect(Ihatov::Quote.all.size).to eq(78)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
@@ -108,8 +120,8 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     let(:filtered) { Ihatov::Takuboku::Quote::Tanka.where(exclude_content_warnings: true) }
 
     it '注意のある項目だけを除外すること excludes only warned entries' do
-      expect(all_tanka.size).to eq(18)
-      expect(filtered.size).to eq(17)
+      expect(all_tanka.size).to eq(28)
+      expect(filtered.size).to eq(27)
       expect(filtered).to all(have_attributes(content_warnings: []))
       expect(Ihatov::Quote.all).to all(satisfy { |text| !text.end_with?("\n") })
     end
