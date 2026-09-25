@@ -3,7 +3,7 @@
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込むとき when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(48)
+      expect(Ihatov::Quote.all.size).to eq(49)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
@@ -322,6 +322,19 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
       )
       expect(poem.with_indent("\t").lines[3]).to start_with("\t\t\t（")
       expect(poem.source_url).to end_with('#midashi1178')
+    end
+  end
+
+  context '星めぐりの歌を取得するとき when selecting Hoshimeguri no Uta' do
+    let(:poem) { Ihatov::Kenji::Quote::Poem.where(work: '星めぐりの歌').first }
+
+    it '全歌詞と連間の空行と行中の空白を保持すること preserves all lyrics, stanza breaks, and internal spaces' do
+      expect(poem.split("\n\n").map { |stanza| stanza.lines.size }).to eq([4, 4, 4])
+      expect(poem).to start_with("あかいめだまの　さそり\nひろげた鷲の　　つばさ\n")
+      expect(poem).to include('五つのばした　　ところ。')
+      expect(poem).to end_with('そらのめぐりの　めあて。')
+      expect(poem).not_to end_with("\n")
+      expect(poem.work.edition.aozora_id).to eq(46_268)
     end
   end
 end

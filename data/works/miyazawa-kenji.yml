@@ -587,3 +587,32 @@ works:
           新たな時代は世界が一の意識になり生物となる方向にある
           正しく強く生きるとは銀河系を自らの中に意識してこれに応じて行くことである
           われらは世界のまことの幸福を索ねよう　求道すでに道である
+
+  - id: hoshimeguri-no-uta
+    title: 星めぐりの歌
+    edition:
+      aozora_id: 46268
+      url: https://www.aozora.gr.jp/cards/000081/card46268.html
+      bibliography: |-
+        「【新】校本宮澤賢治全集　第六巻　詩Ⅴ　本文篇」筑摩書房
+        1996年5月30日初版第1刷発行
+    quotes:
+      - id: hoshimeguri-no-uta-complete
+        kind: poem
+        location: 全文・3連12行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46268_23911.html
+        text: |2-
+          あかいめだまの　さそり
+          ひろげた鷲の　　つばさ
+          あをいめだまの　小いぬ、
+          ひかりのへびの　とぐろ。
+
+          オリオンは高く　うたひ
+          つゆとしもとを　おとす、
+          アンドロメダの　くもは
+          さかなのくちの　かたち。
+
+          大ぐまのあしを　きたに
+          五つのばした　　ところ。
+          小熊のひたいの　うへは
+          そらのめぐりの　めあて。
