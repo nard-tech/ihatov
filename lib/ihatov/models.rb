@@ -30,14 +30,14 @@ module Ihatov
     end
   end
 
-  # 作品ごとに一つ選ぶ青空文庫の採用版。
-  # The single Aozora edition adopted for a work.
+  # 作品ごとに一つ選ぶ採用版・出典。
+  # The single edition or source adopted for a work.
   class Edition
-    # @return [Integer] 青空文庫の作品ID
-    #   Aozora work-card identifier
+    # @return [Integer, nil] 青空文庫の作品ID（青空文庫以外はnil）
+    #   Aozora work-card identifier, or nil for other sources
     attr_reader :aozora_id
-    # @return [String] 青空文庫の図書カードURL
-    #   Aozora work-card URL
+    # @return [String] 採用版のURL
+    #   adopted source URL
     attr_reader :url
     # @return [String] 底本情報の転記
     #   transcribed source-volume information

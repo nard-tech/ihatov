@@ -40,7 +40,22 @@ RSpec.describe '辞書の検証 Dictionary validation' do
     end
   end
 
+  context '青空文庫以外の出典のとき when the source is outside Aozora' do
+    before { kenji_works[0]['edition'].delete('aozora_id') }
+
+    it '作品IDを捏造せず読み込むこと loads without fabricating an Aozora ID' do
+      expect(repository.items(:works).find { |work| work.id == kenji_works[0]['id'] }.edition.aozora_id).to be_nil
+    end
+  end
+
   describe '辞書フィールドの検証 dictionary field validation' do
+    context '青空文庫IDが不正のとき when the Aozora ID is invalid' do
+      before { kenji_works[0]['edition']['aozora_id'] = 0 }
+
+      it 'DataErrorを返すこと raises DataError' do
+        expect { repository }.to raise_error(Ihatov::DataError, /aozora_id/)
+      end
+    end
     context '文章形式が異なってもIDが重複するとき when quote IDs repeat across forms' do
       before { kenji_works[1]['quotes'][0]['id'] = 'poem' }
 

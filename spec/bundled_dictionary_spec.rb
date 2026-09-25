@@ -3,7 +3,7 @@
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '同梱辞書を読み込むとき when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
-      expect(Ihatov::Quote.all.size).to eq(49)
+      expect(Ihatov::Quote.all.size).to eq(52)
       expect(Ihatov::Place.all.size).to eq(7)
       expect(Ihatov::Being.all.size).to eq(15)
       expect(Ihatov::Onomatopoeia.all.size).to eq(9)
@@ -298,10 +298,21 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '未収録の俳句を取得するとき when requesting unregistered haiku' do
-    it '本文を捏造せず未収録として扱うこと reports missing data without fabricated content' do
-      expect(Ihatov::Quote::Haiku.all).to eq([])
-      expect { Ihatov.haiku }.to raise_error(Ihatov::NotFoundError)
+  context '浄土ヶ浜の短歌を取得するとき when selecting the Jodogahama tanka' do
+    let(:tanka) { Ihatov::Kenji::Quote::Tanka.all.find { |item| item.id == 'uruhashino-umi' } }
+
+    it '指定の歌と宮古市の出典を保持すること preserves the requested tanka and municipal source' do
+      expect(tanka.to_s).to eq("うるはしの\n海のビロード 昆布らは\n寂光のはまに 敷かれひかりぬ")
+      expect(tanka.source_url).to start_with('https://www.city.miyako.iwate.jp/')
+      expect(tanka.work.edition.aozora_id).to be_nil
+    end
+  end
+
+  context '賢治の俳句を取得するとき when requesting Kenji haiku' do
+    it '確認した二句と出典を返すこと returns two verified haiku and their source' do
+      expect(Ihatov::Kenji::Quote::Haiku.all.size).to eq(2)
+      expect(Ihatov::Kenji::Quote::Haiku.all.first.work.edition.aozora_id).to be_nil
+      expect(Ihatov::Kenji::Quote::Haiku.all.map(&:to_s)).to include('鳥屋根を歩く音して明けにけり')
     end
   end
 

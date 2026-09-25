@@ -70,8 +70,8 @@ module Ihatov
 
     def self.edition(row)
       keys = %w[aozora_id url bibliography]
-      mapping(row, allowed: keys, required: keys)
-      unless row['aozora_id'].is_a?(Integer) && row['aozora_id'].positive?
+      mapping(row, allowed: keys, required: %w[url bibliography])
+      unless row['aozora_id'].nil? || (row['aozora_id'].is_a?(Integer) && row['aozora_id'].positive?)
         raise DataError, 'aozora_id must be a positive integer'
       end
 

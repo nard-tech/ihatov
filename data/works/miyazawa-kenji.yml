@@ -1,5 +1,37 @@
 # 採用版・抜粋範囲・表記の編集記録は docs/dictionary.md を参照。
 works:
+  - id: uruhashino
+    title: 〔うるはしの〕
+    edition:
+      url: https://www.city.miyako.iwate.jp/gyosei/soshiki/kanko/7/1156.html
+      bibliography: 宮古市「啄木と賢治、岩手が生んだ二人の天才は宮古で何を思ったか」（2024年12月23日更新）掲載の短歌本文。題名は初句による編集上の仮題。
+    quotes:
+      - id: uruhashino-umi
+        kind: tanka
+        location: 宮沢賢治の項・浄土ヶ浜の歌
+        source_url: https://www.city.miyako.iwate.jp/gyosei/soshiki/kanko/7/1156.html
+        text: |-
+          うるはしの
+          海のビロード 昆布らは
+          寂光のはまに 敷かれひかりぬ
+
+  - id: kenji-haiku
+    title: 俳句（現代俳句協会掲載二句）
+    edition:
+      url: https://gendaihaiku.gr.jp/column/1750/
+      bibliography: 現代俳句協会「鳥屋根を歩く音して明けにけり 宮沢賢治」評者・堀之内長一（2012年8月11日）掲載本文。同記事の掲出典は石寒太『宮沢賢治の全俳句』（飯塚書店、2012年6月）。書籍そのものとの照合ではない。作品名は編集上の括り。
+    quotes:
+      - id: tori-yane
+        kind: haiku
+        location: 掲出句
+        source_url: https://gendaihaiku.gr.jp/column/1750/
+        text: 鳥屋根を歩く音して明けにけり
+      - id: same-no-mi
+        kind: haiku
+        location: 記事末尾の引用句
+        source_url: https://gendaihaiku.gr.jp/column/1750/
+        text: 鮫の黒肉（み）わびしく凍るひなかすぎ
+
   - id: yuki-watari
     title: 雪渡り
     announced_year: 1921
