@@ -156,9 +156,101 @@ works:
           ふるさとの山に向ひて
           言ふことなし
           ふるさとの山はありがたきかな
+      - id: kanikakuni-shibutami
+        kind: tanka
+        location: 初句：かにかくに渋民村（しぶたみむら）は恋しかり
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          かにかくに渋民村（しぶたみむら）は恋しかり
+          おもひでの山
+          おもひでの川
+      - id: ishi-wo-mote
+        kind: tanka
+        location: 初句：石をもて追はるるごとく
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          石をもて追はるるごとく
+          ふるさとを出（い）でしかなしみ
+          消ゆる時なし
+      - id: yawarakani-yanagi
+        kind: tanka
+        location: 初句：やはらかに柳あをめる
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          やはらかに柳あをめる
+          北上（きたかみ）の岸辺（きしべ）目に見ゆ
+          泣けとごとくに
+      - id: kokoroyoku-shigoto
+        kind: tanka
+        location: 初句：こころよく
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          こころよく
+          我にはたらく仕事あれ
+          それを仕遂（しと）げて死なむと思ふ
+      - id: ameuri-charumera
+        kind: tanka
+        location: 初句：飴売（あめうり）のチャルメラ聴（き）けば
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          飴売（あめうり）のチャルメラ聴（き）けば
+          うしなひし
+          をさなき心ひろへるごとし
     places:
       - id: kozukata-jo
         name: 不来方城
         real: true
         location: 煙・一「不来方のお城の草に寝ころびて」
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+
+  - id: kanashiki-gangu
+    title: 悲しき玩具
+    published_year: 1912
+    edition:
+      aozora_id: 815
+      url: https://www.aozora.gr.jp/cards/000153/card815.html
+      bibliography: |-
+        底本：「日本文学全集12　国木田独歩・石川啄木集」集英社
+        　　　1967（昭和42）年9月7日初版発行
+        　　　1972（昭和47）年9月10日9版発行
+    quotes:
+      - id: asobini-dete
+        kind: tanka
+        location: 初句：遊びに出（で）て子供かへらず、
+        source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
+        text: |-
+          遊びに出（で）て子供かへらず、
+          取り出して
+          走らせて見る玩具（おもちや）の機関車。
+      - id: hon-wo-kaitashi
+        kind: tanka
+        location: 初句：本を買ひたし、本を買ひたしと、
+        source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
+        text: |-
+          本を買ひたし、本を買ひたしと、
+          あてつけのつもりではなけれど、
+          妻に言ひてみる。
+      - id: natsukashiki-fuyu
+        kind: tanka
+        location: 初句：なつかしき冬の朝かな。
+        source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
+        text: |-
+          なつかしき冬の朝かな。
+          湯をのめば、
+          湯気（ゆげ）がやはらかに、顔にかかれり。
+      - id: tochu-nite
+        kind: tanka
+        location: 初句：途中にて乗換（のりかへ）の電車なくなりしに、
+        source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
+        text: |-
+          途中にて乗換（のりかへ）の電車なくなりしに、
+          泣かうかと思ひき。
+          雨も降りてゐき。
+      - id: nanto-naku-kotoshi
+        kind: tanka
+        location: 初句：何となく、
+        source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
+        text: |-
+          何となく、
+          今年はよい事あるごとし。
+          元日の朝、晴れて風無し。
