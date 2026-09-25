@@ -15,9 +15,9 @@ works:
         location: 我を愛する歌・冒頭
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
         text: |-
-          東海（とうかい）の小島（こじま）の磯（いそ）の白砂（しらすな）に
-          われ泣（な）きぬれて
-          蟹（かに）とたはむる
+          東海の小島の磯の白砂に
+          われ泣きぬれて
+          蟹とたはむる
       - id: inochinaki-suna
         kind: tanka
         location: 我を愛する歌
@@ -25,7 +25,7 @@ works:
         text: |-
           いのちなき砂のかなしさよ
           さらさらと
-          握（にぎ）れば指のあひだより落つ
+          握れば指のあひだより落つ
       - id: dai-toiu-ji
         kind: tanka
         location: 我を愛する歌
@@ -41,8 +41,8 @@ works:
         location: 我を愛する歌
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
         text: |-
-          たはむれに母を背負（せお）ひて
-          そのあまり軽（かろ）きに泣きて
+          たはむれに母を背負ひて
+          そのあまり軽きに泣きて
           三歩あゆまず
       - id: shittorito-namida
         kind: tanka
@@ -50,7 +50,7 @@ works:
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
         text: |-
           しっとりと
-          なみだを吸（す）へる砂の玉
+          なみだを吸へる砂の玉
           なみだは重きものにしあるかな
       - id: namida-namida
         kind: tanka
@@ -59,7 +59,7 @@ works:
         text: |-
           なみだなみだ
           不思議なるかな
-          それをもて洗（あら）へば心戯（おど）けたくなれり
+          それをもて洗へば心戯（おど）けたくなれり
       - id: mare-ni-aru
         kind: tanka
         location: 我を愛する歌
@@ -67,14 +67,14 @@ works:
         text: |-
           まれにある
           この平（たひら）なる心には
-          時計の鳴るもおもしろく聴（き）く
+          時計の鳴るもおもしろく聴く
       - id: nantonaku-kisha
         kind: tanka
         location: 我を愛する歌
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
         text: |-
-          何（なに）となく汽車に乗りたく思ひしのみ
-          汽車を下（お）りしに
+          何となく汽車に乗りたく思ひしのみ
+          汽車を下りしに
           ゆくところなし
       - id: yawarakani-yuki
         kind: tanka
@@ -115,7 +115,7 @@ works:
         text: |-
           水晶（すゐしやう）の玉をよろこびもてあそぶ
           わがこの心
-          何（なに）の心ぞ
+          何の心ぞ
       - id: oinaru-suisho
         kind: tanka
         location: 我を愛する歌
@@ -130,8 +130,8 @@ works:
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
         text: |-
           友がみなわれよりえらく見ゆる日よ
-          花を買ひ来（き）て
-          妻（つま）としたしむ
+          花を買ひ来て
+          妻としたしむ
       - id: kozukata-no-oshiro
         kind: tanka
         location: 煙・一
@@ -147,7 +147,7 @@ works:
         text: |-
           ふるさとの訛（なまり）なつかし
           停車場（ていしやば）の人ごみの中に
-          そを聴（き）きにゆく
+          そを聴きにゆく
       - id: furusato-no-yama
         kind: tanka
         location: 煙・二
@@ -190,10 +190,10 @@ works:
           それを仕遂（しと）げて死なむと思ふ
       - id: ameuri-charumera
         kind: tanka
-        location: 初句：飴売（あめうり）のチャルメラ聴（き）けば
+        location: 初句：飴売（あめうり）のチャルメラ聴けば
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
         text: |-
-          飴売（あめうり）のチャルメラ聴（き）けば
+          飴売（あめうり）のチャルメラ聴けば
           うしなひし
           をさなき心ひろへるごとし
     places:
@@ -236,10 +236,10 @@ works:
     quotes:
       - id: asobini-dete
         kind: tanka
-        location: 初句：遊びに出（で）て子供かへらず、
+        location: 初句：遊びに出て子供かへらず、
         source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
         text: |-
-          遊びに出（で）て子供かへらず、
+          遊びに出て子供かへらず、
           取り出して
           走らせて見る玩具（おもちや）の機関車。
       - id: hon-wo-kaitashi
@@ -257,7 +257,7 @@ works:
         text: |-
           なつかしき冬の朝かな。
           湯をのめば、
-          湯気（ゆげ）がやはらかに、顔にかかれり。
+          湯気がやはらかに、顔にかかれり。
       - id: tochu-nite
         kind: tanka
         location: 初句：途中にて乗換（のりかへ）の電車なくなりしに、

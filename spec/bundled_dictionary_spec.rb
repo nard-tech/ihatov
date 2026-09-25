@@ -109,6 +109,15 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
+  context '本文のふりがなを取得するとき when reading ruby annotations' do
+    let(:text) { Ihatov::Quote.all.join("\n") }
+
+    it '明らかに読める一般語を省き、読みを補う語だけを残すこと omits obvious readings and retains needed ones' do
+      expect(text).not_to include('天井（てんじょう）', '僕（ぼく）', '東海（とうかい）', '不思議（ふしぎ）', '味噌（みそ）')
+      expect(text).to include('陰惨（いんざん）', '停車場（ていしやば）', '不来方（こずかた）', '聖玻璃（せいはり）')
+    end
+  end
+
   context '字下げのある詩を取得するとき when selecting indented poems' do
     let(:poem) { Ihatov::Quote::Poem.where(indent: "\t").find { |item| item.id == 'haru-to-shura-sky' } }
     let(:originals) { Ihatov::Quote::Poem.where(indent: true) }
@@ -168,7 +177,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     let(:yama) { tanka.find { |item| item.id == 'furusato-no-yama' } }
 
     it '採用版の表記と三行の改行を保持すること preserves the edition text and three-line layout' do
-      expect(namari).to eq("ふるさとの訛（なまり）なつかし\n停車場（ていしやば）の人ごみの中に\nそを聴（き）きにゆく")
+      expect(namari).to eq("ふるさとの訛（なまり）なつかし\n停車場（ていしやば）の人ごみの中に\nそを聴きにゆく")
       expect(yama).to eq("ふるさとの山に向ひて\n言ふことなし\nふるさとの山はありがたきかな")
     end
 
@@ -185,7 +194,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     it '各項目が確認済みの出典に結び付くこと connects entries to verified sources' do
       expect(Ihatov::Kenji::Creature.find('クラムボン').work.edition.aozora_id).to eq(46_605)
       expect(Ihatov::Kenji::Onomatopoeia.where(work: 'やまなし')).to contain_exactly('かぷかぷ', 'トブン')
-      expect(opening).to include('かぷかぷ', 'そのなめらかな天井（てんじょう）を')
+      expect(opening).to include('かぷかぷ', 'そのなめらかな天井を')
     end
   end
 
@@ -196,9 +205,9 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     it '指定された二段落とルビを保持すること preserves the selected two paragraphs and readings' do
       expect(opening).to have_attributes(id: 'ginga-tetsudo-no-yoru-opening', location: '一 午後の授業・冒頭2段落')
       expect(opening.lines.size).to eq(2)
-      expect(opening).to start_with('「ではみなさんは、そういうふうに川だと言（い）われたり、')
-      expect(opening).to include("みんなに問（と）いをかけました。\nカムパネルラが手をあげました。")
-      expect(opening).to end_with('なんだかどんなこともよくわからないという気持（きも）ちがするのでした。')
+      expect(opening).to start_with('「ではみなさんは、そういうふうに川だと言われたり、')
+      expect(opening).to include("みんなに問いをかけました。\nカムパネルラが手をあげました。")
+      expect(opening).to end_with('なんだかどんなこともよくわからないという気持ちがするのでした。')
     end
 
     it '本文と登場者の採用版を統一すること uses one edition for the passage and characters' do
@@ -252,7 +261,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
       expect(opening).to have_attributes(id: 'yodaka-no-hoshi-opening', location: '冒頭5段落')
       expect(opening.lines.size).to eq(5)
       expect(opening).to start_with("よだかは、実にみにくい鳥です。\n")
-      expect(opening).to include('味噌（みそ）', '一間（いっけん）', '工合（ぐあい）', 'そっ方（ぽ）')
+      expect(opening).to include('味噌', '一間（いっけん）', '工合（ぐあい）', 'そっ方（ぽ）')
       expect(opening).to end_with('いつでもよだかのまっこうから悪口をしました。')
       expect(opening.work.edition.aozora_id).to eq(473)
       expect(opening.content_warnings).to eq(['容姿を理由にした侮蔑や排斥、いじめの描写があります。'])
@@ -266,9 +275,9 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
 
     it '採用版の表記と章へのリンクを保持すること preserves the adopted edition and chapter link' do
       expect(dialogue.lines.size).to eq(6)
-      expect(dialogue).to start_with('「カムパネルラ、また僕（ぼく）たち二人（ふたり）きりになったねえ、')
-      expect(dialogue).to include("「けれどもほんとうのさいわいはいったいなんだろう」\nジョバンニが言（い）いました。")
-      expect(dialogue).to end_with('ふうと息（いき）をしながら言（い）いました。')
+      expect(dialogue).to start_with('「カムパネルラ、また僕たち二人きりになったねえ、')
+      expect(dialogue).to include("「けれどもほんとうのさいわいはいったいなんだろう」\nジョバンニが言いました。")
+      expect(dialogue).to end_with('ふうと息をしながら言いました。')
       expect(dialogue.work.edition.aozora_id).to eq(43_737)
       expect(dialogue.source_url).to eq('https://www.aozora.gr.jp/cards/000081/files/43737_19215.html#midashi90')
     end
@@ -288,8 +297,8 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
       expect(passage).to have_attributes(id: 'chumon-preface-opening', location: '序・冒頭4段落')
       expect(passage.lines.size).to eq(4)
       expect(passage).to start_with('わたしたちは、氷砂糖をほしいくらいもたないでも、')
-      expect(passage).to include('桃（もも）', '羅紗（らしゃ）')
-      expect(passage).to end_with('虹（にじ）や月あかりからもらってきたのです。')
+      expect(passage).to include('桃', '羅紗（らしゃ）')
+      expect(passage).to end_with('虹や月あかりからもらってきたのです。')
       expect(passage.content_warnings).to eq([])
     end
 
@@ -311,7 +320,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
       expect(passage.lines.size).to eq(2)
       expect(passage).to start_with('イーハトヴは一つの地名である。しいて、')
       expect(passage).to include("イヴン王国の遠い東と考えられる。\nじつにこれは著者の心象中に、")
-      expect(passage).to end_with('実在（じつざい）したドリームランドとしての日本岩手県である。')
+      expect(passage).to end_with('実在したドリームランドとしての日本岩手県である。')
       expect(passage).not_to include('<strong', '［＃')
       expect(passage.source_url).to eq('https://www.aozora.gr.jp/cards/000081/files/43734_17913.html')
     end
