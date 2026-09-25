@@ -10,7 +10,7 @@ RSpec.describe Ihatov do
 
   before { allow(Ihatov).to receive(:repository) { repository } }
 
-  context '共有地名を取得する場合 when retrieving a shared place' do
+  context '共有地名を取得するとき when retrieving a shared place' do
     let(:place) { Ihatov::Kenji::Place.find('共有地') }
 
     it '凍結した文字列と出典情報を返すこと returns frozen strings with source metadata' do
@@ -34,13 +34,13 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '作品を年代順に取得する場合 when ordering works' do
+  context '作品を年代順に取得するとき when ordering works' do
     it '発表年・刊行年・定義順で並び年代不明を末尾に置くこと orders works by date and definition order' do
       expect(Ihatov::Kenji::Work.all.map(&:id)).to eq(%w[early same-year late unknown])
     end
   end
 
-  context '名前と作者で検索する場合 when searching by name and author' do
+  context '名前と作者で検索するとき when searching by name and author' do
     it '完全一致で検索し該当なしでは凍結した空配列を返すこと matches exact names and returns frozen empty arrays' do
       expect(Ihatov::Kenji::Work.find('先の作品').title).to eq('先の作品')
       expect { Ihatov::Kenji::Work.find('先の') }.to raise_error(Ihatov::NotFoundError)
@@ -51,7 +51,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '作者別に文章を取得する場合 when selecting literary forms by author' do
+  context '作者別に文章を取得するとき when selecting literary forms by author' do
     it '作者の範囲を保ち各文章形式を取得できること preserves author scopes and literary forms' do
       expect(Ihatov::Takuboku.tanka).to be_a(Ihatov::Quote::Tanka)
       expect(Ihatov::Kenji::Quote.haiku).to be_a(Ihatov::Quote::Haiku)
@@ -64,7 +64,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '擬音語と登場者を取得する場合 when selecting sounds and beings' do
+  context '擬音語と登場者を取得するとき when selecting sounds and beings' do
     it '擬音語を抜粋と区別し登場者を分類して返すこと separates sounds and classifies beings' do
       expect(Ihatov::Kenji.onomatopoeia).to eq('ぽん ぽん')
       expect(Ihatov::Kenji::Onomatopoeia.sample).to be_frozen
@@ -76,7 +76,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '字下げのある詩を整形する場合 when formatting an indented poem' do
+  context '字下げのある詩を整形するとき when formatting an indented poem' do
     let(:original) { Ihatov.poem(indent: true) }
     let(:formatted) { original.with_indent("\t") }
 
@@ -94,7 +94,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '注意情報の有無で絞り込む場合 when filtering content warnings' do
+  context '注意情報の有無で絞り込むとき when filtering content warnings' do
     let(:safe) { Ihatov::Quote.where(exclude_content_warnings: true) }
     let(:warning) { Ihatov::Quote.all.find { |quote| quote.id == 'warning' } }
 
@@ -108,68 +108,68 @@ RSpec.describe Ihatov do
   end
 
   describe '引数の検証 argument validation' do
-    context '字下げに数値を指定した場合 when indentation is numeric' do
+    context '字下げに数値を指定したとき when indentation is numeric' do
       it 'ArgumentErrorを返すこと raises ArgumentError' do
         expect { Ihatov.poem(indent: 2) }.to raise_error(ArgumentError)
       end
     end
 
-    context '字下げに空文字列を指定した場合 when indentation is empty' do
+    context '字下げに空文字列を指定したとき when indentation is empty' do
       it 'ArgumentErrorを返すこと raises ArgumentError' do
         expect { Ihatov.poem(indent: '') }.to raise_error(ArgumentError)
       end
     end
 
-    context '字下げに通常文字を指定した場合 when indentation contains text' do
+    context '字下げに通常文字を指定したとき when indentation contains text' do
       it 'ArgumentErrorを返すこと raises ArgumentError' do
         expect { Ihatov.poem(indent: 'x') }.to raise_error(ArgumentError)
       end
     end
 
-    context 'realにnilを指定した場合 when real is nil' do
+    context 'realにnilを指定したとき when real is nil' do
       it 'ArgumentErrorを返すこと raises ArgumentError' do
         expect { Ihatov::Place.where(real: nil) }.to raise_error(ArgumentError)
       end
     end
 
-    context '除外条件にnilを指定した場合 when the warning filter is nil' do
+    context '除外条件にnilを指定したとき when the warning filter is nil' do
       it 'ArgumentErrorを返すこと raises ArgumentError' do
         expect { Ihatov.quote(exclude_content_warnings: nil) }.to raise_error(ArgumentError)
       end
     end
 
-    context '乱数生成器にnilを指定した場合 when the generator is nil' do
+    context '乱数生成器にnilを指定したとき when the generator is nil' do
       it 'ArgumentErrorを返すこと raises ArgumentError' do
         expect { Ihatov.quote(random: nil) }.to raise_error(ArgumentError)
       end
     end
 
-    context '作者に数値を指定した場合 when the author is numeric' do
+    context '作者に数値を指定したとき when the author is numeric' do
       it 'ArgumentErrorを返すこと raises ArgumentError' do
         expect { Ihatov.quote(author: 1) }.to raise_error(ArgumentError)
       end
     end
 
-    context '未対応の条件を指定した場合 when the condition is unsupported' do
+    context '未対応の条件を指定したとき when the condition is unsupported' do
       it 'ArgumentErrorを返すこと raises ArgumentError' do
         expect { Ihatov.quote(typo: true) }.to raise_error(ArgumentError)
       end
     end
 
-    context '検索名にnilを指定した場合 when the lookup name is nil' do
+    context '検索名にnilを指定したとき when the lookup name is nil' do
       it 'ArgumentErrorを返すこと raises ArgumentError' do
         expect { Ihatov::Work.find(nil) }.to raise_error(ArgumentError)
       end
     end
 
-    context 'seedに文字列を指定した場合 when the seed is a string' do
+    context 'seedに文字列を指定したとき when the seed is a string' do
       it 'ArgumentErrorを返すこと raises ArgumentError' do
         expect { Ihatov.seed = '123' }.to raise_error(ArgumentError)
       end
     end
   end
 
-  context '同じseedを再設定する場合 when resetting the same seed' do
+  context '同じseedを再設定するとき when resetting the same seed' do
     it '名前空間をまたいで乱数列を再現できること reproduces random sequences across namespaces' do
       first = Array.new(12) { [Ihatov.quote.id, Ihatov::Kenji.work.id] }
       Ihatov.seed = 1234
@@ -177,7 +177,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '個別のRandomを指定する場合 when supplying an independent Random' do
+  context '個別のRandomを指定するとき when supplying an independent Random' do
     it '個別の乱数生成器で共有の乱数列を消費しないこと preserves the shared random sequence' do
       expected = Ihatov.quote.id
       Ihatov.seed = 1234
@@ -186,7 +186,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '作者を指定せず抽選する場合 when sampling across authors' do
+  context '作者を指定せず抽選するとき when sampling across authors' do
     let(:rng) { Random.new(7) }
     let(:expected_rng) { Random.new(7) }
     let(:candidates) { Ihatov::Quote.all }
@@ -198,7 +198,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '抽選せず字下げを整形する場合 when formatting without sampling' do
+  context '抽選せず字下げを整形するとき when formatting without sampling' do
     it '字下げの整形で乱数を消費しないこと does not consume randomness' do
       expected = Ihatov.quote
       Ihatov.seed = 1234
@@ -207,7 +207,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '複数の出典に検索条件を指定する場合 when filtering shared source relations' do
+  context '複数の出典に検索条件を指定するとき when filtering shared source relations' do
     it '名前空間と明示条件を同じ出典関係に適用すること matches conditions on the same source relation' do
       expect(Ihatov::Kenji::Place.where(work: '歌集')).to eq([])
       expect(Ihatov::Place.where(author: '宮沢 賢治', work: '歌集')).to eq([])
@@ -216,7 +216,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '柳田國男の他作品も存在する場合 when another Yanagita work exists' do
+  context '柳田國男の他作品も存在するとき when another Yanagita work exists' do
     before do
       data['works']['yanagita-kunio'] << {
         'id' => 'another-yanagita-work', 'title' => '別の作品', 'edition' => edition,
@@ -231,7 +231,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '先頭行にも字下げがある場合 when the first line is indented' do
+  context '先頭行にも字下げがあるとき when the first line is indented' do
     let(:formatted) { Ihatov.poem(indent: "\t") }
 
     before do
@@ -245,7 +245,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '抽選の間に一覧取得と検索を行う場合 when querying between samples' do
+  context '抽選の間に一覧取得と検索を行うとき when querying between samples' do
     it '一覧取得と検索で乱数を消費しないこと does not consume randomness' do
       expected = Ihatov.quote
       Ihatov.seed = 1234
@@ -256,7 +256,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '除外条件で全項目がなくなる場合 when every item is excluded' do
+  context '除外条件で全項目がなくなるとき when every item is excluded' do
     before do
       data['works']['yanagita-kunio'][0]['quotes'][0]['content_warnings'] = ['test warning']
     end
@@ -268,7 +268,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '異なる作品が同じ題名を持つ場合 when distinct works share a title' do
+  context '異なる作品が同じ題名を持つとき when distinct works share a title' do
     let(:work) { Ihatov::Work.all.find { |item| item.id == 'late' } }
 
     before do
@@ -281,7 +281,7 @@ RSpec.describe Ihatov do
     end
   end
 
-  context '返却値のメタデータを変更する場合 when mutating returned metadata' do
+  context '返却値のメタデータを変更するとき when mutating returned metadata' do
     let(:work) { Ihatov::Kenji.work }
 
     it '作者名や出典文字列を含めメタデータを凍結すること deeply freezes metadata' do

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe '同梱辞書 Bundled dictionary' do
-  context '同梱辞書を読み込む場合 when loading the bundled dictionary' do
+  context '同梱辞書を読み込むとき when loading the bundled dictionary' do
     it '収録件数と採用版が一致すること exposes expected counts and editions' do
       expect(Ihatov::Quote.all.size).to eq(47)
       expect(Ihatov::Place.all.size).to eq(7)
@@ -13,7 +13,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '風の又三郎の擬音語と抜粋を取得する場合 when selecting the wind phrase and passage' do
+  context '風の又三郎の擬音語と抜粋を取得するとき when selecting the wind phrase and passage' do
     let(:phrase) { Ihatov::Kenji::Onomatopoeia.where(work: '風の又三郎').first }
     let(:passages) { Ihatov::Kenji::Quote::Passage.where(work: '風の又三郎') }
     let(:song) { passages.find { |item| item.id == 'kaze-no-matasaburo-opening' } }
@@ -34,7 +34,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '散文を一覧取得する場合 when listing passages' do
+  context '散文を一覧取得するとき when listing passages' do
     let(:lines) { Ihatov::Quote::Passage.all.flat_map(&:lines) }
 
     it '段落頭に字下げを含めないこと omits paragraph indentation' do
@@ -42,7 +42,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '字下げのある詩を取得する場合 when selecting indented poems' do
+  context '字下げのある詩を取得するとき when selecting indented poems' do
     let(:poem) { Ihatov::Quote::Poem.where(indent: "\t").find { |item| item.id == 'haru-to-shura-sky' } }
     let(:originals) { Ihatov::Quote::Poem.where(indent: true) }
 
@@ -54,7 +54,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '岩手山の詩を取得する場合 when selecting the Iwatesan poem' do
+  context '岩手山の詩を取得するとき when selecting the Iwatesan poem' do
     let(:poem) { Ihatov::Kenji::Quote::Poem.where(work: '春と修羅').find { |item| item.id == 'iwatesan-poem' } }
 
     it '四行の全文とルビを保持すること preserves all four lines and ruby readings' do
@@ -73,7 +73,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '共有地名を取得する場合 when selecting shared places' do
+  context '共有地名を取得するとき when selecting shared places' do
     let(:place) { Ihatov::Kenji::Place.find('イーハトーヴ') }
 
     it '作品ごとの出典を保持すること preserves per-work sources' do
@@ -83,7 +83,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '短歌の注意情報を除外する場合 when filtering tanka warnings' do
+  context '短歌の注意情報を除外するとき when filtering tanka warnings' do
     let(:all_tanka) { Ihatov::Takuboku::Quote::Tanka.all }
     let(:filtered) { Ihatov::Takuboku::Quote::Tanka.where(exclude_content_warnings: true) }
 
@@ -95,7 +95,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context 'ふるさとを詠む短歌を取得する場合 when selecting hometown tanka' do
+  context 'ふるさとを詠む短歌を取得するとき when selecting hometown tanka' do
     let(:tanka) { Ihatov::Takuboku::Quote::Tanka.where(work: '一握の砂') }
     let(:namari) { tanka.find { |item| item.id == 'furusato-no-namari' } }
     let(:yama) { tanka.find { |item| item.id == 'furusato-no-yama' } }
@@ -112,7 +112,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context 'やまなしの項目を取得する場合 when selecting Yamanashi entries' do
+  context 'やまなしの項目を取得するとき when selecting Yamanashi entries' do
     let(:opening) { Ihatov::Kenji::Quote::Passage.where(work: 'やまなし').find { |item| item.id == 'yamanashi-may' } }
 
     it '各項目が確認済みの出典に結び付くこと connects entries to verified sources' do
@@ -122,7 +122,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '銀河鉄道の夜の冒頭を取得する場合 when selecting the opening of Night on the Galactic Railroad' do
+  context '銀河鉄道の夜の冒頭を取得するとき when selecting the opening of Night on the Galactic Railroad' do
     let(:opening) { Ihatov::Kenji::Quote::Passage.where(work: '銀河鉄道の夜').first }
     let(:characters) { Ihatov::Kenji::Person.where(work: '銀河鉄道の夜') }
 
@@ -143,7 +143,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context 'ポラーノの広場の抜粋を取得する場合 when selecting the Polano Square passage' do
+  context 'ポラーノの広場の抜粋を取得するとき when selecting the Polano Square passage' do
     let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: 'ポラーノの広場').first }
 
     it '指定された二段落の範囲と表記を保持すること preserves the selected two paragraphs and spelling' do
@@ -157,7 +157,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '雨ニモマケズの全文を取得する場合 when selecting the complete Ame ni mo Makezu' do
+  context '雨ニモマケズの全文を取得するとき when selecting the complete Ame ni mo Makezu' do
     let(:poem) { Ihatov::Kenji::Quote::Poem.where(work: '〔雨ニモマケズ〕').first }
 
     it '原文の文字と末尾の題目を保持すること preserves original characters and the closing invocations' do
@@ -178,7 +178,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context 'よだかの星の冒頭を取得する場合 when selecting the Nighthawk Star opening' do
+  context 'よだかの星の冒頭を取得するとき when selecting the Nighthawk Star opening' do
     let(:opening) { Ihatov::Kenji::Quote::Passage.where(work: 'よだかの星').first }
 
     it '指定の五段落と出典を保持すること preserves the selected five paragraphs and source' do
@@ -193,7 +193,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context 'ほんとうのさいわいの対話を取得する場合 when selecting the true happiness dialogue' do
+  context 'ほんとうのさいわいの対話を取得するとき when selecting the true happiness dialogue' do
     let(:passages) { Ihatov::Kenji::Quote::Passage.where(work: '銀河鉄道の夜') }
     let(:dialogue) { passages.find { |item| item.id == 'ginga-hontou-no-saiwai' } }
 
@@ -213,7 +213,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '注文の多い料理店の序を取得する場合 when selecting the Restaurant preface' do
+  context '注文の多い料理店の序を取得するとき when selecting the Restaurant preface' do
     let(:work) { Ihatov::Kenji::Work.find('『注文の多い料理店』序') }
     let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: work).first }
 
@@ -233,7 +233,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '新刊案内のイーハトヴの説明を取得する場合 when selecting the announcement description of Ihatov' do
+  context '新刊案内のイーハトヴの説明を取得するとき when selecting the announcement description of Ihatov' do
     let(:work) { Ihatov::Kenji::Work.find('『注文の多い料理店』新刊案内') }
     let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: work).first }
 
@@ -250,7 +250,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '農民芸術概論綱要の序論を取得する場合 when selecting the introduction to Peasant Art' do
+  context '農民芸術概論綱要の序論を取得するとき when selecting the introduction to Peasant Art' do
     let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: '農民芸術概論綱要').first }
 
     it '指定の十行と旧仮名と行中の空白を保持すること preserves ten lines, historical spelling, and internal spaces' do
@@ -264,7 +264,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '雪渡りの登場者を取得する場合 when selecting a Yukiwatari character' do
+  context '雪渡りの登場者を取得するとき when selecting a Yukiwatari character' do
     let(:character) { Ihatov::Kenji::Character.find('紺三郎') }
 
     it '確認済みの採用版に結び付くこと links to the verified edition' do
@@ -272,7 +272,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '遠野物語の登場者を取得する場合 when selecting Tono Monogatari beings' do
+  context '遠野物語の登場者を取得するとき when selecting Tono Monogatari beings' do
     let(:oshirasama) { Ihatov::Tono::Creature.find('オシラサマ') }
 
     it '採用版と話数に結び付くこと links to the edition and tale number' do
@@ -282,7 +282,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '実在地名を取得する場合 when selecting real places' do
+  context '実在地名を取得するとき when selecting real places' do
     let(:places) { Ihatov::Place.where(real: true) }
 
     it '実在性と座標の未登録を区別すること distinguishes real places from available coordinates' do
@@ -291,14 +291,14 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '同梱作品を一覧取得する場合 when listing bundled works' do
+  context '同梱作品を一覧取得するとき when listing bundled works' do
     it '発表年または刊行年で並ぶこと orders works by announcement or publication year' do
       expect(Ihatov::Work.all.first.title).to eq('一握の砂')
       expect(Ihatov::Kenji::Work.all.first.title).to eq('雪渡り')
     end
   end
 
-  context '未収録の俳句を取得する場合 when requesting unregistered haiku' do
+  context '未収録の俳句を取得するとき when requesting unregistered haiku' do
     it '本文を捏造せず未収録として扱うこと reports missing data without fabricated content' do
       expect(Ihatov::Quote::Haiku.all).to eq([])
       expect { Ihatov.haiku }.to raise_error(Ihatov::NotFoundError)
