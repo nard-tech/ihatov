@@ -5,6 +5,12 @@ AllCops:
     - 'vendor/**/*'
     - 'tmp/**/*'
 
+Layout/EmptyLineAfterMultilineCondition:
+  Enabled: true
+
+Layout/ExtraSpacing:
+  Enabled: true
+
 Metrics/AbcSize:
   Max: 30
 
