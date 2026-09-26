@@ -26,8 +26,10 @@ jobs:
         run: |
           echo "LOCAL_UID=$(id -u)" >> "$GITHUB_ENV"
           echo "LOCAL_GID=$(id -g)" >> "$GITHUB_ENV"
-      - run: docker compose config --quiet
-      - run: docker compose build dev
+      - name: Validate the Compose configuration
+        run: docker compose config --quiet
+      - name: Build the development image
+        run: docker compose build dev
       - name: Test the core library without bundled data
         run: docker compose run --rm dev bundle exec rspec spec/ihatov_spec.rb spec/repository_spec.rb
   test:
