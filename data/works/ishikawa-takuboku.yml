@@ -1,0 +1,281 @@
+works:
+  - id: ichiaku-no-suna
+    title: 一握の砂
+    published_year: 1910
+    edition:
+      aozora_id: 816
+      url: https://www.aozora.gr.jp/cards/000153/card816.html
+      bibliography: |-
+        「日本文学全集12　国木田独歩　石川啄木集」集英社
+        1967年9月12日初版発行、1972年9月10日9版発行
+        底本の親本：「一握の砂」東雲堂書店、1910年12月1日刊行
+    quotes:
+      - id: tokai-no-kojima
+        kind: tanka
+        location: 我を愛する歌・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          東海の小島の磯の白砂に
+          われ泣きぬれて
+          蟹とたはむる
+      - id: inochinaki-suna
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          いのちなき砂のかなしさよ
+          さらさらと
+          握れば指のあひだより落つ
+      - id: dai-toiu-ji
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        content_warnings:
+          - 自死を考える場面への言及があります。
+        text: |-
+          大（だい）という字を百あまり
+          砂に書き
+          死ぬことをやめて帰り来（きた）れり
+      - id: tawamure-ni-haha
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          たはむれに母を背負ひて
+          そのあまり軽（かろ）きに泣きて
+          三歩あゆまず
+      - id: shittorito-namida
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          しっとりと
+          なみだを吸へる砂の玉
+          なみだは重きものにしあるかな
+      - id: namida-namida
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          なみだなみだ
+          不思議なるかな
+          それをもて洗へば心戯（おど）けたくなれり
+      - id: mare-ni-aru
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          まれにある
+          この平（たひら）なる心には
+          時計の鳴るもおもしろく聴く
+      - id: nantonaku-kisha
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          何（なに）となく汽車に乗りたく思ひしのみ
+          汽車を下りしに
+          ゆくところなし
+      - id: yawarakani-yuki
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          やはらかに積れる雪に
+          熱（ほ）てる頬（ほ）を埋（うづ）むるごとき
+          恋してみたし
+      - id: kokoroyoku-hito
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          こころよく
+          人を讃（ほ）めてみたくなりにけり
+          利己の心に倦（う）めるさびしさ
+      - id: kokoroyoki-tsukare
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          こころよき疲れなるかな
+          息もつかず
+          仕事をしたる後（のち）のこの疲れ
+      - id: hatarakedo
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          はたらけど
+          はたらけど猶（なほ）わが生活（くらし）楽にならざり
+          ぢっと手を見る
+      - id: suisho-no-tama
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          水晶（すゐしやう）の玉をよろこびもてあそぶ
+          わがこの心
+          何（なに）の心ぞ
+      - id: oinaru-suisho
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          大いなる水晶の玉を
+          ひとつ欲（ほ）し
+          それにむかひて物を思はむ
+      - id: tomo-ga-mina
+        kind: tanka
+        location: 我を愛する歌
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          友がみなわれよりえらく見ゆる日よ
+          花を買ひ来て
+          妻としたしむ
+      - id: kozukata-no-oshiro
+        kind: tanka
+        location: 煙・一
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          不来方（こずかた）のお城の草に寝ころびて
+          空に吸はれし
+          十五（じふご）の心
+      - id: furusato-no-namari
+        kind: tanka
+        location: 煙・二
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          ふるさとの訛（なまり）なつかし
+          停車場の人ごみの中に
+          そを聴きにゆく
+      - id: furusato-no-yama
+        kind: tanka
+        location: 煙・二
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          ふるさとの山に向ひて
+          言ふことなし
+          ふるさとの山はありがたきかな
+      - id: kanikakuni-shibutami
+        kind: tanka
+        location: 初句：かにかくに渋民村（しぶたみむら）は恋しかり
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          かにかくに渋民村（しぶたみむら）は恋しかり
+          おもひでの山
+          おもひでの川
+      - id: ishi-wo-mote
+        kind: tanka
+        location: 初句：石をもて追はるるごとく
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          石をもて追はるるごとく
+          ふるさとを出（い）でしかなしみ
+          消ゆる時なし
+      - id: yawarakani-yanagi
+        kind: tanka
+        location: 初句：やはらかに柳あをめる
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          やはらかに柳あをめる
+          北上の岸辺目に見ゆ
+          泣けとごとくに
+      - id: kokoroyoku-shigoto
+        kind: tanka
+        location: 初句：こころよく
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          こころよく
+          我にはたらく仕事あれ
+          それを仕遂（しと）げて死なむと思ふ
+      - id: ameuri-charumera
+        kind: tanka
+        location: 初句：飴売（あめうり）のチャルメラ聴けば
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+        text: |-
+          飴売（あめうり）のチャルメラ聴けば
+          うしなひし
+          をさなき心ひろへるごとし
+    places:
+      - id: kozukata-jo
+        name: 不来方城
+        real: true
+        location: 煙・一「不来方のお城の草に寝ころびて」
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+      - id: shibutami
+        name: 渋民
+        real: true
+        location: 「かにかくに渋民村は恋しかり」
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+      - id: koma
+        name: 好摩
+        real: true
+        location: 「霧ふかき好摩の原の」
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+      - id: kitakami-gawa
+        name: 北上川
+        real: true
+        location: 「北上の岸辺目に見ゆ」
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+      - id: ueno-eki
+        name: 上野駅
+        real: true
+        location: 煙・二「ふるさとの訛なつかし」
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+      - id: hotokuji
+        name: 宝徳寺
+        real: true
+        location: 作者ゆかり・渋民で幼少時代を過ごした寺
+        source_url: https://www.city.morioka.iwate.jp/kankou/kankou/1037106/1009526/1009629/1009635.html
+
+  - id: kanashiki-gangu
+    title: 悲しき玩具
+    published_year: 1912
+    edition:
+      aozora_id: 815
+      url: https://www.aozora.gr.jp/cards/000153/card815.html
+      bibliography: |-
+        底本：「日本文学全集12　国木田独歩・石川啄木集」集英社
+        　　　1967（昭和42）年9月7日初版発行
+        　　　1972（昭和47）年9月10日9版発行
+    quotes:
+      - id: asobini-dete
+        kind: tanka
+        location: 初句：遊びに出て子供かへらず、
+        source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
+        text: |-
+          遊びに出て子供かへらず、
+          取り出して
+          走らせて見る玩具（おもちや）の機関車。
+      - id: hon-wo-kaitashi
+        kind: tanka
+        location: 初句：本を買ひたし、本を買ひたしと、
+        source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
+        text: |-
+          本を買ひたし、本を買ひたしと、
+          あてつけのつもりではなけれど、
+          妻に言ひてみる。
+      - id: natsukashiki-fuyu
+        kind: tanka
+        location: 初句：なつかしき冬の朝かな。
+        source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
+        text: |-
+          なつかしき冬の朝かな。
+          湯をのめば、
+          湯気がやはらかに、顔にかかれり。
+      - id: tochu-nite
+        kind: tanka
+        location: 初句：途中にて乗換（のりかへ）の電車なくなりしに、
+        source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
+        text: |-
+          途中にて乗換（のりかへ）の電車なくなりしに、
+          泣かうかと思ひき。
+          雨も降りてゐき。
+      - id: nanto-naku-kotoshi
+        kind: tanka
+        location: 初句：何となく、
+        source_url: https://www.aozora.gr.jp/cards/000153/files/815_20544.html
+        text: |-
+          何となく、
+          今年はよい事あるごとし。
+          元日の朝、晴れて風無し。

@@ -1,0 +1,882 @@
+# 採用版・抜粋範囲・表記の編集記録は docs/dictionary.md を参照。
+works:
+  - id: uruhashino
+    title: 〔うるはしの〕
+    edition:
+      url: https://www.city.miyako.iwate.jp/gyosei/soshiki/kanko/7/1156.html
+      bibliography: 宮古市「啄木と賢治、岩手が生んだ二人の天才は宮古で何を思ったか」（2024年12月23日更新）掲載の短歌本文。題名は初句による編集上の仮題。
+    quotes:
+      - id: uruhashino-umi
+        kind: tanka
+        location: 宮沢賢治の項・浄土ヶ浜の歌
+        source_url: https://www.city.miyako.iwate.jp/gyosei/soshiki/kanko/7/1156.html
+        text: |-
+          うるはしの
+          海のビロード 昆布らは
+          寂光のはまに 敷かれひかりぬ
+    places:
+      - id: jodogahama
+        name: 浄土ヶ浜
+        real: true
+        location: 宮沢賢治の項・浄土ヶ浜の歌
+        source_url: https://www.city.miyako.iwate.jp/gyosei/soshiki/kanko/7/1156.html
+
+  - id: kenji-haiku
+    title: 俳句（現代俳句協会掲載二句）
+    edition:
+      url: https://gendaihaiku.gr.jp/column/1750/
+      bibliography: 現代俳句協会「鳥屋根を歩く音して明けにけり 宮沢賢治」評者・堀之内長一（2012年8月11日）掲載本文。同記事の掲出典は石寒太『宮沢賢治の全俳句』（飯塚書店、2012年6月）。書籍そのものとの照合ではない。作品名は編集上の括り。
+    quotes:
+      - id: tori-yane
+        kind: haiku
+        location: 掲出句
+        source_url: https://gendaihaiku.gr.jp/column/1750/
+        text: 鳥屋根を歩く音して明けにけり
+      - id: same-no-mi
+        kind: haiku
+        location: 記事末尾の引用句
+        source_url: https://gendaihaiku.gr.jp/column/1750/
+        text: 鮫の黒肉（み）わびしく凍るひなかすぎ
+
+  - id: yuki-watari
+    title: 雪渡り
+    announced_year: 1921
+    edition:
+      aozora_id: 45679
+      url: https://www.aozora.gr.jp/cards/000081/card45679.html
+      bibliography: |-
+        「注文の多い料理店」新潮文庫、新潮社
+        1990年5月25日発行、1997年5月10日17刷
+        初出：「愛国婦人」1921年12月号、1922年1月号
+    quotes:
+      - id: yuki-watari-opening
+        kind: passage
+        location: その一・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+        text: |-
+          雪がすっかり凍って大理石よりも堅くなり、空も冷たい滑らかな青い石の板で出来ているらしいのです。
+          「堅雪（かたゆき）かんこ、しみ雪しんこ。」
+          お日様がまっ白に燃えて百合の匂（におい）を撒（ま）きちらし又雪をぎらぎら照らしました。
+          木なんかみんなザラメを掛けたように霜でぴかぴかしています。
+    beings:
+      - id: konzaburo
+        kind: character
+        name: 紺三郎
+        location: その一
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+      - id: shiro
+        kind: person
+        name: 四郎
+        location: その一
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+      - id: kanko
+        kind: person
+        name: かん子
+        location: その一
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+    onomatopoeias:
+      - id: kishiri-kishiri
+        text: キシリキシリ
+        location: その一・狐の子の登場
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+      - id: kick-kick-tonton
+        text: キックキックトントンキックキックトントン
+        location: その一・紺三郎の足ぶみ
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+      - id: pikkari-pikkari
+        text: ピッカリピッカリ
+        location: その一・ほおの木の芽
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45679_22349.html
+
+  - id: yamanashi
+    title: やまなし
+    announced_year: 1923
+    edition:
+      aozora_id: 46605
+      url: https://www.aozora.gr.jp/cards/000081/card46605.html
+      bibliography: |-
+        「新編風の又三郎」新潮文庫、新潮社
+        1989年2月25日発行、1989年6月10日2刷
+        初出：「岩手毎日新聞」岩手毎日新聞社、1923年4月8日
+    quotes:
+      - id: yamanashi-may
+        kind: passage
+        location: 一、五月・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46605_31178.html
+        text: |-
+          二疋（ひき）の蟹の子供らが青じろい水の底で話していました。
+          『クラムボンはわらったよ。』
+          『クラムボンはかぷかぷわらったよ。』
+          『クラムボンは跳ねてわらったよ。』
+          『クラムボンはかぷかぷわらったよ。』
+          上の方や横の方は、青くくらく鋼（はがね）のように見えます。そのなめらかな天井を、つぶつぶ暗い泡が流れて行きます。
+      - id: yamanashi-december
+        kind: passage
+        location: 二、十二月・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46605_31178.html
+        text: |-
+          蟹の子供らはもうよほど大きくなり、底の景色も夏から秋の間にすっかり変りました。
+          白い柔かな円石（まるいし）もころがって来、小さな錐（きり）の形の水晶の粒や、金雲母（きんうんも）のかけらもながれて来てとまりました。
+          そのつめたい水の底まで、ラムネの瓶の月光がいっぱいに透（すき）とおり天井では波が青じろい火を、燃したり消したりしているよう、あたりはしんとして、ただいかにも遠くからというように、その波の音がひびいて来るだけです。
+    beings:
+      - id: clammbon
+        kind: creature
+        name: クラムボン
+        location: 一、五月
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46605_31178.html
+    onomatopoeias:
+      - id: kapu-kapu
+        text: かぷかぷ
+        location: 一、五月
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46605_31178.html
+      - id: tobun
+        text: トブン
+        location: 二、十二月
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46605_31178.html
+
+  - id: haru-to-shura
+    title: 春と修羅
+    published_year: 1924
+    edition:
+      aozora_id: 1058
+      url: https://www.aozora.gr.jp/cards/000081/card1058.html
+      bibliography: |-
+        「宮沢賢治全集1」ちくま文庫、筑摩書房
+        1986年2月26日第1刷発行
+        1998年5月12日第17刷発行
+    quotes:
+      - id: haru-to-shura-preface
+        kind: poem
+        location: 序・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          わたくしといふ現象は
+          仮定された有機交流電燈の
+          ひとつの青い照明です
+          （あらゆる透明な幽霊の複合体）
+          風景やみんなといつしよに
+          せはしくせはしく明滅しながら
+          いかにもたしかにともりつづける
+          因果交流電燈の
+          ひとつの青い照明です
+      - id: haru-to-shura-sky
+        kind: poem
+        location: 春と修羅・「砕ける雲の眼路をかぎり」から
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          砕ける雲の眼路（めぢ）をかぎり
+            れいろうの天の海には
+              聖玻璃（せいはり）の風が行き交ひ
+                ZYPRESSEN 春のいちれつ
+                  くろぐろと光素（エーテル）を吸ひ
+                    その暗い脚並からは
+                      天山の雪の稜さへひかるのに
+                      （かげろふの波と白い偏光）
+                      まことのことばはうしなはれ
+                    雲はちぎれてそらをとぶ
+                  ああかがやきの四月の底を
+                はぎしり燃えてゆききする
+              おれはひとりの修羅なのだ
+      - id: kussetsuritsu
+        kind: poem
+        location: 屈折率
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          七つ森のこつちのひとつが
+          水の中よりもつと明るく
+          そしてたいへん巨きいのに
+          わたくしはでこぼこ凍つたみちをふみ
+          このでこぼこの雪をふみ
+          向ふの縮れた亜鉛の雲へ
+          陰気な郵便脚夫（きやくふ）のやうに
+              （またアラツデイン　洋燈（ラムプ）とり）
+          急がなければならないのか
+      - id: nichirin-to-taichi
+        kind: poem
+        location: 日輪と太市
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          日は今日は小さな天の銀盤で
+          雲がその面を
+          どんどん侵してかけてゐる
+          吹雪（フキ）も光りだしたので
+          太市は毛布（けつと）の赤いズボンをはいた
+      - id: carbide-soko
+        kind: poem
+        location: カーバイト倉庫・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          まちなみのなつかしい灯とおもつて
+          いそいでわたくしは雪と蛇紋岩（サーベンタイン）との
+          山峡（さんけふ）をでてきましたのに
+          これはカーバイト倉庫の軒
+          すきとほつてつめたい電燈です
+      - id: cobalt-sanchi
+        kind: poem
+        location: コバルト山地
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          コバルト山地の氷霧（ひようむ）のなかで
+          あやしい朝の火が燃えてゐます
+          毛無森（けなしのもり）のきり跡あたりの見当（けんたう）です
+          たしかにせいしんてきの白い火が
+          水より強くどしどしどしどし燃えてゐます
+      - id: tani
+        kind: poem
+        location: 谷
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          ひかりの澱
+          三角ばたけのうしろ
+          かれ草層の上で
+          わたくしの見ましたのは
+          顔いつぱいに赤い点うち
+          硝子様（やう）鋼青のことばをつかつて
+          しきりに歪み合ひながら
+          何か相談をやつてゐた
+          三人の妖女たちです
+      - id: fukei
+        kind: poem
+        location: 風景
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          雲はたよりないカルボン酸
+          さくらは咲いて日にひかり
+          また風が来てくさを吹けば
+          截られたたらの木もふるふ
+            さつきはすなつちに廐肥（きうひ）をまぶし
+                （いま青ガラスの模型の底になつてゐる）
+          ひばりのダムダム弾（だん）がいきなりそらに飛びだせば
+              風は青い喪神をふき
+              黄金の草　ゆするゆする
+                  雲はたよりないカルボン酸
+                  さくらが日に光るのはゐなか風（ふう）だ
+      - id: okinagusa-poem
+        kind: poem
+        location: おきなぐさ
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          風はそらを吹き
+          そのなごりは草をふく
+          おきなぐさ冠毛（くわんもう）の質直（しつぢき）
+          松とくるみは宙に立ち
+              （どこのくるみの木にも
+                いまみな金のあかごがぶらさがる）
+          ああ黒のしやつぽのかなしさ
+          おきなぐさのはなをのせれば
+          幾きれうかぶ光酸（くわうさん）の雲
+      - id: kawabata
+        kind: poem
+        location: かはばた
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          かはばたで鳥もゐないし
+          （われわれのしよふ燕麦（オート）の種子（たね）は）
+          風の中からせきばらひ
+          おきなぐさは伴奏をつゞけ
+          光のなかの二人の子
+      - id: iwatesan-poem
+        kind: poem
+        location: 岩手山・全文
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+        text: |2-
+          そらの散乱反射のなかに
+          古ぼけて黒くゑぐるもの
+          ひかりの微塵系列（みぢんけいれつ）の底に
+          きたなくしろく澱（よど）むもの
+      - id: eiketsu-no-asa
+        kind: poem
+        location: 永訣の朝・冒頭7行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi1178
+        text: |2-
+          けふのうちに
+          とほくへいつてしまふわたくしのいもうとよ
+          みぞれがふつておもてはへんにあかるいのだ
+                （あめゆじゆとてちてけんじや）
+          うすあかくいつそう陰惨（いんざん）な雲から
+          みぞれはびちよびちよふつてくる
+                （あめゆじゆとてちてけんじや）
+      - id: kurakake-no-yuki
+        kind: poem
+        location: くらかけの雪・冒頭10行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi220
+        text: |2-
+          たよりになるのは
+          くらかけつづきの雪ばかり
+          野はらもはやしも
+          ぽしやぽしやしたり黝（くす）んだりして
+          すこしもあてにならないので
+          ほんたうにそんな酵母（かうぼ）のふうの
+          朧（おぼ）ろなふぶきですけれども
+          ほのかなのぞみを送るのは
+          くらかけ山の雪ばかり
+              （ひとつの古風（こふう）な信仰です）
+      - id: koi-to-byonetsu
+        kind: poem
+        location: 恋と病熱・冒頭8行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi280
+        text: |2-
+          けふはぼくのたましひは疾み
+          烏（からす）さへ正視ができない
+            あいつはちやうどいまごろから
+            つめたい青銅（ブロンヅ）の病室で
+            透明薔薇（ばら）の火に燃される
+          ほんたうに　けれども妹よ
+          けふはぼくもあんまりひどいから
+          やなぎの花もとらない
+      - id: koiwai-nojo
+        kind: poem
+        location: 小岩井農場・冒頭8行（パート一の見出しを除く）
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi620
+        text: |2-
+          わたくしはずゐぶんすばやく汽車からおりた
+          そのために雲がぎらつとひかつたくらゐだ
+          けれどももつとはやいひとはある
+          化学の並川さんによく肖（に）たひとだ
+          あのオリーブのせびろなどは
+          そつくりおとなしい農学士だ
+          さつき盛岡のていしやばでも
+          たしかにわたくしはさうおもつてゐた
+      - id: matsu-no-hari
+        kind: poem
+        location: 松の針・冒頭9行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi1188
+        text: |2-
+              さつきのみぞれをとつてきた
+              あのきれいな松のえだだよ
+          おお　おまへはまるでとびつくやうに
+          そのみどりの葉にあつい頬をあてる
+          そんな植物性の青い針のなかに
+          はげしく頬を刺させることは
+          むさぼるやうにさへすることは
+          どんなにわたくしたちをおどろかすことか
+          そんなにまでもおまへは林へ行きたかつたのだ
+      - id: musei-dokoku
+        kind: poem
+        location: 無声慟哭・冒頭11行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi1198
+        text: |2-
+          こんなにみんなにみまもられながら
+          おまへはまだここでくるしまなければならないか
+          ああ巨きな信のちからからことさらにはなれ
+          また純粋やちひさな徳性のかずをうしなひ
+          わたくしが青ぐらい修羅をあるいてゐるとき
+          おまへはじぶんにさだめられたみちを
+          ひとりさびしく往かうとするか
+          信仰を一つにするたつたひとりのみちづれのわたくしが
+          あかるくつめたい精進（しやうじん）のみちからかなしくつかれてゐて
+          毒草や蛍光菌のくらい野原をただよふとき
+          おまへはひとりどこへ行かうとするのだ
+      - id: aomori-banka
+        kind: poem
+        location: 青森挽歌・冒頭7行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi1328
+        text: |2-
+          こんなやみよののはらのなかをゆくときは
+          客車のまどはみんな水族館の窓になる
+                （乾いたでんしんばしらの列が
+                  せはしく遷つてゐるらしい
+                  きしやは銀河系の玲瓏（れいろう）レンズ
+                  巨きな水素のりんごのなかをかけてゐる）
+          りんごのなかをはしつてゐる
+      - id: okhotsk-banka
+        kind: poem
+        location: オホーツク挽歌・冒頭10行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi1338
+        text: |2-
+          海面は朝の炭酸のためにすつかり銹びた
+          緑青（ろくしやう）のとこもあれば藍銅鉱（アズライト）のとこもある
+          むかふの波のちゞれたあたりはずゐぶんひどい瑠璃液（るりえき）だ
+          チモシイの穂がこんなにみじかくなつて
+          かはるがはるかぜにふかれてゐる
+              （それは青いいろのピアノの鍵で
+                かはるがはる風に押されてゐる）
+          あるいはみじかい変種だらう
+          しづくのなかに朝顔が咲いてゐる
+          モーニンググローリのそのグローリ
+    places:
+      - ref: ihatov
+        location: イーハトヴの氷霧
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+      - id: koiwai-nojo
+        name: 小岩井農場
+        real: true
+        location: 「小岩井農場」
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html#midashi620
+      - id: iwatesan
+        name: 岩手山
+        real: true
+        location: 「岩手山」
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1058_15403.html
+      - id: himekami-yama
+        name: 姫神山
+        real: true
+        location: 岩手山と相対する盛岡の山岳景観（候補案のゆかり）
+        source_url: https://iwatetabi.jp/spots/5677/
+
+  - id: chumon-no-oi-ryoriten-preface
+    title: 『注文の多い料理店』序
+    announced_year: 1924
+    edition:
+      aozora_id: 43736
+      url: https://www.aozora.gr.jp/cards/000081/card43736.html
+      bibliography: |-
+        「注文の多い料理店」新潮文庫、新潮社
+        1990年5月25日初版発行
+        入力：1997年5月10日17刷、校正：2004年5月20日第29刷
+        初出：「イーハトヴ童話　注文の多い料理店」盛岡市杜陵出版部・東京光原社、1924年12月1日
+    quotes:
+      - id: chumon-preface-opening
+        kind: passage
+        location: 序・冒頭4段落
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43736_17656.html
+        text: |-
+          わたしたちは、氷砂糖をほしいくらいもたないでも、きれいにすきとおった風をたべ、桃いろのうつくしい朝の日光をのむことができます。
+          またわたくしは、はたけや森の中で、ひどいぼろぼろのきものが、いちばんすばらしいびろうどや羅紗（らしゃ）や、宝石いりのきものに、かわっているのをたびたび見ました。
+          わたくしは、そういうきれいなたべものやきものをすきです。
+          これらのわたくしのおはなしは、みんな林や野はらや鉄道線路やらで、虹や月あかりからもらってきたのです。
+
+  - id: chumon-no-oi-ryoriten-announcement
+    title: 『注文の多い料理店』新刊案内
+    announced_year: 1924
+    edition:
+      aozora_id: 43734
+      url: https://www.aozora.gr.jp/cards/000081/card43734.html
+      bibliography: |-
+        「注文の多い料理店」角川文庫、角川書店
+        1996年6月25日改訂新版発行
+        入力：1997年5月25日改訂4版、校正：2003年5月25日改訂10版
+        初版本刊行時の広告ちらし
+    quotes:
+      - id: ihatov-dreamland
+        kind: passage
+        location: 冒頭2段落・イーハトヴの説明
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43734_17913.html
+        text: |-
+          イーハトヴは一つの地名である。しいて、その地点を求むるならば、それは、大小クラウスたちの耕していた、野原や、少女アリスがたどった鏡の国と同じ世界の中、テパーンタール砂漠のはるかな北東、イヴン王国の遠い東と考えられる。
+          じつにこれは著者の心象中に、このような状景（じょうけい）をもって実在したドリームランドとしての日本岩手県である。
+
+  - id: gusukobudori-no-denki
+    title: グスコーブドリの伝記
+    announced_year: 1932
+    edition:
+      aozora_id: 1924
+      url: https://www.aozora.gr.jp/cards/000081/card1924.html
+      bibliography: |-
+        「童話集　風の又三郎」岩波文庫、岩波書店
+        1951年4月25日第1刷発行
+        1997年8月4日第70刷発行
+    quotes:
+      - id: gusukobudori-forest
+        kind: passage
+        location: 一 森・冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+        text: |-
+          グスコーブドリは、イーハトーヴの大きな森のなかに生まれました。おとうさんは、グスコーナドリという名高い木こりで、どんな大きな木でも、まるで赤ん坊を寝かしつけるようにわけなく切ってしまう人でした。
+          ブドリにはネリという妹があって、二人は毎日森で遊びました。ごしっごしっとおとうさんの木を挽く音が、やっと聞こえるくらいな遠くへも行きました。二人はそこで木いちごの実をとってわき水につけたり、空を向いてかわるがわる山鳩（やまばと）の鳴くまねをしたりしました。するとあちらでもこちらでも、ぽう、ぽう、と鳥が眠そうに鳴き出すのでした。
+          おかあさんが、家の前の小さな畑に麦を播いているときは、二人はみちにむしろをしいてすわって、ブリキかんで蘭の花を煮たりしました。するとこんどは、もういろいろの鳥が、二人のぱさぱさした頭の上を、まるで挨拶するように鳴きながらざあざあざあざあ通りすぎるのでした。
+    places:
+      - id: ihatov
+        name: イーハトーヴ
+        real: false
+        location: 一 森
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+      - id: carbonado-volcano
+        name: カルボナード火山島
+        real: false
+        location: 九 カルボナード島
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+    beings:
+      - id: gusukobudori
+        kind: person
+        name: グスコーブドリ
+        location: 一 森
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+      - id: neri
+        kind: person
+        name: ネリ
+        location: 一 森
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+    onomatopoeias:
+      - id: gosshi-gosshi
+        text: ごしっごしっ
+        location: 一 森
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+      - id: pou-pou
+        text: ぽう、ぽう、
+        location: 一 森
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1924_14254.html
+
+  # 以下は作品自体の発表・刊行年を未登録。採用底本の年を代用しない。
+  - id: kaze-no-matasaburo
+    title: 風の又三郎
+    edition:
+      aozora_id: 462
+      url: https://www.aozora.gr.jp/cards/000081/card462.html
+      bibliography: |-
+        「童話集　風の又三郎」岩波文庫、岩波書店
+        1951年4月25日第1刷発行
+        1967年7月16日第24刷改版発行
+    quotes:
+      - id: kaze-no-matasaburo-opening
+        kind: passage
+        location: 冒頭の歌
+        source_url: https://www.aozora.gr.jp/cards/000081/files/462_15405.html
+        text: |-
+          どっどど どどうど どどうど どどう
+          青いくるみも吹きとばせ
+          すっぱいかりんも吹きとばせ
+          どっどど どどうど どどうど どどう
+      - id: kaze-no-matasaburo-school
+        kind: passage
+        location: 九月一日・学校の描写
+        source_url: https://www.aozora.gr.jp/cards/000081/files/462_15405.html
+        text: |-
+          谷川の岸に小さな学校がありました。
+          教室はたった一つでしたが生徒は三年生がないだけで、あとは一年から六年までみんなありました。運動場もテニスコートのくらいでしたが、すぐうしろは栗の木のあるきれいな草の山でしたし、運動場のすみにはごぼごぼつめたい水を噴く岩穴もあったのです。
+    beings:
+      - id: takada-saburo
+        kind: person
+        name: 高田三郎
+        location: 九月一日・教室での紹介
+        source_url: https://www.aozora.gr.jp/cards/000081/files/462_15405.html
+    onomatopoeias:
+      - id: dodddodo-dodoudo
+        text: どっどど どどうど どどうど どどう
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/462_15405.html
+
+  - id: ginga-tetsudo-no-yoru
+    title: 銀河鉄道の夜
+    edition:
+      aozora_id: 43737
+      url: https://www.aozora.gr.jp/cards/000081/card43737.html
+      bibliography: |-
+        「銀河鉄道の夜」角川文庫、角川書店
+        1969年7月20日改版
+        入力：1987年3月30日改版50版、校正：1991年6月10日改版65版
+        底本の親本：「宮澤賢治全集第十卷」筑摩書房、1967年10月25日
+    quotes:
+      - id: ginga-tetsudo-no-yoru-opening
+        kind: passage
+        location: 一 午後の授業・冒頭2段落
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43737_19215.html
+        text: |-
+          「ではみなさんは、そういうふうに川だと言われたり、乳の流れたあとだと言われたりしていた、このぼんやりと白いものがほんとうは何かご承知ですか」先生は、黒板につるした大きな黒い星座の図の、上から下へ白くけぶった銀河帯のようなところを指しながら、みんなに問いをかけました。
+          カムパネルラが手をあげました。それから四、五人手をあげました。ジョバンニも手をあげようとして、急いでそのままやめました。たしかにあれがみんな星だと、いつか雑誌で読んだのでしたが、このごろはジョバンニはまるで毎日教室でもねむく、本を読むひまも読む本もないので、なんだかどんなこともよくわからないという気持ちがするのでした。
+      - id: ginga-hontou-no-saiwai
+        kind: passage
+        location: 九 ジョバンニの切符・ほんとうのさいわい
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43737_19215.html#midashi90
+        content_warnings:
+          - 他者の幸福のために自分の身体を焼いてもよいとする、自己犠牲への言及があります。
+        text: |-
+          「カムパネルラ、また僕たち二人きりになったねえ、どこまでもどこまでもいっしょに行こう。僕はもう、あのさそりのように、ほんとうにみんなの幸のためならば僕のからだなんか百ぺん灼いてもかまわない」
+          「うん。僕だってそうだ」カムパネルラの眼にはきれいな涙がうかんでいました。
+          「けれどもほんとうのさいわいはいったいなんだろう」
+          ジョバンニが言いました。
+          「僕わからない」カムパネルラがぼんやり言いました。
+          「僕たちしっかりやろうねえ」ジョバンニが胸いっぱい新しい力が湧くように、ふうと息をしながら言いました。
+    beings:
+      - id: giovanni
+        kind: person
+        name: ジョバンニ
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43737_19215.html
+      - id: campanella
+        kind: person
+        name: カムパネルラ
+        source_url: https://www.aozora.gr.jp/cards/000081/files/43737_19215.html
+
+  - id: kai-no-hi
+    title: 貝の火
+    edition:
+      aozora_id: 1942
+      url: https://www.aozora.gr.jp/cards/000081/card1942.html
+      bibliography: |-
+        「銀河鉄道の夜」角川文庫、角川書店
+        1969年7月20日初版発行、1991年6月10日65刷発行
+        底本の親本：「第二次宮沢賢治全集　第十巻」筑摩書房、1969年
+    quotes:
+      - id: kai-no-hi-bells
+        kind: passage
+        location: ホモイが貝の火を受け取った翌朝
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1942_42611.html
+        text: |-
+          風が吹いて草の露がバラバラとこぼれます。つりがねそうが朝の鐘を、
+          「カン、カン、カンカエコ、カンコカンコカン」と鳴らしています。
+          ホモイはぴょんぴょん跳んで樺（かば）の木の下に行きました。
+    beings:
+      - id: homoi
+        kind: character
+        name: ホモイ
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1942_42611.html
+    onomatopoeias:
+      - id: kan-kan-kankaeko
+        text: カン、カン、カンカエコ、カンコカンコカン
+        location: ホモイが貝の火を受け取った翌朝
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1942_42611.html
+
+  - id: polano-no-hiroba
+    title: ポラーノの広場
+    edition:
+      aozora_id: 1935
+      url: https://www.aozora.gr.jp/cards/000081/card1935.html
+      bibliography: |-
+        「銀河鉄道の夜・風の又三郎・ポラーノの広場　ほか３編」講談社文庫、講談社
+        1971年7月1日初版発行、1979年8月15日第16刷
+    quotes:
+      - id: polano-ihatovo
+        kind: passage
+        location: 序・「あのイーハトーヴォの」から2段落
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1935_19925.html
+        text: |-
+          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+          またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
+    places:
+      - id: morio
+        name: モリーオ
+        real: false
+        location: 序・モリーオ市
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1935_19925.html
+      - id: sendado
+        name: センダード
+        real: false
+        location: 終盤・センダードの市
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1935_19925.html
+
+  - id: ame-ni-mo-makezu
+    title: 〔雨ニモマケズ〕
+    edition:
+      aozora_id: 45630
+      url: https://www.aozora.gr.jp/cards/000081/card45630.html
+      bibliography: |-
+        「【新】校本宮澤賢治全集　第十三巻（上）覚書・手帳　本文篇」筑摩書房
+        1997年7月30日初版第1刷発行
+        改行等の体裁：「【新】校本宮澤賢治全集　第六巻」筑摩書房、1996年5月30日初版第1刷発行を参照
+    quotes:
+      - id: ame-ni-mo-makezu
+        kind: poem
+        location: 全文（末尾の題目を含む）
+        source_url: https://www.aozora.gr.jp/cards/000081/files/45630_23908.html
+        content_warnings:
+          - 人を蔑む呼称「デクノボー」が含まれます。
+        text: |2-
+          雨ニモマケズ
+          風ニモマケズ
+          雪ニモ夏ノ暑サニモマケヌ
+          丈夫ナカラダヲモチ
+          慾ハナク
+          決シテ瞋ラズ
+          イツモシヅカニワラッテヰル
+          一日ニ玄米四合ト
+          味噌ト少シノ野菜ヲタベ
+          アラユルコトヲ
+          ジブンヲカンジョウニ入レズニ
+          ヨクミキキシワカリ
+          ソシテワスレズ
+          野原ノ松ノ林ノ䕃ノ
+          小サナ萓ブキノ小屋ニヰテ
+          東ニ病気ノコドモアレバ
+          行ッテ看病シテヤリ
+          西ニツカレタ母アレバ
+          行ッテソノ稲ノ朿ヲ負ヒ
+          南ニ死ニサウナ人アレバ
+          行ッテコハガラナクテモイヽトイヒ
+          北ニケンクヮヤソショウガアレバ
+          ツマラナイカラヤメロトイヒ
+          ヒドリノトキハナミダヲナガシ
+          サムサノナツハオロオロアルキ
+          ミンナニデクノボートヨバレ
+          ホメラレモセズ
+          クニモサレズ
+          サウイフモノニ
+          ワタシハナリタイ
+
+          南無無辺行菩薩
+          南無上行菩薩
+          南無多宝如来
+          南無妙法蓮華経
+          南無釈迦牟尼仏
+          南無浄行菩薩
+          南無安立行菩薩
+
+  - id: yodaka-no-hoshi
+    title: よだかの星
+    edition:
+      aozora_id: 473
+      url: https://www.aozora.gr.jp/cards/000081/card473.html
+      bibliography: |-
+        「新編　銀河鉄道の夜」新潮文庫、新潮社
+        1989年6月15日初版発行
+        入力：1991年3月10日第4刷、校正：1994年6月5日第13刷
+        底本の親本：「新修宮沢賢治全集　第八巻」筑摩書房、1979年5月
+    quotes:
+      - id: yodaka-no-hoshi-opening
+        kind: passage
+        location: 冒頭5段落
+        source_url: https://www.aozora.gr.jp/cards/000081/files/473_42318.html
+        content_warnings:
+          - 容姿を理由にした侮蔑や排斥、いじめの描写があります。
+        text: |-
+          よだかは、実にみにくい鳥です。
+          顔は、ところどころ、味噌をつけたようにまだらで、くちばしは、ひらたくて、耳までさけています。
+          足は、まるでよぼよぼで、一間（いっけん）とも歩けません。
+          ほかの鳥は、もう、よだかの顔を見ただけでも、いやになってしまうという工合（ぐあい）でした。
+          たとえば、ひばりも、あまり美しい鳥ではありませんが、よだかよりは、ずっと上だと思っていましたので、夕方など、よだかにあうと、さもさもいやそうに、しんねりと目をつぶりながら、首をそっ方（ぽ）へ向けるのでした。もっとちいさなおしゃべりの鳥などは、いつでもよだかのまっこうから悪口をしました。
+
+  - id: nomin-geijutsu-gairon-koyo
+    title: 農民芸術概論綱要
+    edition:
+      aozora_id: 2386
+      url: https://www.aozora.gr.jp/cards/000081/card2386.html
+      bibliography: |-
+        「【新】校本宮澤賢治全集　第十三巻（上）覚書・手帳　本文篇」筑摩書房
+        1997年7月30日初版第1刷発行
+        底本の親本：「宮沢賢治全集　第十二巻」筑摩書房、1967年
+    quotes:
+      - id: nomin-geijutsu-introduction
+        kind: passage
+        location: 序論・「おれたちはみな農民である」から10行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/2386_13825.html
+        text: |-
+          おれたちはみな農民である　ずゐぶん忙がしく仕事もつらい
+          もっと明るく生き生きと生活をする道を見付けたい
+          われらの古い師父たちの中にはさういふ人も応々あった
+          近代科学の実証と求道者たちの実験とわれらの直観の一致に於て論じたい
+          世界がぜんたい幸福にならないうちは個人の幸福はあり得ない
+          自我の意識は個人から集団社会宇宙と次第に進化する
+          この方向は古い聖者の踏みまた教へた道ではないか
+          新たな時代は世界が一の意識になり生物となる方向にある
+          正しく強く生きるとは銀河系を自らの中に意識してこれに応じて行くことである
+          われらは世界のまことの幸福を索ねよう　求道すでに道である
+
+  - id: hoshimeguri-no-uta
+    title: 星めぐりの歌
+    edition:
+      aozora_id: 46268
+      url: https://www.aozora.gr.jp/cards/000081/card46268.html
+      bibliography: |-
+        「【新】校本宮澤賢治全集　第六巻　詩Ⅴ　本文篇」筑摩書房
+        1996年5月30日初版第1刷発行
+    quotes:
+      - id: hoshimeguri-no-uta-complete
+        kind: poem
+        location: 全文・3連12行
+        source_url: https://www.aozora.gr.jp/cards/000081/files/46268_23911.html
+        text: |2-
+          あかいめだまの　さそり
+          ひろげた鷲の　　つばさ
+          あをいめだまの　小いぬ、
+          ひかりのへびの　とぐろ。
+
+          オリオンは高く　うたひ
+          つゆとしもとを　おとす、
+          アンドロメダの　くもは
+          さかなのくちの　かたち。
+
+          大ぐまのあしを　きたに
+          五つのばした　　ところ。
+          小熊のひたいの　うへは
+          そらのめぐりの　めあて。
+
+  - id: chumon-no-oi-ryoriten
+    title: 注文の多い料理店
+    announced_year: 1924
+    edition:
+      aozora_id: 1927
+      url: https://www.aozora.gr.jp/cards/000081/card1927.html
+      bibliography: |-
+        「宮沢賢治全集8」ちくま文庫、筑摩書房
+        1986年1月28日第1刷発行、2004年4月25日第20刷
+        初出：「イーハトヴ童話 注文の多い料理店」盛岡市杜陵出版部・東京光原社、1924年12月1日
+    places:
+      - id: yamaneko-ken
+        name: 山猫軒
+        real: false
+        location: 作中の西洋料理店
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1927_17906.html
+  - id: okami-mori-to-zaru-mori-nusuto-mori
+    title: 狼森と笊森、盗森
+    announced_year: 1924
+    edition:
+      aozora_id: 1926
+      url: https://www.aozora.gr.jp/cards/000081/card1926.html
+      bibliography: |-
+        「宮沢賢治全集8」ちくま文庫、筑摩書房
+        1986年1月28日第1刷発行、2004年4月25日第20刷
+        初出：「イーハトヴ童話 注文の多い料理店」盛岡市杜陵出版部・東京光原社、1924年12月1日
+    places:
+      - id: okami-mori
+        name: 狼森
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1926_17904.html
+      - id: zaru-mori
+        name: 笊森
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1926_17904.html
+      - id: nusuto-mori
+        name: 盗森
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1926_17904.html
+  - id: nametoko-yama-no-kuma
+    title: なめとこ山の熊
+    edition:
+      aozora_id: 1939
+      url: https://www.aozora.gr.jp/cards/000081/card1939.html
+      bibliography: |-
+        「風の又三郎」角川文庫、角川書店
+        1988年12月10日初版発行、1990年10月20日8版発行
+    places:
+      - id: nametoko-yama
+        name: なめとこ山
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/1939_18755.html
+  - id: taneyama-gahara
+    title: 種山ヶ原
+    edition:
+      aozora_id: 50767
+      url: https://www.aozora.gr.jp/cards/000081/card50767.html
+      bibliography: |-
+        「イーハトーボ農学校の春」角川文庫、角川書店
+        1996年3月25日初版発行
+        底本の親本：「【新】校本宮澤賢治全集 第八巻 童話 本文篇」筑摩書房、1995年5月25日初版第1刷発行
+    places:
+      - id: taneyama-gahara
+        name: 種山ヶ原
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/50767_40546.html
+  - id: igirisu-kaigan
+    title: イギリス海岸
+    edition:
+      aozora_id: 50766
+      url: https://www.aozora.gr.jp/cards/000081/card50766.html
+      bibliography: |-
+        「イーハトーボ農学校の春」角川文庫、角川書店
+        1996年3月25日初版発行
+        底本の親本：「【新】校本宮澤賢治全集 第十巻 童話 本文篇」筑摩書房、1995年9月25日初版第1刷発行
+    places:
+      - id: igirisu-kaigan
+        name: イギリス海岸
+        real: true
+        location: 冒頭
+        source_url: https://www.aozora.gr.jp/cards/000081/files/50766_40548.html
+  - id: daigawa
+    title: 台川
+    edition:
+      aozora_id: 50764
+      url: https://www.aozora.gr.jp/cards/000081/card50764.html
+      bibliography: |-
+        「イーハトーボ農学校の春」角川文庫、角川書店
+        1996年3月25日初版発行
+        底本の親本：「【新】校本宮澤賢治全集 第十巻 童話 本文篇」筑摩書房、1995年9月25日初版第1刷発行
+    places:
+      - id: kamabuchi-no-taki
+        name: 釜淵の滝
+        real: true
+        location: 釜淵へ向かう場面
+        source_url: https://www.aozora.gr.jp/cards/000081/files/50764_40544.html

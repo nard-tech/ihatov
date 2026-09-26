@@ -30,8 +30,8 @@ jobs:
         run: docker compose config --quiet
       - name: Build the development image
         run: docker compose build dev
-      - name: Test the core library without bundled data
-        run: docker compose run --rm dev bundle exec rspec spec/ihatov_spec.rb spec/repository_spec.rb
+      - name: Verify the development dependencies
+        run: docker compose run --rm dev bundle check
   test:
     runs-on: ubuntu-24.04
     strategy:
@@ -44,14 +44,14 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-      - name: Test the core library without bundled data
-        run: bundle exec rspec spec/ihatov_spec.rb spec/repository_spec.rb
-      - name: Build and load the installed gem outside the checkout
+      - name: Test the core library and bundled dictionary
+        run: bundle exec rspec
+      - name: Build and test the installed gem outside the checkout
         run: |
           gem build ihatov.gemspec --output /tmp/ihatov.gem
           gem install /tmp/ihatov.gem --no-document --install-dir /tmp/ihatov-installed
           cd /tmp
-          GEM_HOME=/tmp/ihatov-installed GEM_PATH=/tmp/ihatov-installed ruby -rihatov -e 'abort unless Ihatov::VERSION'
+          GEM_HOME=/tmp/ihatov-installed GEM_PATH=/tmp/ihatov-installed ruby -rihatov -e 'abort unless Ihatov.quote.frozen?'
   lint:
     runs-on: ubuntu-24.04
     steps:
