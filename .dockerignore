@@ -1,0 +1,15 @@
+.git
+.bundle
+.env
+.env.*
+.yardoc
+_yardoc
+doc
+rdoc
+coverage
+pkg
+tmp
+vendor
+*.gem
+spec/reports
+spec/examples.txt
