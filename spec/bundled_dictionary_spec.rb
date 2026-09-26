@@ -3,8 +3,10 @@
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '遠野物語に関連する地名を取得するとき when requesting Tono-related places' do
     it '24の追加地名を返すこと returns twenty-four additional places' do
-      names = %w[デンデラノ ダンノハナ 蓮台野 土淵 山口 附馬牛 綾織 青笹 上郷 小友 宮守 達曾部
-                 笛吹峠 境木峠 橋野 小国 山田 釜石 船越 吉利吉里 田ノ浜 石神山 続石 向山]
+      names = %w[
+        デンデラノ ダンノハナ 蓮台野 土淵 山口 附馬牛 綾織 青笹 上郷 小友 宮守 達曾部
+        笛吹峠 境木峠 橋野 小国 山田 釜石 船越 吉利吉里 田ノ浜 石神山 続石 向山
+      ]
       places = Ihatov::Tono::Place.all
       expect(places.map(&:to_s)).to include(*names)
       expect(places.map(&:id)).to include('tassobe', 'sakaigi-toge')
@@ -15,9 +17,11 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
 
   context '地名25項目案を取得するとき when requesting the twenty-five place candidates' do
     it '候補の地名と実在性を保持すること preserves the places and their reality status' do
-      names = %w[イーハトーヴ モリーオ センダード カルボナード火山島 山猫軒 狼森 笊森 盗森 なめとこ山
-                 種山ヶ原 イギリス海岸 小岩井農場 釜淵の滝 岩手山 姫神山 渋民 好摩 不来方城 北上川
-                 宝徳寺 早池峯 六角牛山 猿ヶ石川 仙人峠 マヨイガ]
+      names = %w[
+        イーハトーヴ モリーオ センダード カルボナード火山島 山猫軒 狼森 笊森 盗森 なめとこ山
+        種山ヶ原 イギリス海岸 小岩井農場 釜淵の滝 岩手山 姫神山 渋民 好摩 不来方城 北上川
+        宝徳寺 早池峯 六角牛山 猿ヶ石川 仙人峠 マヨイガ
+      ]
       expect(Ihatov::Place.all.map(&:to_s)).to include(*names)
       expect(Ihatov::Place.find('モリーオ').real).to be(false)
       expect(Ihatov::Place.find('種山ヶ原').real).to be(true)
@@ -41,8 +45,10 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     let(:tanka) { Ihatov::Takuboku::Quote::Tanka.all }
 
     it '10首を3行で収録すること includes ten complete three-line tanka' do
-      ids = %w[kanikakuni-shibutami ishi-wo-mote yawarakani-yanagi kokoroyoku-shigoto ameuri-charumera
-               asobini-dete hon-wo-kaitashi natsukashiki-fuyu tochu-nite nanto-naku-kotoshi]
+      ids = %w[
+        kanikakuni-shibutami ishi-wo-mote yawarakani-yanagi kokoroyoku-shigoto ameuri-charumera
+        asobini-dete hon-wo-kaitashi natsukashiki-fuyu tochu-nite nanto-naku-kotoshi
+      ]
       expect(tanka.map(&:id)).to include(*ids)
       expect(tanka.select { |item| ids.include?(item.id) }.map { |item| item.lines.size }).to eq([3] * 10)
       expect(tanka.count { |item| item.work.title == '悲しき玩具' }).to eq(5)
@@ -53,8 +59,10 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     let(:poems) { Ihatov::Kenji::Quote::Poem.all }
 
     it '7篇を含むこと includes seven poems' do
-      expect(poems.map(&:id)).to include('kurakake-no-yuki', 'koi-to-byonetsu', 'koiwai-nojo',
-                                         'matsu-no-hari', 'musei-dokoku', 'aomori-banka', 'okhotsk-banka')
+      expect(poems.map(&:id)).to include(
+        'kurakake-no-yuki', 'koi-to-byonetsu', 'koiwai-nojo',
+        'matsu-no-hari', 'musei-dokoku', 'aomori-banka', 'okhotsk-banka'
+      )
       expect(poems.find { |item| item.id == 'matsu-no-hari' }.to_s).to start_with('    さつきのみぞれ')
     end
   end
