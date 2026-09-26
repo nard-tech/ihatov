@@ -42,7 +42,7 @@ works:
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
         text: |-
           たはむれに母を背負ひて
-          そのあまり軽きに泣きて
+          そのあまり軽（かろ）きに泣きて
           三歩あゆまず
       - id: shittorito-namida
         kind: tanka
@@ -73,7 +73,7 @@ works:
         location: 我を愛する歌
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
         text: |-
-          何となく汽車に乗りたく思ひしのみ
+          何（なに）となく汽車に乗りたく思ひしのみ
           汽車を下りしに
           ゆくところなし
       - id: yawarakani-yuki
@@ -115,7 +115,7 @@ works:
         text: |-
           水晶（すゐしやう）の玉をよろこびもてあそぶ
           わがこの心
-          何の心ぞ
+          何（なに）の心ぞ
       - id: oinaru-suisho
         kind: tanka
         location: 我を愛する歌
@@ -146,7 +146,7 @@ works:
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
         text: |-
           ふるさとの訛（なまり）なつかし
-          停車場（ていしやば）の人ごみの中に
+          停車場の人ごみの中に
           そを聴きにゆく
       - id: furusato-no-yama
         kind: tanka
@@ -216,6 +216,11 @@ works:
         name: 北上川
         real: true
         location: 「北上の岸辺目に見ゆ」
+        source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
+      - id: ueno-eki
+        name: 上野駅
+        real: true
+        location: 煙・二「ふるさとの訛なつかし」
         source_url: https://www.aozora.gr.jp/cards/000153/files/816_15786.html
       - id: hotokuji
         name: 宝徳寺
