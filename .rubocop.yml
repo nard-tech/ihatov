@@ -16,6 +16,7 @@ Metrics/AbcSize:
 
 # The data loader validates a complete schema; keep its branches explicit.
 Metrics/BlockLength:
+  Enabled: true
   Exclude:
     - 'spec/**/*'
 
