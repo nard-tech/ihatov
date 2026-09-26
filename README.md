@@ -10,8 +10,8 @@
 
 ## 開発状況
 
-Ruby **3.4 以上**。現在は25作品から157件（詩21、短歌29、俳句2、散文26、地名52、登場者18、擬音語9）を収録しています。
-賢治の俳句2句を収録し、啄木の俳句は典拠確認後に追加します。実在地名の座標も典拠確認後に追加します。
+Ruby **3.4 以上**。現在は 25 作品から 157 件（詩 21、短歌 29、俳句 2、散文 26、地名 52、登場者 18、擬音語 9）を収録しています。
+賢治の俳句 2 句を収録し、啄木の俳句は典拠確認後に追加します。実在地名の座標も典拠確認後に追加します。
 
 仕様は [docs/ihatov-specification.md](docs/ihatov-specification.md)、採用版・編集記録と残作業は [docs/dictionary.md](docs/dictionary.md) を参照してください。
 
@@ -85,10 +85,10 @@ Ihatov::Place.where(real: true)
 
 ```ruby
 Ihatov.poem                  # 全詩。保存された本文のまま
-Ihatov.poem(indent: true)    # 字下げありの詩。1段2スペース
+Ihatov.poem(indent: true)    # 字下げありの詩。1 段 2 スペース
 Ihatov.poem(indent: false)   # 字下げなしの詩
-Ihatov.poem(indent: "\t")    # 字下げありの詩。1段1タブ
-Ihatov.poem(indent: '    ')  # 字下げありの詩。1段4スペース
+Ihatov.poem(indent: "\t")    # 字下げありの詩。1 段 1 タブ
+Ihatov.poem(indent: '    ')  # 字下げありの詩。1 段 4 スペース
 
 poem = Ihatov.poem(indent: true)
 poem.with_indent("\t")       # 再抽選せず、新しい凍結済みの詩を返す
@@ -187,7 +187,7 @@ docker compose run --rm dev bundle exec rspec
 ### 開発方針
 
 変更にはテストを追加し、PR で提案してください。CI は Ruby 3.4・4.0 で RSpec と gem のビルド・インストール後の利用を確認し、RuboCop と YARD も実行します。新しい安定版 Ruby が出たらマトリクスを更新します。
-Docker 環境についても同じ2バージョンでビルドと RSpec・RuboCop・YARD・gem のビルドを確認します。
+Docker 環境についても同じ 2 バージョンでビルドと RSpec・RuboCop・YARD・gem のビルドを確認します。
 
 テストの説明は `it '〜こと English description' do` の形式で、日本語→英語の順に記述します。条件は `context '〜とき when ...'` とします。共通データや取得対象は `let`、条件ごとの準備は `before` で整理します。異なる不正入力を一つの例で順番に検証せず、条件ごとに分けます。乱数など操作順が検証の中心となる処理は、テスト本文に順序を明示します。
 

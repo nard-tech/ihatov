@@ -2,7 +2,7 @@
 
 RSpec.describe '同梱辞書 Bundled dictionary' do
   context '遠野物語に関連する地名を取得するとき when requesting Tono-related places' do
-    it '24の追加地名を返すこと returns twenty-four additional places' do
+    it '24 の追加地名を返すこと returns twenty-four additional places' do
       names = %w[
         デンデラノ ダンノハナ 蓮台野 土淵 山口 附馬牛 綾織 青笹 上郷 小友 宮守 達曾部
         笛吹峠 境木峠 橋野 小国 山田 釜石 船越 吉利吉里 田ノ浜 石神山 続石 向山
@@ -15,7 +15,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     end
   end
 
-  context '地名25項目案を取得するとき when requesting the twenty-five place candidates' do
+  context '地名 25 項目案を取得するとき when requesting the twenty-five place candidates' do
     it '候補の地名と実在性を保持すること preserves the places and their reality status' do
       names = %w[
         イーハトーヴ モリーオ センダード カルボナード火山島 山猫軒 狼森 笊森 盗森 なめとこ山
@@ -35,7 +35,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   end
 
   context '遠野の神々を取得するとき when requesting Tono deities' do
-    it '指定された2柱を出典付きで返すこと returns both requested deities with sources' do
+    it '指定された 2 柱を出典付きで返すこと returns both requested deities with sources' do
       expect(Ihatov::Tono::Creature.find('コンセサマ').location).to eq('第16話')
       expect(Ihatov::Tono::Creature.find('ゴンゲサマ').location).to eq('第110話')
     end
@@ -44,7 +44,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   context '啄木の短歌案を取得するとき when requesting the Takuboku tanka candidates' do
     let(:tanka) { Ihatov::Takuboku::Quote::Tanka.all }
 
-    it '10首を3行で収録すること includes ten complete three-line tanka' do
+    it '10 首を 3 行で収録すること includes ten complete three-line tanka' do
       ids = %w[
         kanikakuni-shibutami ishi-wo-mote yawarakani-yanagi kokoroyoku-shigoto ameuri-charumera
         asobini-dete hon-wo-kaitashi natsukashiki-fuyu tochu-nite nanto-naku-kotoshi
@@ -58,7 +58,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   context '賢治の追加詩を取得するとき when requesting the additional Kenji poems' do
     let(:poems) { Ihatov::Kenji::Quote::Poem.all }
 
-    it '7篇を含むこと includes seven poems' do
+    it '7 篇を含むこと includes seven poems' do
       expect(poems.map(&:id)).to include(
         'kurakake-no-yuki', 'koi-to-byonetsu', 'koiwai-nojo',
         'matsu-no-hari', 'musei-dokoku', 'aomori-banka', 'okhotsk-banka'
@@ -70,7 +70,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   context '遠野物語の散文案を取得するとき when requesting the Tono passage candidates' do
     let(:passages) { Ihatov::Tono::Quote::Passage.all }
 
-    it '候補の全10話を含むこと includes all ten candidate episodes' do
+    it '候補の全 10 話を含むこと includes all ten candidate episodes' do
       [2, 17, 46, 51, 54, 59, 63, 69, 103, 106].each do |number|
         expect(passages.any? { |item| item.location.match?(/第#{number}話/) }).to be(true)
       end
@@ -153,7 +153,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   context '岩手山の詩を取得するとき when selecting the Iwatesan poem' do
     let(:poem) { Ihatov::Kenji::Quote::Poem.where(work: '春と修羅').find { |item| item.id == 'iwatesan-poem' } }
 
-    it '4行の全文とルビを保持すること preserves all four lines and ruby readings' do
+    it '4 行の全文とルビを保持すること preserves all four lines and ruby readings' do
       expect(poem.lines(chomp: true)).to eq(
         [
           'そらの散乱反射のなかに',
@@ -196,12 +196,12 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     let(:namari) { tanka.find { |item| item.id == 'furusato-no-namari' } }
     let(:yama) { tanka.find { |item| item.id == 'furusato-no-yama' } }
 
-    it '採用版の表記と3行の改行を保持すること preserves the edition text and three-line layout' do
+    it '採用版の表記と 3 行の改行を保持すること preserves the edition text and three-line layout' do
       expect(namari).to eq("ふるさとの訛（なまり）なつかし\n停車場の人ごみの中に\nそを聴きにゆく")
       expect(yama).to eq("ふるさとの山に向ひて\n言ふことなし\nふるさとの山はありがたきかな")
     end
 
-    it '2首を煙の第2節と採用版に関連付けること links both tanka to Kemuri section two and the edition' do
+    it '2 首を煙の第 2 節と採用版に関連付けること links both tanka to Kemuri section two and the edition' do
       expect([namari, yama]).to all(have_attributes(location: '煙・二', content_warnings: []))
       expect([namari, yama].map(&:work)).to all(eq(Ihatov::Takuboku::Work.find('一握の砂')))
       expect([namari, yama].map(&:source_url).uniq).to eq(['https://www.aozora.gr.jp/cards/000153/files/816_15786.html'])
@@ -226,7 +226,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     let(:opening) { Ihatov::Kenji::Quote::Passage.where(work: '銀河鉄道の夜').first }
     let(:characters) { Ihatov::Kenji::Person.where(work: '銀河鉄道の夜') }
 
-    it '指定された2段落とルビを保持すること preserves the selected two paragraphs and readings' do
+    it '指定された 2 段落とルビを保持すること preserves the selected two paragraphs and readings' do
       expect(opening).to have_attributes(id: 'ginga-tetsudo-no-yoru-opening', location: '一 午後の授業・冒頭2段落')
       expect(opening.lines.size).to eq(2)
       expect(opening).to start_with('「ではみなさんは、そういうふうに川だと言われたり、')
@@ -246,7 +246,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   context 'ポラーノの広場の抜粋を取得するとき when selecting the Polano Square passage' do
     let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: 'ポラーノの広場').first }
 
-    it '指定された2段落の範囲と表記を保持すること preserves the selected two paragraphs and spelling' do
+    it '指定された 2 段落の範囲と表記を保持すること preserves the selected two paragraphs and spelling' do
       expect(passage).to have_attributes(id: 'polano-ihatovo', content_warnings: [])
       expect(passage.lines.size).to eq(2)
       expect(passage).to start_with('あのイーハトーヴォのすきとおった風、')
@@ -281,7 +281,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   context 'よだかの星の冒頭を取得するとき when selecting the Nighthawk Star opening' do
     let(:opening) { Ihatov::Kenji::Quote::Passage.where(work: 'よだかの星').first }
 
-    it '指定の5段落と出典を保持すること preserves the selected five paragraphs and source' do
+    it '指定の 5 段落と出典を保持すること preserves the selected five paragraphs and source' do
       expect(opening).to have_attributes(id: 'yodaka-no-hoshi-opening', location: '冒頭5段落')
       expect(opening.lines.size).to eq(5)
       expect(opening).to start_with("よだかは、実にみにくい鳥です。\n")
@@ -317,7 +317,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     let(:work) { Ihatov::Kenji::Work.find('『注文の多い料理店』序') }
     let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: work).first }
 
-    it '指定された4段落とルビを保持すること preserves the selected four paragraphs and readings' do
+    it '指定された 4 段落とルビを保持すること preserves the selected four paragraphs and readings' do
       expect(passage).to have_attributes(id: 'chumon-preface-opening', location: '序・冒頭4段落')
       expect(passage.lines.size).to eq(4)
       expect(passage).to start_with('わたしたちは、氷砂糖をほしいくらいもたないでも、')
@@ -337,7 +337,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
     let(:work) { Ihatov::Kenji::Work.find('『注文の多い料理店』新刊案内') }
     let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: work).first }
 
-    it '新字新仮名の採用版と2段落を保持すること preserves the modern-kana edition and two paragraphs' do
+    it '新字新仮名の採用版と 2 段落を保持すること preserves the modern-kana edition and two paragraphs' do
       expect(work).to have_attributes(id: 'chumon-no-oi-ryoriten-announcement', announced_year: 1924)
       expect(work.edition.aozora_id).to eq(43_734)
       expect(passage).to have_attributes(id: 'ihatov-dreamland', content_warnings: [])
@@ -353,7 +353,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   context '農民芸術概論綱要の序論を取得するとき when selecting the introduction to Peasant Art' do
     let(:passage) { Ihatov::Kenji::Quote::Passage.where(work: '農民芸術概論綱要').first }
 
-    it '指定の10行と旧仮名と行中の空白を保持すること preserves ten lines, historical spelling, and internal spaces' do
+    it '指定の 10 行と旧仮名と行中の空白を保持すること preserves ten lines, historical spelling, and internal spaces' do
       expect(passage).to have_attributes(id: 'nomin-geijutsu-introduction', content_warnings: [])
       expect(passage.lines.size).to eq(10)
       expect(passage).to start_with("おれたちはみな農民である　ずゐぶん忙がしく仕事もつらい\n")
@@ -411,7 +411,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   end
 
   context '賢治の俳句を取得するとき when requesting Kenji haiku' do
-    it '確認した2句と出典を返すこと returns two verified haiku and their source' do
+    it '確認した 2 句と出典を返すこと returns two verified haiku and their source' do
       expect(Ihatov::Kenji::Quote::Haiku.all.size).to eq(2)
       expect(Ihatov::Kenji::Quote::Haiku.all.first.work.edition.aozora_id).to be_nil
       expect(Ihatov::Kenji::Quote::Haiku.all.map(&:to_s)).to include('鳥屋根を歩く音して明けにけり')
@@ -421,7 +421,7 @@ RSpec.describe '同梱辞書 Bundled dictionary' do
   context '永訣の朝を取得するとき when selecting Eiketsu no Asa' do
     let(:poem) { Ihatov::Kenji::Quote::Poem.all.find { |item| item.id == 'eiketsu-no-asa' } }
 
-    it '指定の7行と2つの括弧行の字下げを保持すること preserves the seven lines and indented refrains' do
+    it '指定の 7 行と 2 つの括弧行の字下げを保持すること preserves the seven lines and indented refrains' do
       expect(poem.lines(chomp: true)).to eq(
         [
           'けふのうちに',
