@@ -1,0 +1,12 @@
+services:
+  dev:
+    build:
+      context: .
+      args:
+        RUBY_VERSION: ${IHATOV_RUBY_VERSION:-3.4}
+    working_dir: /workspace/ihatov
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    environment:
+      HOME: /tmp
+    volumes:
+      - .:/workspace/ihatov
