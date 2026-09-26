@@ -5,6 +5,9 @@ AllCops:
     - 'vendor/**/*'
     - 'tmp/**/*'
 
+Metrics/AbcSize:
+  Max: 30
+
 # The data loader validates a complete schema; keep its branches explicit.
 Metrics/BlockLength:
   Exclude:
@@ -17,13 +20,10 @@ Metrics/MethodLength:
   Max: 30
   CountAsOne: ['array', 'hash', 'heredoc']
 
-Metrics/AbcSize:
-  Max: 30
+# Immutable values deliberately enumerate their keyword-only metadata fields.
+Metrics/ParameterLists:
+  CountKeywordArgs: false
 
 # Named keyword arguments keep YARD's public parameter documentation usable.
 Style/ArgumentsForwarding:
   UseAnonymousForwarding: false
-
-# Immutable values deliberately enumerate their keyword-only metadata fields.
-Metrics/ParameterLists:
-  CountKeywordArgs: false
