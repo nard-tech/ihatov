@@ -10,7 +10,7 @@
 
 ## 1. この文書の位置づけ
 
-本書は ihatov の確定仕様と辞書編集方針を定めるものであり、実装完了を示すものではない。「候補」「例」「実装上の推奨」と明記した部分を除き、決定事項として扱う。
+本書は ihatov の確定仕様と辞書編集方針を定めるものであり、実装完了を示すものではない。「候補」「例」「実装時の推奨」と明記した部分を除き、決定事項として扱う。
 
 収録候補の引用・表記・インデント・地名の対応関係は、実際の辞書収録時に採用版と照合する。説明用のダミー本文や仮置きの書誌情報を製品データへ転用しない。
 
@@ -214,8 +214,6 @@ Ihatov::Kenji::Place.sample(random: rng)
 
 散文の行数は選定時の目安。行数を増やすための改行は挿入せず、原文の改行を保持する。散文は童話・説話などの文章を指し、長さではなく文学形式によって分類する。
 
-`quote` には擬音語単体を混ぜない。例えば「どっどど どどうど どどうど どどう」は `onomatopoeia` で単体を返し、`quote` ではその後に続く文章を含んだ、別途選定済みの抜粋を返す。『風の又三郎』の冒頭の歌 4 行と「谷川の岸に小さな学校がありました。」から始まる学校の描写は、それぞれ独立した `passage` とする。実行時に本文を自動延長する仕様ではない。
-
 ### 5.2 表記と出力
 
 - プレーンテキストで返し、HTML 出力は設けない。
@@ -227,8 +225,7 @@ Ihatov::Kenji::Place.sample(random: rng)
 - 擬音語のスペースは半角に統一する。例：`"どっどど どどうど どどうど どどう"`。
 - 『注文の多い料理店』新刊案内（青空文庫 ID 43734）のイーハトヴを説明する箇所は、傍点・圏点を省略して本文と必要なルビを保持する例外とし、辞書編集ガイドに処理を記録する。
 - 詩の字下げは次節の 2 スペース単位に正規化する。原文にない字下げは創作しない。
-
-実装上の推奨：UTF-8・LF を使用し、本文全体への一律の `strip` や空白圧縮で行頭空白・空行を壊さない。
+- **実装時の推奨**：UTF-8・LF を使用し、本文全体への一律の `strip` や空白圧縮で行頭空白・空行を壊さない。
 
 ### 5.3 字下げの選択と整形
 
@@ -242,8 +239,8 @@ Ihatov.poem(indent: "    ")  # 字下げありから抽選。1 段を半角ス�
 
 poem = Ihatov.poem(indent: true)
 poem.with_indent("\t")
-poem.with_indent("  ")
-poem.with_indent("    ")
+poem.with_indent(" " * 2)
+poem.with_indent(" " * 4)
 
 Ihatov::Kenji::Quote::Poem.sample(indent: "\t")
 Ihatov::Kenji::Quote::Poem.where(indent: true)
@@ -280,18 +277,7 @@ Ihatov::Kenji::Quote::Poem.where(indent: true)
 
 ### 6.2 作者
 
-```yaml
-authors:
-  - id: miyazawa-kenji
-    family_name: 宮沢
-    given_name: 賢治
-  - id: ishikawa-takuboku
-    family_name: 石川
-    given_name: 啄木
-  - id: yanagita-kunio
-    family_name: 柳田
-    given_name: 國男
-```
+作者の定義は [`data/authors.yml`](../data/authors.yml) を参照する。
 
 作者 ID は姓→名のフルネームをハイフンで連結する。`name` は YAML に保存せず、半角スペースで姓名を連結するメソッドとする。
 
