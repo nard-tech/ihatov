@@ -279,7 +279,7 @@ Ihatov::Kenji::Quote::Poem.where(indent: true)
 
 ### 6.2 作者
 
-作者の定義は `data/authors.yml`（後続 PR で追加予定）を参照する。
+作者の定義は [`data/authors.yml`](../data/authors.yml) を参照する。
 
 作者 ID は姓→名のフルネームをハイフンで連結する。`name` は YAML に保存せず、半角スペースで姓名を連結するメソッドとする。
 
