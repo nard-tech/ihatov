@@ -1,0 +1,274 @@
+module Ihatov
+  VERSION: String
+
+  class NotFoundError < StandardError
+  end
+
+  class DataError < StandardError
+  end
+
+  module API
+    def quote: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Quote
+    def poem: (?author: String, ?work: String, ?indent: bool | String, ?exclude_content_warnings: bool, ?random: Random) -> Quote::Poem
+    def tanka: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Quote::Tanka
+    def haiku: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Quote::Haiku
+    def passage: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Quote::Passage
+    def work: (?author: String, ?work: String, ?random: Random) -> Work
+    def place: (?author: String, ?work: String, ?real: bool, ?random: Random) -> Place
+    def person: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Person
+    def character: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Character
+    def creature: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Creature
+    def onomatopoeia: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Onomatopoeia
+  end
+
+  extend API
+
+  def self.seed=: (Integer) -> Random
+
+  class Author < String
+    attr_reader id: String
+    attr_reader family_name: String
+    attr_reader given_name: String
+
+    def initialize: (id: String, family_name: String, given_name: String) -> void
+    def name: () -> Author
+  end
+
+  class Edition
+    attr_reader aozora_id: Integer?
+    attr_reader url: String
+    attr_reader bibliography: String
+
+    def initialize: (aozora_id: Integer?, url: String, bibliography: String) -> void
+  end
+
+  class Work < String
+    attr_reader id: String
+    attr_reader author: Author
+    attr_reader edition: Edition
+    attr_reader announced_year: Integer?
+    attr_reader published_year: Integer?
+    attr_reader sort_key: [Integer | Float, Integer]
+
+    def self.all: () -> Array[instance]
+    def self.where: (?author: String, ?work: String) -> Array[instance]
+    def self.sample: (?author: String, ?work: String, ?random: Random) -> instance
+    def self.find: (String, ?author: String, ?work: String) -> instance
+
+    def initialize: (id: String, title: String, author: Author, edition: Edition, order: Integer, ?announced_year: Integer?, ?published_year: Integer?) -> void
+    def title: () -> Work
+  end
+
+  class Source
+    attr_reader work: Work
+    attr_reader location: String?
+    attr_reader source_url: String
+
+    def initialize: (work: Work, ?location: String?, ?source_url: String?) -> void
+  end
+
+  class Value < String
+    attr_reader id: String
+    attr_reader works: Array[Work]
+    attr_reader sources: Array[Source]
+
+    def initialize: (String, id: String, sources: Array[Source]) -> void
+    def work: () -> Work
+    def location: () -> String?
+    def source_url: () -> String
+  end
+
+  class Place < Value
+    attr_reader real: bool
+    attr_reader coordinates: Hash[Symbol, Float]?
+
+    def self.all: () -> Array[instance]
+    def self.where: (?author: String, ?work: String, ?real: bool) -> Array[instance]
+    def self.sample: (?author: String, ?work: String, ?real: bool, ?random: Random) -> instance
+    def self.find: (String, ?author: String, ?work: String, ?real: bool) -> instance
+
+    def initialize: (String, real: bool, ?coordinates: Hash[Symbol, Float]?, **untyped) -> void
+    def name: () -> Place
+  end
+
+  class WarnedValue < Value
+    attr_reader content_warnings: Array[String]
+
+    def initialize: (String, ?content_warnings: Array[String], **untyped) -> void
+  end
+
+  class Quote < WarnedValue
+    def self.all: () -> Array[instance]
+    def self.where: (?author: String, ?work: String, ?exclude_content_warnings: bool) -> Array[instance]
+    def self.sample: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> instance
+    def self.poem: (?author: String, ?work: String, ?indent: bool | String, ?exclude_content_warnings: bool, ?random: Random) -> Quote::Poem
+    def self.tanka: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Quote::Tanka
+    def self.haiku: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Quote::Haiku
+    def self.passage: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> Quote::Passage
+
+    def text: () -> Quote
+    def kind: () -> (:poem | :tanka | :haiku | :passage)
+
+    class Poem < Quote
+      def self.where: (?author: String, ?work: String, ?indent: bool | String, ?exclude_content_warnings: bool) -> Array[instance]
+      def self.sample: (?author: String, ?work: String, ?indent: bool | String, ?exclude_content_warnings: bool, ?random: Random) -> instance
+
+      def initialize: (String, ?original_text: String, **untyped) -> void
+      def indented?: () -> bool
+      def with_indent: (String) -> Poem
+    end
+
+    class Tanka < Quote
+    end
+
+    class Haiku < Quote
+    end
+
+    class Passage < Quote
+    end
+  end
+
+  class Being < WarnedValue
+    def self.all: () -> Array[instance]
+    def self.where: (?author: String, ?work: String, ?exclude_content_warnings: bool) -> Array[instance]
+    def self.sample: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> instance
+    def self.find: (String, ?author: String, ?work: String, ?exclude_content_warnings: bool) -> instance
+
+    def name: () -> Being
+    def kind: () -> (:person | :character | :creature)
+  end
+
+  class Person < Being
+  end
+
+  class Character < Being
+  end
+
+  class Creature < Being
+  end
+
+  class Onomatopoeia < WarnedValue
+    def self.all: () -> Array[instance]
+    def self.where: (?author: String, ?work: String, ?exclude_content_warnings: bool) -> Array[instance]
+    def self.sample: (?author: String, ?work: String, ?exclude_content_warnings: bool, ?random: Random) -> instance
+
+    def text: () -> Onomatopoeia
+  end
+
+  module Kenji
+    extend API
+
+    class Quote < Ihatov::Quote
+      class Poem < Ihatov::Quote::Poem
+      end
+
+      class Tanka < Ihatov::Quote::Tanka
+      end
+
+      class Haiku < Ihatov::Quote::Haiku
+      end
+
+      class Passage < Ihatov::Quote::Passage
+      end
+    end
+
+    class Work < Ihatov::Work
+    end
+
+    class Place < Ihatov::Place
+    end
+
+    class Being < Ihatov::Being
+    end
+
+    class Person < Ihatov::Person
+    end
+
+    class Character < Ihatov::Character
+    end
+
+    class Creature < Ihatov::Creature
+    end
+
+    class Onomatopoeia < Ihatov::Onomatopoeia
+    end
+  end
+
+  module Takuboku
+    extend API
+
+    class Quote < Ihatov::Quote
+      class Poem < Ihatov::Quote::Poem
+      end
+
+      class Tanka < Ihatov::Quote::Tanka
+      end
+
+      class Haiku < Ihatov::Quote::Haiku
+      end
+
+      class Passage < Ihatov::Quote::Passage
+      end
+    end
+
+    class Work < Ihatov::Work
+    end
+
+    class Place < Ihatov::Place
+    end
+
+    class Being < Ihatov::Being
+    end
+
+    class Person < Ihatov::Person
+    end
+
+    class Character < Ihatov::Character
+    end
+
+    class Creature < Ihatov::Creature
+    end
+
+    class Onomatopoeia < Ihatov::Onomatopoeia
+    end
+  end
+
+  module Tono
+    extend API
+
+    class Quote < Ihatov::Quote
+      class Poem < Ihatov::Quote::Poem
+      end
+
+      class Tanka < Ihatov::Quote::Tanka
+      end
+
+      class Haiku < Ihatov::Quote::Haiku
+      end
+
+      class Passage < Ihatov::Quote::Passage
+      end
+    end
+
+    class Work < Ihatov::Work
+    end
+
+    class Place < Ihatov::Place
+    end
+
+    class Being < Ihatov::Being
+    end
+
+    class Person < Ihatov::Person
+    end
+
+    class Character < Ihatov::Character
+    end
+
+    class Creature < Ihatov::Creature
+    end
+
+    class Onomatopoeia < Ihatov::Onomatopoeia
+    end
+  end
+end
