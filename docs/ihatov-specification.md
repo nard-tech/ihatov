@@ -524,7 +524,7 @@ README の注意文案：
 - Ruby 3.4 以上。gemspec は `spec.required_ruby_version = ">= 3.4"`。
 - RSpec でテスト駆動開発する。
 - **ActiveSupport（`activesupport`）を実行時依存として許可する。** `present?`・`blank?` などを利用でき、必要な拡張だけを読み込む。
-- その他の依存は最小限にする。RSpec・RuboCop・YARD は開発用とし、実行時依存に含めない。
+- その他の依存は最小限にする。RSpec・RuboCop・RBS・YARD は開発用とし、実行時依存に含めない。
 
 ### 8.2 実装方針
 
@@ -537,7 +537,7 @@ README の注意文案：
 
 内部の Repository・Sampler などの責務分割は、公開仕様を守る範囲で実装時に決める。必要以上に独立クラスを増やさない。
 
-### 8.3 YARD によるドキュメント化
+### 8.3 YARD と RBS による API の記述
 
 公開クラス・メソッドを中心に、YARD 形式のコメントを付け、API ドキュメントを生成できるようにする。
 
@@ -551,12 +551,14 @@ README の注意文案：
 
 `indent:` のように型によって挙動が変わる引数は、boolean・文字列・省略時の違いを明記する。凍結済みオブジェクトを返すことや、空集合の扱いも説明する。YARD は開発用の依存とする。
 
+公開 API の型定義は `sig/ihatov.rbs` に記述し、配布 gem に同梱する。RBS は開発用の依存とし、`rbs -I sig validate` で型定義の構文と参照の整合性を検証する。
+
 ### 8.4 GitHub Actions の CI
 
 - 公開リポジトリに GitHub Actions のワークフローを組み込む。
-- PR と push を契機に、RuboCop によるコード検査と RSpec によるテストを実行する。
+- PR と push を契機に、RuboCop によるコード検査、RSpec によるテスト、RBS 型定義の検証を実行する。
 - RSpec は Ruby 3.4 以上の各バージョンをマトリクスで検証する。新しい対象バージョンが出たら更新する。
-- RuboCop は開発用の依存として追加する。
+- RuboCop と RBS は開発用の依存として追加する。
 
 ### 8.5 リリース
 

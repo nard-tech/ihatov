@@ -138,6 +138,7 @@ quote.content_warnings # 説明文の配列。注意がなければ []
 bundle install
 bundle exec rspec
 bundle exec rubocop
+bundle exec rbs -I sig validate
 bundle exec yard doc --fail-on-warning
 gem build ihatov.gemspec
 ```
@@ -160,6 +161,9 @@ docker compose run --rm dev bundle exec rspec spec/ihatov_spec.rb
 
 # RuboCop による検査
 docker compose run --rm dev bundle exec rubocop
+
+# RBS 型定義の検証
+docker compose run --rm dev bundle exec rbs -I sig validate
 
 # YARD ドキュメントの生成（doc/ に出力）
 docker compose run --rm dev bundle exec yard doc --fail-on-warning
@@ -189,14 +193,14 @@ docker compose run --rm dev bundle exec rspec
 
 ### 開発方針
 
-変更にはテストを追加し、PR で提案してください。CI は Ruby 3.4・4.0 で RSpec と gem のビルド・インストール後の利用を確認し、RuboCop と YARD も実行します。新しい安定版 Ruby が出たらマトリクスを更新します。
+変更にはテストを追加し、PR で提案してください。CI は Ruby 3.4・4.0 で RSpec と gem のビルド・インストール後の利用を確認し、RuboCop・RBS・YARD も実行します。新しい安定版 Ruby が出たらマトリクスを更新します。
 Docker 環境についても同じ 2 バージョンでビルドと RSpec・RuboCop・YARD・gem のビルドを確認します。
 
 テストの説明は `it '〜こと English description' do` の形式で、日本語→英語の順に記述します。条件は `context '〜とき when ...'` とします。共通データや取得対象は `let`、条件ごとの準備は `before` で整理します。異なる不正入力を一つの例で順番に検証せず、条件ごとに分けます。乱数など操作順が検証の中心となる処理は、テスト本文に順序を明示します。
 
 YARD コメントは日本語→英語の順に併記します。クラス・メソッドの長い説明は言語ごとに行を分け、引数・戻り値・例外の説明も両言語で記述します。
 現時点では Ruby の標準ライブラリのみを使用し、gemspec に実行時の依存 gem はありません。
-RSpec・RuboCop・YARD は、このリポジトリの Gemfile の `development` グループにのみ定義しています。Ihatov を別のプロジェクトで利用するとき、これらが Ihatov の依存としてインストールされることはありません。
+RSpec・RuboCop・RBS・YARD は、このリポジトリの Gemfile の `development` グループにのみ定義しています。Ihatov を別のプロジェクトで利用するとき、これらが Ihatov の依存としてインストールされることはありません。
 ここでの `development` は Bundler の依存グループであり、Ihatov の動作モードではありません。通常の `bundle install` は開発用 gem もインストールするため、そのままテストや CI で使えます。`require: false` は自動読み込みを抑える指定です。
 ActiveSupport は仕様上許可していますが、現在は使用していません。将来導入する場合は gemspec に実行時依存として明記します。
 

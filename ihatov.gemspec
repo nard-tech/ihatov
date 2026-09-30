@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/nard-tech/ihatov'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.4'
-  spec.files = Dir['lib/**/*.rb', 'data/**/*.yml', 'README.md', 'LICENSE', 'docs/*.md']
+  spec.files = Dir['lib/**/*.rb', 'sig/**/*.rbs', 'data/**/*.yml', 'README.md', 'LICENSE', 'docs/*.md']
   spec.require_paths = ['lib']
   spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['documentation_uri'] = "#{spec.homepage}#readme"
