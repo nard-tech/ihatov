@@ -653,7 +653,7 @@ works:
       - id: himekami-yama
         name: 姫神山
         real: true
-        location: 岩手山と相対する盛岡の山岳景観（候補案のゆかり）
+        location: 岩手山と相対する盛岡の山岳景観
         source_url: https://iwatetabi.jp/spots/5677/
 
   - id: ame-ni-mo-makezu
